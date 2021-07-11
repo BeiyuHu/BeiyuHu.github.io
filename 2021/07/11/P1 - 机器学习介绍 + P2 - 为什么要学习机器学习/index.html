@@ -60,10 +60,6 @@
         </li>
       
         <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
-        </li>
-      
-        <li class="nav-item">
           <a class="nav-link" target="_blank" rel="noopener" href="https://www.linkedin.com/in/beiyuhu">LinkedIn</a>
         </li>
       
@@ -81,15 +77,11 @@
   <h1>P1 - 机器学习介绍 + P2 - 为什么要学习机器学习</h1>
 </div>
 <div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
-  <h2 id="P1-机器学习介绍"><a href="#P1-机器学习介绍" class="headerlink" title="P1 机器学习介绍"></a>P1 机器学习介绍</h2><h4 id="Learning-Map"><a href="#Learning-Map" class="headerlink" title="Learning Map"></a>Learning Map</h4><p><img src="learningMap.png"></p>
-<h4 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h4><ol>
-<li>Regression （回归）<blockquote>
-<p>The output of the target function f is ‘scalar’.<br>讨论自变量x和因变量y的线性关系，构建方程，推论和预测y</p>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li>example:<blockquote>
+  <h1 id="P1-机器学习介绍"><a href="#P1-机器学习介绍" class="headerlink" title="P1 机器学习介绍"></a>P1 机器学习介绍</h1><p><img src="learningMap.png"></p>
+<h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h2><h4 id="1-Regression-（回归）"><a href="#1-Regression-（回归）" class="headerlink" title="1. Regression （回归）"></a>1. Regression （回归）</h4><ul>
+<li>The output of the target function f is ‘scalar’.</li>
+<li>讨论自变量x和因变量y的线性关系，构建方程，推论和预测y</li>
+<li><em>example:</em><blockquote>
 </blockquote>
 <table>
 <thead>
@@ -105,10 +97,7 @@
 </tbody></table>
 </li>
 </ul>
-<ol start="2">
-<li>Classification</li>
-</ol>
-<ul>
+<h4 id="2-Classification"><a href="#2-Classification" class="headerlink" title="2. Classification"></a>2. Classification</h4><ul>
 <li><p>Binary Classification 二元分法: YES/NO</p>
 </li>
 <li><p>Multi-class Classification 多元分法: ex: 新闻分类</p>
@@ -117,9 +106,9 @@
 <ul>
 <li>Linear model</li>
 <li>Non-linear model<ul>
-<li>Deep learning<br>example: </li>
+<li>Deep learning</li>
 </ul>
-<ol>
+  <em>example:</em><ol>
 <li>IMAGE RECOGNITION (Hierarchy structure)    </li>
 <li>Playing GO: n*n 的选择题</li>
 </ol>
@@ -130,23 +119,15 @@
 </ul>
 </li>
 <li><p>Training data:</p>
-</li>
-</ol>
 <ul>
 <li>Input/output: Pair of target function</li>
 <li>Function: Output = <strong>label</strong> (往往需要大量labeled data) </li>
 </ul>
 </li>
-<li><p>*** 是否有其他无需大量labeled data的学习？<br>YES：$\downarrow$ ***</p>
-<blockquote>
-<p><strong>Scenario</strong><br>a. Semi-supervised Learning：可以利用学习中有些未被label的dataset<br>b. Transfer Learning：无相干的dataset，如：训练猫狗识别的照片，给了其他如大象、动漫等图片<br>c. Unsupervised Learning</p>
-</blockquote>
+</ol>
 </li>
 </ul>
-<ol start="3">
-<li>Structured Learning</li>
-</ol>
-<ul>
+<h4 id="3-Structured-Learning"><a href="#3-Structured-Learning" class="headerlink" title="3. Structured Learning"></a>3. Structured Learning</h4><ul>
 <li>Beyond Classification<blockquote>
 <p>机器要输出的是复杂的物件</p>
 </blockquote>
@@ -156,27 +137,53 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="Additional-scenario"><a href="#Additional-scenario" class="headerlink" title="Additional scenario"></a>Additional scenario</h2><ul>
-<li>Reinforcement Learning<br>因为没有办法data做supervised learning，如果能做supervised learning就不会做reinforcement learning<blockquote>
-</blockquote>
+<h2 id="Additional-scenario"><a href="#Additional-scenario" class="headerlink" title="Additional scenario"></a>Additional scenario</h2><p><strong>是否有其他无需大量labeled data的学习？YES：↓</strong></p>
+<table>
+<thead>
+<tr>
+<th>n.</th>
+<th>scenario</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a.</td>
+<td>Semi-supervised Learning：</td>
+<td>可以利用学习中有些未被label的dataset</td>
+</tr>
+<tr>
+<td>b.</td>
+<td>Transfer Learning：</td>
+<td>无相干的dataset，如：训练猫狗识别的照片，给了其他如大象、动漫等图片</td>
+</tr>
+<tr>
+<td>c.</td>
+<td>Unsupervised Learning</td>
+<td></td>
+</tr>
+<tr>
+<td>d.</td>
+<td>Reinforcement Learning：</td>
+<td>因为没有办法data做supervised learning，如果能做supervised learning就不会做reinforcement learning</td>
+</tr>
+</tbody></table>
+<p>区别：</p>
 <table>
 <thead>
 <tr>
 <th>Supervised</th>
+<th>vs</th>
 <th>Reinforcement</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Learn from teacher</td>
-<td>Learn from critics</td>
+<td>Learn from <strong>teacher</strong></td>
+<td>←→</td>
+<td>Learn from <strong>critics</strong></td>
 </tr>
 </tbody></table>
-<blockquote>
 <p>Alpha GO is supervised + reinforcement learning (机器跟机器下棋，自己跟自己下棋)</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="P2"><a href="#P2" class="headerlink" title="P2"></a>P2</h2><p>AI训练师指导AI的方向</p>
+<h1 id="P2-为什么要学习机器学习"><a href="#P2-为什么要学习机器学习" class="headerlink" title="P2 为什么要学习机器学习"></a>P2 为什么要学习机器学习</h1><p>AI训练师指导AI，类比Pokemon的训练师（？？？）</p>
 
 </div>
 
