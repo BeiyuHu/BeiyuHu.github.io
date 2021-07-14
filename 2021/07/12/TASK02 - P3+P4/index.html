@@ -77,16 +77,17 @@
   <h1>TASK02 - P3+P4</h1>
 </div>
 <div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
-  <h1 id="P3-回归"><a href="#P3-回归" class="headerlink" title="P3 回归"></a>P3 回归</h1><p>Q：Regression 可以做什么？<br>A：可以是：预测股票、自动驾驶、推荐等 <em>f(x) = y =PREDICTED</em></p>
+  <h1 id="P3-Regression-回归"><a href="#P3-Regression-回归" class="headerlink" title="P3 Regression 回归"></a>P3 Regression 回归</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=3">Hung-yi Lee - Machine Learning 2017 - P3 Regression</a></p>
+<p>Q：Regression 可以做什么？<br>A：可以是：预测股票、自动驾驶、推荐等 → <em>f(x) = y (= PREDICT)</em></p>
 <ul>
-<li>input <em>x</em>: information → output <em>y</em>: scalar<blockquote>
-<p>Example：Pokemon进化后的Combat Power预测</p>
-</blockquote>
-</li>
+<li>input <em>x</em>: information → output <em>y</em>: scalar</li>
 </ul>
+<h4 id="1-简单模型（步骤解析）："><a href="#1-简单模型（步骤解析）：" class="headerlink" title="1 简单模型（步骤解析）："></a>1 简单模型（步骤解析）：</h4><p>以下将以 <strong>example：Pokemon进化后的Combat Power预测</strong> 展开：</p>
+<img src="CP_predict.png" width="100%">
+
+
+<p>其中 x = or( x_cp, x_s, x_hp, x_w, x_h ) 而预测 y_cp<br>（下文仅设参 x<sub>cp</sub>）</p>
 <hr>
-<blockquote>
-</blockquote>
 <table>
 <thead>
 <tr>
@@ -96,7 +97,7 @@
 </thead>
 <tbody><tr>
 <td>Step 1.</td>
-<td>找到一个model</td>
+<td>找一个model</td>
 </tr>
 <tr>
 <td>Step 2.</td>
@@ -109,6 +110,246 @@
 </tbody></table>
 <hr>
 <h5 id="Step-1-Model"><a href="#Step-1-Model" class="headerlink" title="Step 1: Model"></a>Step 1: Model</h5><p>找function set 就是所谓的model <em>#存疑</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"></span><br><span class="line">A[Model] -.- B[a set of function: f1, f2, ...]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这其中： f(x) = y = <strong>b</strong> + <strong>w</strong> * x<sub>cp</sub> (w 和 b 可为<strong>任意值</strong>)<br>就可以代入不同w及b，有无限组f(x)。但同时有些显然不合理的function，将会被之后的训练集中筛除。</li>
+</ul>
+<p>由于其线性关系，也称为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"></span><br><span class="line">C[Linear model]-.-D[y = b + Σw_i*x_i]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>b</code>: bias 偏差</li>
+<li><code>w_i</code>: weight 权重</li>
+<li><code>x_i</code>: input x</li>
+</ul>
+<h5 id="Step-2-Goodness-of-Function"><a href="#Step-2-Goodness-of-Function" class="headerlink" title="Step 2: Goodness of Function"></a>Step 2: Goodness of Function</h5><p><em>也就是evaluate function的好坏</em> → 1. 收集training data，2. 找出function</p>
+<ol>
+<li> Training data: 10 pokemons (<a target="_blank" rel="noopener" href="https://www.openintro.org/stat/data/?data=pokemon">source</a>)</li>
+</ol>
+<img src="trainingData.png" width="100%">
+
+<table>
+<thead>
+<tr>
+<th>input x<sub>cp</sub></th>
+<th>output y<sub>cp</sub></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x<sup>1</sup></td>
+<td>y<sup>^1</sup></td>
+</tr>
+<tr>
+<td>x<sup>2</sup></td>
+<td>y<sup>^2</sup></td>
+</tr>
+<tr>
+<td>x<sup>3</sup></td>
+<td>y<sup>^3</sup></td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>x<sup>10</sup></td>
+<td>y<sup>^10</sup></td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>Loss function <em><strong>L</strong></em>:</li>
+</ol>
+<p><strong>注意：</strong> 这里input是一个<strong>function</strong>，output是其<strong>估测误差</strong></p>
+<p>L(f) = L (w, b) <code>input为函数，即input为w和b</code><br>= Σ<sup>10</sup><sub>n=1</sub> (y<sup>^n</sup> -  f(x<sup>n</sup><sub>cp</sub>) )<sup>2</sup>   <code>转化为y^真实值与线性关系y*预测值的偏差的平方，平方为消除符号的影响</code><br>= Σ<sup>10</sup><sub>n=1</sub> (y<sup>^n</sup> - ( b+w*x<sup>n</sup><sub>cp</sub> ))<sup>2</sup> <code>展开</code></p>
+<img src="lossFunction.png" width="100%">
+
+<ul>
+<li>图中每个点代表了一组(b,w) 即为一个function</li>
+<li>颜色越红代表L数值越大，即误差越大，表现越差</li>
+</ul>
+<h5 id="Step-3-Best-function-→-Gradient-Descent"><a href="#Step-3-Best-function-→-Gradient-Descent" class="headerlink" title="Step 3: Best function → Gradient Descent"></a>Step 3: Best function → Gradient Descent</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph</span><br><span class="line"></span><br><span class="line">A[A set of function] -.-&gt; B[Goodness of function f]</span><br><span class="line">C[Training data]-.-&gt;B[Goodness of function f]</span><br><span class="line">B[Goodness of function f]-.-&gt;D(GRADIENT DESCENT 梯度递减)</span><br></pre></td></tr></table></figure>
+
+<p>如何找一个好的function f→评估以下的 f*</p>
+<ul>
+<li><em>f</em>＊= <em>arg</em> <em>min<sub>f</sub></em> <strong>L(f)</strong> </li>
+</ul>
+<p> <em>w</em>＊, <em>b</em>＊= <em>arg</em> <em>min<sub>f</sub></em> <strong>L(w, b)</strong><br> 即：取**L(f)*<em>最小时的f值 （</em> arg: argument）<br> <strong>这里可用线代直接解，但是复杂函数需要微分解，并求出微分最小（即微分接近0）</strong></p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Gradient Descent</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>01</td>
+<td>随机选择初始w0, b0</td>
+</tr>
+<tr>
+<td>02</td>
+<td>计算w对L偏微分, b对L的偏微分</td>
+</tr>
+<tr>
+<td>03</td>
+<td>负值(斜率下降) → 往右 / 正值(斜率上升) → 往左</td>
+</tr>
+<tr>
+<td>*</td>
+<td>step size取决于 a.微分大小 b. η “learning rate” （大时更新幅度大、学习效率快）</td>
+</tr>
+<tr>
+<td>04</td>
+<td>多次迭代后：找出local optimal <strong>NOT</strong> global optimal (但在linear regression不是问题，下方解释)</td>
+</tr>
+</tbody></table>
+<p>pros：无需穷举所有w对Loss function L(w)做微分</p>
+<hr>
+<p><em><strong>插播解释local optimal和global optimal：</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>Linear</th>
+<th>Non-linear</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="gradientDescent.png" width="50%"></td>
+<td><img src="gradientDescent3D.png" width="50%"></td>
+</tr>
+</tbody></table>
+<p><strong>梯度下降（gradient descent）到底是什么意思？</strong> 此时以线性回归为例子，所以基于2D平面</p>
+<ul>
+<li>把偏微分排成一个向量（在本例中是向量）</li>
+<li>偏微分的梯度下降 即为 等高线的法线方向 → 所以它会逐渐往紫色方向走</li>
+<li>线性回归的损失函数为convex，即<strong>无local optimal</strong></li>
+</ul>
+<p><strong>但</strong> 若以非线性回归为例，其3D图形如下：</p>
+<ul>
+<li>即有local optimal，又有global optimal的位置</li>
+</ul>
+<hr>
+<p><strong>回到Pokemon CP预测：</strong></p>
+<p>此时要用新的testing data测试其error → 泛化（generalization）</p>
+<table>
+<thead>
+<tr>
+<th>线性关系 y = (-188.4) + 2.7 * x<sub>cp</sub></th>
+<th align="center">Training data</th>
+<th align="center">Testing data</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Error <em><strong>L(f)</strong></em></td>
+<td align="center">31.9</td>
+<td align="center">35</td>
+</tr>
+</tbody></table>
+<p>最终的线性关系式为 ，其误差为31.9；<strong>但</strong> 输入另外一组10个Pokemon数值作为testing data，误差为 35。即 预测不准确。</p>
+<h4 id="2-复杂模型（提升准确性）："><a href="#2-复杂模型（提升准确性）：" class="headerlink" title="2 复杂模型（提升准确性）："></a>2 复杂模型（提升准确性）：</h4><p><strong>OPTION 1: 选择其他model：</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th align="center">Training data</th>
+<th align="center">Testing data</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>y = b + w<sub>1</sub>· x<sub>cp</sub>+w<sub>2</sub>·(x<sub>cp</sub>)<sup>2</sup></td>
+<td align="center">15.4</td>
+<td align="center">18.4</td>
+</tr>
+<tr>
+<td>y = b + w<sub>1</sub>· x<sub>cp</sub>+w<sub>2</sub>·(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>·(x<sub>cp</sub>)<sup>3</sup></td>
+<td align="center">15.3</td>
+<td align="center">18.1</td>
+</tr>
+<tr>
+<td>y = b + w<sub>1</sub>· x<sub>cp</sub>+w<sub>2</sub>·(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>·(x<sub>cp</sub>)<sup>3</sup>+w<sub>4</sub>·(x<sub>cp</sub>)<sup>4</sup></td>
+<td align="center">14.9</td>
+<td align="center">28.8</td>
+</tr>
+<tr>
+<td>y = b + w<sub>1</sub>· x<sub>cp</sub>+w<sub>2</sub>·(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>·(x<sub>cp</sub>)<sup>3</sup>+w<sub>4</sub>·(x<sub>cp</sub>)<sup>4</sup>+w<sub>5</sub>·(x<sub>cp</sub>)<sup>5</sup></td>
+<td align="center">12.8</td>
+<td align="center">232.1</td>
+</tr>
+</tbody></table>
+<p>Model维度的提升会增加 training data的准确度，<strong>但！</strong> 复杂model导致了testing data很糟糕。<br>即：<strong>OVERFITTING 过拟合</strong> → 选择最合适的model，此例为<strong>维度3</strong>的。</p>
+<p><strong>OPTION 2: 种类划分做不同的regression方程</strong><br>(前提数据集够多)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>species 1</th>
+<th>species 2</th>
+<th>species 3 and more</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>y =</td>
+<td>b<sub>1</sub> + w<sub>1</sub> · δ(x<sub>s</sub> = s<sub>1</sub>) · x<sub>cp</sub></td>
+<td>+b<sub>2</sub> + w<sub>2</sub> · δ(x<sub>s</sub> = s<sub>2</sub>) · x<sub>cp</sub></td>
+<td>+b<sub>3</sub> + w<sub>3</sub> · δ(x<sub>s</sub> = s<sub>3</sub>) · x<sub>cp</sub>     +…</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>其中的 δ() 为Boolean(true = 1, false = 0)的filter，所以实际上整个公式为linear model。</p>
+<img src="speciesClassification.png" width="100%">
+
+<ul>
+<li><strong>尽管训练集和测试集最后的结果差别有点大，但从测试集的error而言比之前的结果都要好。</strong></li>
+</ul>
+<p><strong>OPTION 3: 多参数考虑</strong></p>
+<ul>
+<li><p>Back to step <strong>1</strong>: 除了CP，还可考虑 hp、weight等参数。<br>结果是训练误差1.9而测试误差为102.3，即overfitting。</p>
+</li>
+<li><p>Back to step <strong>2</strong>: Regularization 正则化</p>
+</li>
+</ul>
+<blockquote>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>原方程</th>
+<th>新增项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L= Σ<sub>n</sub> (y<sup>^n</sup> - ( b+Σw<sub>i</sub>x<sub>i</sub>))<sup>2</sup></td>
+<td>+λ·Σ(w<sub>i</sub>)<sup>2</sup></td>
+</tr>
+</tbody></table>
+<p>其中λ是常数，需要<strong>手调</strong>；而 新增项 越小越好。<br>只有 w 而没有 b，因为 w 影响了平滑程度，而 b 和平滑程度无关。</p>
+<p><strong>但</strong> 为什么期待加上这个项越小越好呢？</p>
+<ul>
+<li>更平滑：使得 → input有变化时，而output不敏感</li>
+<li>杂讯 noise corrupt input时，smooth function has less influence.</li>
+</ul>
+<p>同时，不一定是λ更大时会更好；那应该考虑多大的λ？</p>
+<ul>
+<li>转折点使得testing data error最小</li>
+</ul>
+<img src="regularization.png" width="100%">
+
+<h1 id="P4-Regression-回归"><a href="#P4-Regression-回归" class="headerlink" title="P4 Regression 回归"></a>P4 Regression 回归</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=4">Hung-yi Lee - Machine Learning 2017 - P4 Regression - Jupyter notebook</a></p>
+<p> η learning rate (lr) 的 update 接近最佳解</p>
+<ul>
+<li>提高10倍 → 相对接近，但有反复</li>
+<li>提高100倍 → 反复更多</li>
+<li>客制化lr → lr for b, lr  for w</li>
+</ul>
+<p> 用的AdaGrad的方法：<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lr_b = lr_b + b_grad**<span class="number">2</span></span><br><span class="line">lr_w = lr_w + w_grad**<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Update parameters</span></span><br><span class="line"></span><br><span class="line">b = b - lr/np.squrt(lr_b) * b_grad</span><br><span class="line">w = w - lr/np.squrt(lr_w) * w_grad</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p> 参考：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://databricks.com/glossary/adagrad#:~:text=Adaptive%20Gradient%20Algorithm%20(Adagrad)%20is,incorporating%20knowledge%20of%20past%20observations.">databricks _ AdaGrad</a></li>
+<li><a target="_blank" rel="noopener" href="https://jmlr.org/papers/volume12/duchi11a/duchi11a.pdf">Adaptive Subgradient Methods for Online Learning and Stochastic Optimization</a></li>
+</ol>
 
 </div>
 
