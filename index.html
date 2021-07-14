@@ -1,582 +1,261 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<html lang="en">
 
-  
-  <title>BE YUHU</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="BEIYUHU&#39;S STUDY ROOM">
-<meta property="og:type" content="website">
-<meta property="og:title" content="BE YUHU">
-<meta property="og:url" content="https://beyuhu.com/index.html">
-<meta property="og:site_name" content="BE YUHU">
-<meta property="og:description" content="BEIYUHU&#39;S STUDY ROOM">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="BEIYU HU">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="BE YUHU" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
-  
-<link rel="stylesheet" href="/css/style.css">
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="BEIYUHU&#39;S STUDY ROOM">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="BEIYU HU">
+    
+
+    <!--Open Graph Title-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="BE YUHU"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>BE YUHU</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
 
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <!--<div id="banner"></div>-->
-  <div id="header-outer" class="outer">
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        <a href="/" id="main-nav-title" class="main-nav-link">BE YUHU</a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives/">Archives</a>
-        
-          <a class="main-nav-link" href="/about/">about</a>
-        
-      </nav>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">BE YUHU</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
     </div>
-  </div>
 </header>
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-TASK02 - P3+P4" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/TASK02%20-%20P3+P4/">TASK02 - P3+P4</a>
-    </h1>
-  
-
-        <a href="/TASK02%20-%20P3+P4/" class="article-date">
-  <time datetime="2021-07-12T09:00:00.000Z" itemprop="datePublished">2021-07-12</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<h1 id="P3-Regression-回归"><a href="#P3-Regression-回归" class="headerlink" title="P3 Regression 回归"></a>P3 Regression 回归</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=3">Hung-yi Lee - Machine Learning 2017 - P3 Regression</a></p>
-<p>Q：Regression 可以做什么？<br>A：可以是：预测股票、自动驾驶、推荐等 → <em>f(x) = y (= PREDICT)</em><br><code>input x: information</code> → <code>output y: scalar</code></p>
-<hr>
-<h4 id="简单模型（步骤解析）："><a href="#简单模型（步骤解析）：" class="headerlink" title="简单模型（步骤解析）："></a>简单模型（步骤解析）：</h4><p> 以下将以 <em>example：Pokemon进化后的Combat Power预测</em> 展开：</p>
-<img src="CP_predict.png" width="60%">
-
-
-<p>其中 x = or( x_cp, x_s, x_hp, x_w, x_h ) 而预测 y_cp（下文仅设参 x<sub>cp</sub>）</p>
-<p>Recap 做ML的三个步骤：</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Step 1.</td>
-<td>找一个model</td>
-</tr>
-<tr>
-<td>Step 2.</td>
-<td>定义function set 里 evaluate它的好坏</td>
-</tr>
-<tr>
-<td>Step 3.</td>
-<td>找出最好的function</td>
-</tr>
-</tbody></table>
-<hr>
-<h5 id="Step-1-Model"><a href="#Step-1-Model" class="headerlink" title="Step 1: Model"></a><strong>Step 1</strong>: Model</h5><p>找function set 就是所谓的model <em>#存疑</em></p>
-<p><code>Model</code> → <code>a set of function: f1, f2, ...</code></p>
-<ul>
-<li>这其中： f(x) = y = b + w * x<sub>cp</sub> (w 和 b 可为<strong>任意值</strong>)<br>就可以代入不同w及b，有无限组f(x)。但同时有些显然不合理的function，将会被之后的训练集中筛除。</li>
-</ul>
-<p>由于其线性关系，也称为：</p>
-<p><code>Linear model</code> → <code>y = b + Σw_i*x_i</code></p>
-<ul>
-<li><code>b</code>: bias 偏差</li>
-<li><code>w_i</code>: weight 权重</li>
-<li><code>x_i</code>: input x</li>
-</ul>
-<h5 id="Step-2-Goodness-of-Function"><a href="#Step-2-Goodness-of-Function" class="headerlink" title="Step 2: Goodness of Function"></a><strong>Step 2</strong>: Goodness of Function</h5><p><code>evaluate function的好坏</code> ： <code>1. 收集training data</code>→<code>2. 找出function</code></p>
-<ol>
-<li>Training data: 10 pokemons (<a target="_blank" rel="noopener" href="https://www.openintro.org/stat/data/?data=pokemon">source</a>) <img src="trainingData.png" width="80%"></li>
-</ol>
-<center>
-    
-<table>
-<thead>
-<tr>
-<th align="center">input x<sub>cp</sub></th>
-<th align="center">output y<sub>cp</sub></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">x<sup>1</sup></td>
-<td align="center">y<sup>^1</sup></td>
-</tr>
-<tr>
-<td align="center">x<sup>2</sup></td>
-<td align="center">y<sup>^2</sup></td>
-</tr>
-<tr>
-<td align="center">x<sup>3</sup></td>
-<td align="center">y<sup>^3</sup></td>
-</tr>
-<tr>
-<td align="center">…</td>
-<td align="center">…</td>
-</tr>
-<tr>
-<td align="center">x<sup>10</sup></td>
-<td align="center">y<sup>^10</sup></td>
-</tr>
-</tbody></table>
-</center>
-
-
-
-<ol start="2">
-<li>Loss function <em><strong>L</strong></em>:</li>
-</ol>
-<ul>
-<li>这里input是一个function，output是其<strong>估测误差</strong><br>L(f) <code>input为函数</code><br>= L (w, b) <code>即input为w和b</code><br>= Σ<sup>10</sup><sub>n=1</sub> (y<sup>^n</sup> -  f(x<sup>n</sup><sub>cp</sub>) )<sup>2</sup>   <code>转化为y^真实值与线性关系预测值偏差的平方，平方为消除符号影响</code><br>= Σ<sup>10</sup><sub>n=1</sub> (y<sup>^n</sup> - ( b+w*x<sup>n</sup><sub>cp</sub> ))<sup>2</sup> <code>展开</code></li>
-</ul>
-<img src="lossFunction.png" width="80%">
-
-<ul>
-<li>图中每个点代表了一组(b,w) 即为一个function</li>
-<li>颜色越红代表L数值越大，即误差越大，表现越差</li>
-</ul>
-<h5 id="Step-3-Best-function-→-Gradient-Descent"><a href="#Step-3-Best-function-→-Gradient-Descent" class="headerlink" title="Step 3: Best function → Gradient Descent"></a><strong>Step 3</strong>: Best function → Gradient Descent</h5><p><code>A set of function</code> →<code>Goodness of function f</code>←<code>GRADIENT DESCENT 梯度递减</code></p>
-<ul>
-<li>如何找一个好的function f → 评估以下的 f＊<br>  <em>f</em>＊= <em>arg</em> <em>min<sub>f</sub></em> L(f)<br>  <em>w</em>＊, <em>b</em>＊= <em>arg</em> <em>min<sub>f</sub></em> L(w, b)<br>  即：取 L(f) 最小时的 f 值 （* arg: argument）</li>
-</ul>
-<p> <em>这里可用线代直接解，但是复杂函数需要微分解，并求出微分最小（即微分接近0）</em></p>
-<table>
-<thead>
-<tr>
-<th>Step</th>
-<th>Gradient Descent</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>01</td>
-<td>随机选择初始w0, b0</td>
-</tr>
-<tr>
-<td>02</td>
-<td>计算w对L偏微分, b对L的偏微分</td>
-</tr>
-<tr>
-<td>03</td>
-<td>负值(斜率下降) → 往右 / 正值(斜率上升) → 往左</td>
-</tr>
-<tr>
-<td>*</td>
-<td>step size取决于 a.微分大小 b. η “learning rate” （大时更新幅度大、学习效率快）</td>
-</tr>
-<tr>
-<td>04</td>
-<td>多次迭代后：找出local optimal <strong>NOT</strong> global optimal (但在linear regression不是问题，下方解释)</td>
-</tr>
-</tbody></table>
-<p>pros：无需穷举所有w对Loss function L(w)做微分</p>
-<hr>
-<p><em>插播解释 local optimal 和 global optimal：</em></p>
-<p><strong>梯度下降（gradient descent）图形上的表达</strong> </p>
-<ul>
-<li>把偏微分排成一个向量（在本例中是向量）</li>
-<li>偏微分的梯度下降 即为 等高线的法线方向 → 所以它会逐渐往紫色方向走</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">Linear</th>
-<th align="center">Non-linear</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><img src="gradientDescent.png" width="80%"></td>
-<td align="center"><img src="gradientDescent3D.png" width="80%"></td>
-</tr>
-<tr>
-<td align="center">线性回归的损失函数为convex，即 <strong>无</strong> local optimal</td>
-<td align="center"><strong>但</strong> 若非线性回归：即有 local optimal，又有 global optimal 的位置</td>
-</tr>
-</tbody></table>
-<hr>
-<p><strong>回到Pokemon CP预测：</strong></p>
-<p>此时要用新的testing data测试其error → 泛化（generalization）</p>
-<center>
-    
-<p>线性结果 y = (-188.4) + 2.7 * x<sub>cp</sub></p>
-<table>
-<thead>
-<tr>
-<th align="right"></th>
-<th align="center">Training</th>
-<th align="center">Testing</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="right">Error <em><strong>L(f)</strong></em></td>
-<td align="center">31.9</td>
-<td align="center">35</td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-</center>
-
-
-<p>最终的线性关系式为 ，其误差为31.9；<strong>但</strong> 输入另外一组10个Pokemon数值作为testing data，误差为 35。即 预测不准确。</p>
-<hr>
-<h4 id="复杂模型（提升准确性）："><a href="#复杂模型（提升准确性）：" class="headerlink" title="复杂模型（提升准确性）："></a>复杂模型（提升准确性）：</h4><p><strong>OPTION 1: 选择其他model：</strong></p>
-<table>
-<thead>
-<tr>
-<th>Model</th>
-<th align="center">Training data</th>
-<th align="center">Testing data</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>y = b + w<sub>1</sub>· x<sub>cp</sub>+w<sub>2</sub>·(x<sub>cp</sub>)<sup>2</sup></td>
-<td align="center">15.4</td>
-<td align="center">18.4</td>
-</tr>
-<tr>
-<td>y = b + w<sub>1</sub>· x<sub>cp</sub>+w<sub>2</sub>·(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>·(x<sub>cp</sub>)<sup>3</sup></td>
-<td align="center">15.3</td>
-<td align="center">18.1</td>
-</tr>
-<tr>
-<td>y = b + w<sub>1</sub>· x<sub>cp</sub>+w<sub>2</sub>·(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>·(x<sub>cp</sub>)<sup>3</sup>+w<sub>4</sub>·(x<sub>cp</sub>)<sup>4</sup></td>
-<td align="center">14.9</td>
-<td align="center">28.8</td>
-</tr>
-<tr>
-<td>y = b + w<sub>1</sub>· x<sub>cp</sub>+w<sub>2</sub>·(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>·(x<sub>cp</sub>)<sup>3</sup>+w<sub>4</sub>·(x<sub>cp</sub>)<sup>4</sup>+w<sub>5</sub>·(x<sub>cp</sub>)<sup>5</sup></td>
-<td align="center">12.8</td>
-<td align="center">232.1</td>
-</tr>
-</tbody></table>
-<p>Model维度的提升会增加 training data的准确度，<strong>但！</strong> 复杂model导致了testing data很糟糕。<br>即：<strong>OVERFITTING 过拟合</strong> → 选择最合适的model，此例为<strong>维度3</strong>的。</p>
-<p><strong>OPTION 2: 种类划分做不同的regression方程</strong><br>(前提数据集够多)</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>species 1</th>
-<th>species 2</th>
-<th>species 3 and more</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>y =</td>
-<td>b<sub>1</sub> + w<sub>1</sub> · δ(x<sub>s</sub> = s<sub>1</sub>) · x<sub>cp</sub></td>
-<td>+b<sub>2</sub> + w<sub>2</sub> · δ(x<sub>s</sub> = s<sub>2</sub>) · x<sub>cp</sub></td>
-<td>+b<sub>3</sub> + w<sub>3</sub> · δ(x<sub>s</sub> = s<sub>3</sub>) · x<sub>cp</sub>     +…</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>其中的 δ() 为Boolean(true = 1, false = 0)的filter，所以实际上整个公式为linear model。</p>
-<center>
-<img src="speciesClassification.png" width="60%">
-</center>
-
-    
-<ul>
-<li><strong>尽管训练集和测试集最后的结果差别有点大，但从测试集的error而言比之前的结果都要好。</strong></li>
-</ul>
-<p><strong>OPTION 3: 多参数考虑</strong></p>
-<ul>
-<li><p>Back to step <strong>1</strong>: 除了CP，还可考虑 hp、weight等参数。<br>结果是训练误差1.9而测试误差为102.3，即overfitting。</p>
-</li>
-<li><p>Back to step <strong>2</strong>: Regularization 正则化</p>
-</li>
-</ul>
-<center>
-    
-<blockquote>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>原方程</th>
-<th>新增项</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>L= Σ<sub>n</sub> (y<sup>^n</sup> - ( b+Σw<sub>i</sub>x<sub>i</sub>))<sup>2</sup></td>
-<td>+λ·Σ(w<sub>i</sub>)<sup>2</sup></td>
-</tr>
-</tbody></table>
-</center>    
-    
-<ul>
-<li>其中<code>λ</code>是常数，需要<strong>手调</strong>；而 新增项 越小越好。<br>只有 <code>w</code> 而没有 <code>b</code>，因为 <code>w</code> 影响了平滑程度，而 <code>b</code> 和平滑程度无关。</li>
-</ul>
-<p><strong>但</strong> 为什么期待加上这个项越小越好呢？</p>
-<ul>
-<li>更平滑：使得 → input有变化时，而output不敏感</li>
-<li>杂讯 noise corrupt input时，smooth function has less influence.</li>
-</ul>
-<p>同时，不一定是 <code>λ</code> 更大时会更好；那应该考虑多大的 <code>λ</code> ？</p>
-<ul>
-<li>转折点使得testing data error最小</li>
-<li>P4的练习用了AdaGrad</li>
-</ul>
-<img src="regularization.png" width="80%">
-
-<hr>
-<hr>
-<h1 id="P4-Regression-回归"><a href="#P4-Regression-回归" class="headerlink" title="P4 Regression 回归"></a>P4 Regression 回归</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=4">Hung-yi Lee - Machine Learning 2017 - P4 Regression - Jupyter notebook</a></p>
-<p> η learning rate (lr) 的 update 接近最佳解</p>
-<ul>
-<li>提高10倍 → 相对接近，但有反复</li>
-<li>提高100倍 → 反复更多</li>
-<li>客制化lr → lr for b, lr  for w</li>
-</ul>
-<p> 用的AdaGrad的方法：</p>
-<p>  <code> lr_b = lr_b + b_grad**2</code><br> <code>lr_w = lr_w + w_grad**2</code><br> <code># Update parameters</code><br> <code>b = b - lr/np.squrt(lr_b) * b_grad</code><br><code> w = w - lr/np.squrt(lr_w) * w_grad</code></p>
-<p> 参考：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://databricks.com/glossary/adagrad#:~:text=Adaptive%20Gradient%20Algorithm%20(Adagrad)%20is,incorporating%20knowledge%20of%20past%20observations.">databricks _ AdaGrad</a></li>
-<li><a target="_blank" rel="noopener" href="https://jmlr.org/papers/volume12/duchi11a/duchi11a.pdf">Adaptive Subgradient Methods for Online Learning and Stochastic Optimization</a></li>
-</ol>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://beyuhu.com/TASK02%20-%20P3+P4/" data-id="ckqzvczu70000bg8q12922v9i" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-TASK01 - P1+P2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+            <li>
+                <a href="/">Home</a>
+            </li>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/TASK01%20-%20P1+P2/">TASK01 - P1+P2</a>
-    </h1>
-  
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+    </ul>
+</nav>
 
-        <a href="/TASK01%20-%20P1+P2/" class="article-date">
-  <time datetime="2021-07-11T17:58:21.000Z" itemprop="datePublished">2021-07-11</time>
-</a>
-      </header>
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                <header>
+    <h1>This is Phantom, a free, fully responsive site<br />template designed by <a target="_blank" rel="noopener" href="http://html5up.net">HTML5 UP</a>.</h1>
+    <p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
+</header>
+
+<section class="tiles">
     
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<h1 id="P1-机器学习介绍"><a href="#P1-机器学习介绍" class="headerlink" title="P1 机器学习介绍"></a>P1 机器学习介绍</h1><img src="learningMap.png" width="100%">
+        
 
-<h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h2><h4 id="1-Regression-（回归）"><a href="#1-Regression-（回归）" class="headerlink" title="1. Regression （回归）"></a>1. Regression （回归）</h4><ul>
-<li>The output of the target function f is ‘scalar’.</li>
-<li>讨论自变量x和因变量y的线性关系，构建方程，推论和预测y</li>
-<li><em>example:</em><blockquote>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>Input</th>
-<th>Output</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>历史时刻PM2.5</td>
-<td>未来时刻PM2.5</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h4 id="2-Classification"><a href="#2-Classification" class="headerlink" title="2. Classification"></a>2. Classification</h4><ul>
-<li><p>Binary Classification 二元分法: YES/NO</p>
-</li>
-<li><p>Multi-class Classification 多元分法: ex: 新闻分类</p>
-<ol>
-<li><p>Model (Function)</p>
-<ul>
-<li>Linear model</li>
-<li>Non-linear model<ul>
-<li>Deep learning</li>
-</ul>
-  <em>example:</em><ol>
-<li>IMAGE RECOGNITION (Hierarchy structure)    </li>
-<li>Playing GO: n*n 的选择题</li>
-</ol>
-<ul>
-<li>SVM, decision tree, KNN</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Training data:</p>
-<ul>
-<li>Input/output: Pair of target function</li>
-<li>Function: Output = <strong>label</strong> (往往需要大量labeled data) </li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h4 id="3-Structured-Learning"><a href="#3-Structured-Learning" class="headerlink" title="3. Structured Learning"></a>3. Structured Learning</h4><ul>
-<li>Beyond Classification<blockquote>
-<p>机器要输出的是复杂的物件</p>
-</blockquote>
-</li>
-<li>Ex:<blockquote>
-<p>Speech Recognition<br>Machine Translation<br>人脸识别</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="Additional-scenario"><a href="#Additional-scenario" class="headerlink" title="Additional scenario"></a>Additional scenario</h2><p><strong>是否有其他无需大量labeled data的学习？YES：↓</strong></p>
-<table>
-<thead>
-<tr>
-<th>n.</th>
-<th>scenario</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>a.</td>
-<td>Semi-supervised Learning：</td>
-<td>可以利用学习中有些未被label的dataset</td>
-</tr>
-<tr>
-<td>b.</td>
-<td>Transfer Learning：</td>
-<td>无相干的dataset，如：训练猫狗识别的照片，给了其他如大象、动漫等图片</td>
-</tr>
-<tr>
-<td>c.</td>
-<td>Unsupervised Learning</td>
-<td></td>
-</tr>
-<tr>
-<td>d.</td>
-<td>Reinforcement Learning：</td>
-<td>因为没有办法data做supervised learning，如果能做supervised learning就不会做reinforcement learning</td>
-</tr>
-</tbody></table>
-<p>区别：</p>
-<table>
-<thead>
-<tr>
-<th>Supervised</th>
-<th>vs</th>
-<th>Reinforcement</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Learn from <strong>teacher</strong></td>
-<td>←→</td>
-<td>Learn from <strong>critics</strong></td>
-</tr>
-</tbody></table>
-<p>Alpha GO is supervised + reinforcement learning (机器跟机器下棋，自己跟自己下棋)</p>
-<h1 id="P2-为什么要学习机器学习"><a href="#P2-为什么要学习机器学习" class="headerlink" title="P2 为什么要学习机器学习"></a>P2 为什么要学习机器学习</h1><p>AI训练师指导AI，类比Pokemon的训练师（？？？）</p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://beyuhu.com/TASK01%20-%20P1+P2/" data-id="ckr14lrov00006c8q3qkb6pwq" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
+<article class="style1">
+    <span class="image">
+        <img src="http://placehold.it/450x450" alt="" />
+    </span>
+    <a href="/TASK02 - P3+P4/">
+        <h2>TASK02 - P3+P4</h2>
+        <div class="content">
+            <p></p>
+        </div>
+    </a>
 </article>
+    
+        
 
-
-  
-
-
+<article class="style2">
+    <span class="image">
+        <img src="http://placehold.it/450x450" alt="" />
+    </span>
+    <a href="/TASK01 - P1+P2/">
+        <h2>TASK01 - P1+P2</h2>
+        <div class="content">
+            <p></p>
+        </div>
+    </a>
+</article>
+    
 </section>
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2021 BEIYU HU<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
-      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="https://twitter.com/?lang=en" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="https://www.instagram.com/" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="https://dribbble.com/" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/klugjo/hexo-theme-phantom/commits?author=klugjo" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="https://plus.google.com/" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="https://www.behance.net/" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="https://500px.com/" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
     </div>
-  </div>
 </footer>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives/" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about/" class="mobile-nav-link">about</a>
-  
-</nav>
+
+    <!-- After footer scripts -->
     
+<!-- jQuery -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
 
 
-<script src="/js/script.js"></script>
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
 
 
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
 
 
-  </div>
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
 </body>
+
 </html>
