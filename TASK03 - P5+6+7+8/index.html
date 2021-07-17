@@ -312,6 +312,66 @@
 <p>→  相同model的avg error → minimum</p>
 <hr>
 <h1 id="P6-梯度下降-Gradient-Descent"><a href="#P6-梯度下降-Gradient-Descent" class="headerlink" title="P6 梯度下降 Gradient Descent"></a>P6 梯度下降 Gradient Descent</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=6&spm_id_from=pageDriver">Hung-yi Lee - Machine Learning 2017 - P6 梯度下降</a></p>
+<blockquote>
+<p><strong>Recap from P3</strong><br>Gradient Descent: θ*  = arg min<sub>θ</sub> L(θ)<br>L for Loss function, θ for parameters (一组参数，n ≥1)</p>
+</blockquote>
+<p>假设：θ 有两个变量 {θ<sub>1</sub>, θ<sub>2</sub>}<br>且有：<br>a. Gradient function <em>∇ L(θ) =</em> [ 𝜕L(θ<sub>1</sub>)/𝜕θ<sub>1</sub>, 𝜕L(θ<sub>2</sub>)/𝜕θ<sub>2</sub> ]<sup>T</sup> ，其表达为一个vector<br>b. learning rate <em>η</em><br>则 Gradient Descent 可表达为：</p>
+<blockquote>
+<p>θ<sup>1</sup> = θ<sup>0</sup> - η * ∇ L(θ<sup>0</sup>)<br>θ<sup>2</sup> = θ<sup>1</sup> - η * ∇ L(θ<sup>1</sup>)<br>…until find the minimum</p>
+</blockquote>
+<p><em>θ<sup>i</sup> = θ<sup>i-1</sup> - η * ∇ L(θ<sup>i-1</sup>)</em></p>
+<h2 id="Learning-Rate"><a href="#Learning-Rate" class="headerlink" title="Learning Rate:"></a>Learning Rate:</h2><p>用 Update amount - Loss 制图，做LR的可视化，理解LR是怎么调参的。</p>
+<blockquote>
+<p>如果在做gradient descent的时候应该把这个图画出来，去理解前几次update的时候到底learning rate是怎么调出来；要确定它是<strong>稳定的下降</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="LR1.png" width="80%" align="center"></th>
+<th align="center"><img src="LR1-charts.png" width="80%"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">实际曲线找梯度</td>
+<td align="center">visualization</td>
+</tr>
+</tbody></table>
+<h3 id="Adaptive-Learning-Rates"><a href="#Adaptive-Learning-Rates" class="headerlink" title="Adaptive Learning Rates"></a>Adaptive Learning Rates</h3><p>基本原则：learning rate随着参数的update，会越来越小</p>
+<ul>
+<li>在刚开始起始点的时候，离最低点是最远，所以一开始的步伐会很大</li>
+<li>经过好几次参数的update之后，比较靠近目标了，就应该调小LR</li>
+<li>e.g: 1/t decay: <em>η<sup>t</sup> = η/(t+1)<sup>1/2</sup></em></li>
+</ul>
+<h4 id="Adagrad是其中最basic的小技巧的adaptive-方式"><a href="#Adagrad是其中最basic的小技巧的adaptive-方式" class="headerlink" title="Adagrad是其中最basic的小技巧的adaptive 方式"></a>Adagrad是其中最basic的小技巧的adaptive 方式</h4><ul>
+<li>Concept：<em>每个参数的LR除以<strong>之前微分值的root mean square</strong></em></li>
+<li>具体做法：<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>prerequisite</em></td>
+<td>偏微分 g<sup>t</sup> =𝜕 L(θ<sup>t</sup>)/𝜕w<br>前所有偏微分参数的均方根 <strong>σ<sup>t</sup></strong>= [1/(t+1))Σ(g<sup>i</sup>)]<sup>2</sup>)<sup>1/2</sup><br>（对每个参数都是独立不一致的）</td>
+</tr>
+<tr>
+<td>Vanilla Gradient Descent<br><strong>Adagrad</strong></td>
+<td><em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup>g<sup>t</sup></em><br><em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup> <strong>/σ<sup>t</sup></strong> g<sup>t</sup></em></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>而1/t decay: *η<sup>t</sup> = η/(t+1)<sup>1/2</sup>*， 所以式中 <em>1/(t+1)<sup>1/2</sup></em> 相消： 简化成 </p>
+<ul>
+<li><em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup> <strong>/σ<sup>t</sup></strong> g<sup>t</sup> <br> = w<sup>t</sup> -  η <strong>/(Σ(g<sup>i</sup>)<sup>2</sup>) <sup>1/2</sup></strong> g<sup>t</sup></em> </li>
+</ul>
+<p>来自李老师的灵魂拷问：</p>
+<blockquote>
+<p>怎么解释：gradient越大，<em>g<sup>t</sup></em> 项，step越大；同时 1/(Σ(g<sup>i</sup>)<sup>2</sup>) <sup>1/2</sup> 项，step越小？</p>
+</blockquote>
+<p>解释a：反差<br>解释b：</p>
+<hr>
 
 
 <!-- Tags -->
