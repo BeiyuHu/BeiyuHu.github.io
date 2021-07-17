@@ -382,7 +382,32 @@
 <img src="adagrad2.png" width="60%"></li>
 </ul>
 <hr>
-<h2 id="TIP-2-STOCHASTIC-GRADIENT-DESCENT-随机梯度下降"><a href="#TIP-2-STOCHASTIC-GRADIENT-DESCENT-随机梯度下降" class="headerlink" title="TIP 2:  STOCHASTIC GRADIENT DESCENT 随机梯度下降"></a>TIP 2:  STOCHASTIC GRADIENT DESCENT 随机梯度下降</h2><hr>
+<h2 id="TIP-2-STOCHASTIC-GRADIENT-DESCENT-随机梯度下降"><a href="#TIP-2-STOCHASTIC-GRADIENT-DESCENT-随机梯度下降" class="headerlink" title="TIP 2:  STOCHASTIC GRADIENT DESCENT 随机梯度下降"></a>TIP 2:  STOCHASTIC GRADIENT DESCENT 随机梯度下降</h2><table>
+<thead>
+<tr>
+<th align="center"><img src="stochasticGD1.png" width="70%"></th>
+<th align="center"><img src="stochasticGD2.png" width="70%"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">看完所有参数后再开始计算</td>
+<td align="center">随机选择参数后，直接计算</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="TIP-3-FEATURE-SCALING-特征缩放"><a href="#TIP-3-FEATURE-SCALING-特征缩放" class="headerlink" title="TIP 3: FEATURE SCALING 特征缩放"></a>TIP 3: FEATURE SCALING 特征缩放</h2><p><code>example:</code> 把x<sub>1</sub>和x<sub>2</sub>放在相同scale上</p>
+<ul>
+<li><img src="featureScaling.png" width="80%">
+<br>使得此例中w<sub>1</sub>和w<sub>2</sub>更近似圆形，让求微分更快（直接向圆心走）
+<br><img src="featureScaling_LOSS.png" width="80%">
+<br>*实现Feature Scaling的方法有很多*</li>
+</ul>
+<hr>
+<h2 id="Theory"><a href="#Theory" class="headerlink" title="Theory"></a>Theory</h2><p>泰勒展开式，只考虑原式+一次微分（approximation ）<br>h(x) = h(x<sub>0</sub>) +h’(x<sub>0</sub>)(x-x<sub>0</sub>)+<del>h’’(x<sub>0</sub>)/2!…</del><br>原因：<br>1. 这种大约接近已经够用<br>2. 二次微分在deep learning会增加时间，不划算<br><strong>一句话总结</strong>：通过各项偏导组成vector，并点乘求最小值即180°平行时；其中learning rate正比于选点圆型半径，并赋负号形成180°；且画圆时半径越小越精确。</p>
+<hr>
+<h1 id="P7-梯度下降-Gradient-Descent-AOE演示"><a href="#P7-梯度下降-Gradient-Descent-AOE演示" class="headerlink" title="P7 梯度下降 Gradient Descent -  AOE演示"></a>P7 梯度下降 Gradient Descent -  AOE演示</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=7">Hung-yi Lee - Machine Learning 2017 - P7 梯度下降 AOE</a></p>
+<hr>
+<h1 id="P8-梯度下降-Gradient-Descent-Minecraft演示"><a href="#P8-梯度下降-Gradient-Descent-Minecraft演示" class="headerlink" title="P8 梯度下降 Gradient Descent -  Minecraft演示"></a>P8 梯度下降 Gradient Descent -  Minecraft演示</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=8">Hung-yi Lee - Machine Learning 2017 - P8 梯度下降 AOE</a></p>
 
 
 <!-- Tags -->
