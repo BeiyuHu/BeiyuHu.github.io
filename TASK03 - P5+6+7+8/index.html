@@ -320,7 +320,9 @@
 <p>θ<sup>1</sup> = θ<sup>0</sup> - η * ∇ L(θ<sup>0</sup>)<br>θ<sup>2</sup> = θ<sup>1</sup> - η * ∇ L(θ<sup>1</sup>)<br>…until find the minimum</p>
 </blockquote>
 <p><em>θ<sup>i</sup> = θ<sup>i-1</sup> - η * ∇ L(θ<sup>i-1</sup>)</em></p>
-<h2 id="Learning-Rate"><a href="#Learning-Rate" class="headerlink" title="Learning Rate:"></a>Learning Rate:</h2><p>用 Update amount - Loss 制图，做LR的可视化，理解LR是怎么调参的。</p>
+<hr>
+<p>Q: 如何提高training速度？</p>
+<h2 id="TIP-1-Learning-Rate"><a href="#TIP-1-Learning-Rate" class="headerlink" title="TIP 1:  Learning Rate:"></a>TIP 1:  Learning Rate:</h2><p>用 Update amount - Loss 制图，做LR的可视化，理解LR是怎么调参的。</p>
 <blockquote>
 <p>如果在做gradient descent的时候应该把这个图画出来，去理解前几次update的时候到底learning rate是怎么调出来；要确定它是<strong>稳定的下降</strong></p>
 </blockquote>
@@ -370,8 +372,17 @@
 <blockquote>
 <p>怎么解释：gradient越大，<em>g<sup>t</sup></em> 项，step越大；同时 1/(Σ(g<sup>i</sup>)<sup>2</sup>) <sup>1/2</sup> 项，step越小？</p>
 </blockquote>
-<p>解释a：反差<br>解释b：</p>
+<ul>
+<li>解释a：反差</li>
+<li>解释b：找微分最小值 = 梯度下降的目的 = 微分高时，step长；微分低时，step短<br>以简单二元函数 y = ax<sup>2</sup> + bx + c为例：<br><img src="adagrad1.png" width="60%">
+<br>1. 梯度最低位置，一次微分为零，即：|𝜕 y/𝜕 x| = |2ax+b| = 0, x = -b/2a
+<br>2. 若从x<sub>0</sub>到梯度最低的就是距离就是：|x<sub>0</sub> - (-b/2a)| = |x<sub>0</sub> +b/2a| = |2ax<sub>0</sub>+b|/2a
+<br>3. 同时： |2ax<sub>0</sub>+b|/2a  = |𝜕 y/𝜕 x|<sub>x=x0</sub> / |𝜕'' y/𝜕'' x| = 一次微分在x<sub>0</sub>的解/二次微分（当只有一组函数时可只看一次微分部分）
+<br>4. 和 Adagrad 的关系：g<sup>t</sup>/(Σ(g<sup>i</sup>)<sup>2</sup>) <sup>1/2</sup> 相当于 一次微分/二次微分。<br> 4.1 root mean square的方法表达了该一次微分的开合程度，在这里可近似于二次微分的作用。<br>4.2 当训练集过大等原因，算一次微分可能就花费了一天，再二次微分会花费相对的时间，此时利用root mean square可直接计算一次微分结果并近似类比：|𝜕'' y/𝜕'' x|≈(Σ(g<sup>i</sup>)<sup>2</sup>) <sup>1/2</sup> 
+<img src="adagrad2.png" width="60%"></li>
+</ul>
 <hr>
+<h2 id="TIP-2-STOCHASTIC-GRADIENT-DESCENT-随机梯度下降"><a href="#TIP-2-STOCHASTIC-GRADIENT-DESCENT-随机梯度下降" class="headerlink" title="TIP 2:  STOCHASTIC GRADIENT DESCENT 随机梯度下降"></a>TIP 2:  STOCHASTIC GRADIENT DESCENT 随机梯度下降</h2><hr>
 
 
 <!-- Tags -->
