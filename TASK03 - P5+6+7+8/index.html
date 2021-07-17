@@ -160,7 +160,7 @@
 <li>其之间的差距 = Bias + Variance</li>
 </ul>
 <hr>
-<h3 id="1-理论统计学例子："><a href="#1-理论统计学例子：" class="headerlink" title="1. 理论统计学例子："></a>1. 理论统计学例子：</h3><p>预测<strong>未知数x</strong>的均值</p>
+<h2 id="1-理论统计学例子："><a href="#1-理论统计学例子：" class="headerlink" title="1. 理论统计学例子："></a>1. 理论统计学例子：</h2><p>预测<strong>未知数x</strong>的均值</p>
 <blockquote>
 <ul>
 <li>假设1 其均值为 μ</li>
@@ -193,7 +193,7 @@
 <h2 id="2-到底-bias-和-variance-是什么？"><a href="#2-到底-bias-和-variance-是什么？" class="headerlink" title="2. 到底 bias 和 variance 是什么？"></a>2. 到底 bias 和 variance 是什么？</h2><table>
 <thead>
 <tr>
-<th>/</th>
+<th></th>
 <th align="center">以下表靶图逻辑</th>
 </tr>
 </thead>
@@ -207,12 +207,22 @@
 </tr>
 <tr>
 <td>Diagram</td>
-<td align="center"><img src="bias+variance.png" width="50%"></td>
+<td align="center"><img src="bias+variance.png" width="80%"></td>
 </tr>
 </tbody></table>
+<p><code>example 1</code> <em>prerequisite</em> </p>
 <ul>
+<li>训练集设置：<ul>
 <li>VARIANCE: 每组训练集为10个，一共有100组，分别做regression：</li>
-<li> BIAS: 每组训练集为100个，一共有</li>
+<li>BIAS: 每组训练集为100个，一共有5000个regression model：</li>
+</ul>
+</li>
+<li>Colored curves：<ul>
+<li>Red: <code>f *</code></li>
+<li>Blue: avg(<code>f *</code>)= <code>f_</code></li>
+<li>Black: (assumed) true <code>f^</code></li>
+</ul>
+</li>
 </ul>
 <table>
 <thead>
@@ -224,7 +234,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>一次幂<br>y = b + wx<sub>cp</sub></td>
+<td>简单model：一次幂<br>y = b + wx<sub>cp</sub></td>
 <td><img src="linear.png" width="80%"></td>
 <td><img src="linear1.png" width="80%"></td>
 <td></td>
@@ -236,13 +246,69 @@
 <td></td>
 </tr>
 <tr>
-<td>五次幂<br>y = b + w<sub>1</sub>x<sub>cp</sub>+w<sub>2</sub>(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>(x<sub>cp</sub>)<sup>3</sup>+w<sub>3</sub>(x<sub>cp</sub>)<sup>4</sup>+w<sub>5</sub>(x<sub>cp</sub>)<sup>5</sup></td>
+<td>复杂model：五次幂<br>y = b + w<sub>1</sub>x<sub>cp</sub>+w<sub>2</sub>(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>(x<sub>cp</sub>)<sup>3</sup>+w<sub>3</sub>(x<sub>cp</sub>)<sup>4</sup>+w<sub>5</sub>(x<sub>cp</sub>)<sup>5</sup></td>
 <td><img src="power5.png" width="80%"></td>
 <td><img src="power5_1.png" width="80%"></td>
 <td></td>
 </tr>
 </tbody></table>
-<p>Variance： 幂级数越低，越收敛；幂级数越高，越发散<br>Bias：幂级数越低，bias越高；幂级数越高，越接近f^</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>简单model</th>
+<th>复杂model</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Variance</strong></td>
+<td>Var较<strong>小</strong>，表现为收敛</td>
+<td>Var较<strong>大</strong>，表现为发散</td>
+</tr>
+<tr>
+<td>Solution</td>
+<td></td>
+<td>1. 增加data<br>（很有效控制var的方法，但<strong>collect data很难</strong>）<br>2. 正则化regularization<br>（+λ·Σ(w<sub>i</sub>)<sup>2</sup> 曲线越平滑越好，但<strong>可能会伤害bias</strong>）</td>
+</tr>
+<tr>
+<td><strong>Bias</strong></td>
+<td>Bias较<strong>大</strong>，表现为离真实f^越远<br>简单model范围小可能根本没有包含target</td>
+<td>Bias较<strong>小</strong>，表现为离真实f^越近<br>简单model范围大包含target</td>
+</tr>
+<tr>
+<td>Solution</td>
+<td>Redesign the model:<br>1. 更多参数<br>2. 更多幂次</td>
+<td></td>
+</tr>
+</tbody></table>
+<p> 那么，在回顾之前一课中error在第三次幂中会突然转变error，需要对error进行分类：</p>
+<ol>
+<li><strong>红</strong>线是bias变化，<strong>绿</strong>线是var变化</li>
+<li><strong>从左到右</strong>分别是 <code>Underfitting: 大bias+小vars</code> 到<code> Overfitting: 小bias+大vars</code><img src="errorClassification.png" width="80%"></li>
+</ol>
+<p>所以在做完machine learning的时候，都要问自己：<strong>到底是bias大还是var大？</strong></p>
+<ul>
+<li>当model<strong>无法吻合training data</strong> → bias大 即underfitting</li>
+<li>当model吻合training data，却在<strong>testing data有很大error</strong> → var大 即overfitting</li>
+</ul>
+<h2 id="3-Training-data-和-Testing-data-如何分配"><a href="#3-Training-data-和-Testing-data-如何分配" class="headerlink" title="3. Training data 和 Testing data 如何分配"></a>3. Training data 和 Testing data 如何分配</h2><ul>
+<li>基本事实<code>training set</code> → <code>public testing set</code> → <code>private testing set</code><br>training set较好的（error越小的）model在public set上可能较好表现后，在private set的表现较差。</li>
+</ul>
+<ol>
+<li><p>法1：Cross Validation 交叉校准</p>
+<ol>
+<li>把training set分成两部分：<br><code>TRAINING SET</code> = <code>Training set A</code> + <code>Validation set B</code> </li>
+<li>在<code>Training set A</code>上train完之后用<code>Validation set B</code> 去选择model</li>
+<li>但原本的training data会因此减少，所以在步骤2中最终选择完了model后，再用全部的<code>TRAINING SET</code>在选择好的model基础上再train一次data</li>
+<li>此时的public testing set和private testing set的结果可以相近</li>
+</ol>
+<p> <strong>不推荐！</strong> 把public testing set回头把training set的再校准一次，这样做会把testing set的bias又带到原来的model去。又会把public set校准表现得比private set好。</p>
+</li>
+<li><p>法2：N-fold Cross Validation N折交叉校准</p>
+</li>
+</ol>
+<p>把<code>TRAINING SET</code>分成 N 组，例子如下：<br>分三份，一份validation，两份training，分别组合：</p>
+<p><code>TRAINING SET</code><br>1 <code>TR1</code> <code>TR2</code> <code>VAL</code> → model 1, 2, 3,… ↓<br>2 <code>TR1</code> <code>VAL</code> <code>TR2</code> → model 1, 2, 3,… →  min(相同model的avg error)<br>3 <code>VAL</code> <code>TR1</code> <code>TR2</code> → model 1, 2, 3,… ↑</p>
 <hr>
 <h1 id="P6-梯度下降-Gradient-Descent"><a href="#P6-梯度下降-Gradient-Descent" class="headerlink" title="P6 梯度下降 Gradient Descent"></a>P6 梯度下降 Gradient Descent</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=6&spm_id_from=pageDriver">Hung-yi Lee - Machine Learning 2017 - P6 梯度下降</a></p>
 
