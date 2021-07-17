@@ -135,10 +135,114 @@
 <h1 id="P5-误差从哪里来"><a href="#P5-误差从哪里来" class="headerlink" title="P5 误差从哪里来"></a>P5 误差从哪里来</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=5&spm_id_from=pageDriver">Hung-yi Lee - Machine Learning 2017 - P5 误差从哪里来</a></p>
 <p>Q：Where does the erro come from？<br>A：来自于 <code>1. bias</code> <code>2. variance</code></p>
 <blockquote>
-<p>如果你能诊断你error的来源，那你就有办法improve你的model<br><img src="CP_predict.png" width="60%"></p>
+<p><strong>如果你能诊断你error的来源，那你就有适当的办法improve你的model</strong><br><img src="CP_predict.png" width="60%"></p>
 </blockquote>
 <hr>
-<h2 id="Estimator"><a href="#Estimator" class="headerlink" title="Estimator"></a>Estimator</h2><p>真实函数 f^ 和 估测函数 f* 之间的差距 = Bias + Variance</p>
+<h2 id="Estimator"><a href="#Estimator" class="headerlink" title="Estimator"></a>Estimator</h2><p>下文将会提及：</p>
+<table>
+<thead>
+<tr>
+<th align="center">真实函数</th>
+<th align="center">预估函数</th>
+<th align="center">平均函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">f<sup>^</sup> (f head)</td>
+<td align="center">f* (f star*)</td>
+<td align="center">E[f*] =  f- (f bar)</td>
+</tr>
+</tbody></table>
+<p>将以 <strong>打靶</strong> 为例子进行展开：</p>
+<ul>
+<li>真实函数 f^ 为 <strong>靶心</strong></li>
+<li>估测函数 f* 为 <strong>尝试打靶击中的位置</strong></li>
+<li>其之间的差距 = Bias + Variance</li>
+</ul>
+<hr>
+<h3 id="1-理论统计学例子："><a href="#1-理论统计学例子：" class="headerlink" title="1. 理论统计学例子："></a>1. 理论统计学例子：</h3><p>预测<strong>未知数x</strong>的均值</p>
+<blockquote>
+<ul>
+<li>假设1 其均值为 μ</li>
+<li>假设2 其方差为 σ<sup>2</sup></li>
+<li>假设3 N 个sample点 { x<sup>1</sup>, x<sup>2</sup>, x<sup>3</sup>,…,x<sup>N</sup> }</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>Estimator of 均值 μ ： unbiased estimator<br> m = 1/N * Σ x<sup>n</sup> <strong>≠ μ</strong><br> Var[m] = σ<sup>2</sup>/N，方差取决于sample数量N，N大时 m的方差小<br> 虽然 m ≠ μ，但 E[m] 会正好等于μ</p>
+<table>
+<thead>
+<tr>
+<th align="center">均值 m</th>
+<th align="center">N 数少</th>
+<th align="center">N 数大</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="bias1.png" width="30%"></td>
+<td align="center"><img src="SmallerN.png" width="30%"></td>
+<td align="center"><img src="LargerN.png" width="30%"></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Estimator of 方差  σ<sup>2</sup><br> m = 1/N * Σ x<sup>n</sup>，再计算 s<sup>2</sup>=1/N*Σ(x<sup>n</sup>-m)<sup>2</sup> <strong>≠ σ<sup>2</sup></strong></p>
+<p> <strong>Biased estimator:</strong><br> E[s<sup>2</sup>] = (N-1) / N * σ<sup>2</sup>，既考虑了m又考虑了σ</p>
+</li>
+</ol>
+<hr>
+<h2 id="2-到底-bias-和-variance-是什么？"><a href="#2-到底-bias-和-variance-是什么？" class="headerlink" title="2. 到底 bias 和 variance 是什么？"></a>2. 到底 bias 和 variance 是什么？</h2><table>
+<thead>
+<tr>
+<th>/</th>
+<th align="center">以下表靶图逻辑</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bias</td>
+<td align="center"><strong>靶心(f^)</strong> 和 <strong>预估预测函数的平均函数(f_)</strong> 的距离</td>
+</tr>
+<tr>
+<td>Variance</td>
+<td align="center"><strong>预估预测函数(f＊)</strong> 和 <strong>平均函数(f_)</strong> 的离散程度</td>
+</tr>
+<tr>
+<td>Diagram</td>
+<td align="center"><img src="bias+variance.png" width="50%"></td>
+</tr>
+</tbody></table>
+<ul>
+<li>VARIANCE: 每组训练集为10个，一共有100组，分别做regression：</li>
+<li> BIAS: 每组训练集为100个，一共有</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>VARIANCE</th>
+<th>BIAS</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一次幂<br>y = b + wx<sub>cp</sub></td>
+<td><img src="linear.png" width="80%"></td>
+<td><img src="linear1.png" width="80%"></td>
+<td></td>
+</tr>
+<tr>
+<td>三次幂<br>y = b + w<sub>1</sub>x<sub>cp</sub>+w<sub>2</sub>(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>(x<sub>cp</sub>)<sup>3</sup></td>
+<td><img src="power3.png" width="80%"></td>
+<td><img src="power3_1.png" width="80%"></td>
+<td></td>
+</tr>
+<tr>
+<td>五次幂<br>y = b + w<sub>1</sub>x<sub>cp</sub>+w<sub>2</sub>(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>(x<sub>cp</sub>)<sup>3</sup>+w<sub>3</sub>(x<sub>cp</sub>)<sup>4</sup>+w<sub>5</sub>(x<sub>cp</sub>)<sup>5</sup></td>
+<td><img src="power5.png" width="80%"></td>
+<td><img src="power5_1.png" width="80%"></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>Variance： 幂级数越低，越收敛；幂级数越高，越发散<br>Bias：幂级数越低，bias越高；幂级数越高，越接近f^</p>
 <hr>
 <h1 id="P6-梯度下降-Gradient-Descent"><a href="#P6-梯度下降-Gradient-Descent" class="headerlink" title="P6 梯度下降 Gradient Descent"></a>P6 梯度下降 Gradient Descent</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=6&spm_id_from=pageDriver">Hung-yi Lee - Machine Learning 2017 - P6 梯度下降</a></p>
 
