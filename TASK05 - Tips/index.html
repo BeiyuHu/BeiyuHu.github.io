@@ -364,7 +364,20 @@
 <hr>
 <h1 id="P9-Batch-Normalization"><a href="#P9-Batch-Normalization" class="headerlink" title="P9 Batch Normalization"></a>P9 Batch Normalization</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=9">Hung-yi Lee - Machine Learning 2021 - P9 批次标准化</a></p>
 <hr>
-<h2 id="Feature-Normalization"><a href="#Feature-Normalization" class="headerlink" title="Feature Normalization"></a>Feature Normalization</h2>
+<h2 id="Feature-Normalization"><a href="#Feature-Normalization" class="headerlink" title="Feature Normalization"></a>Feature Normalization</h2><img src="featureNormalization.png" width="80%">
+
+<p>即 <strong>与均值m的差值 / 标准差σ</strong>（方差开根），注意是向量之间的话，除号表达的是element之间的运算。</p>
+<p>做完第一个W之后得到的Z或是Z sigmoid之后的a都还需要feature normalization。但此时单独的z算出z<sup><strong>~</strong></sup>会导致所有z<sup><strong>~</strong></sup>和a都改变，如图中<code>Δ</code>所示：</p>
+<img src="featureNormalization2.png" width="80%">
+
+<p>但由于数目过大，因此只针对一个batch里面做normalization，称之为：<u><strong>Batch Normalization</strong></u></p>
+<p>但也有人说：</p>
+<blockquote>
+<p>This suggests that the positive impact of BatchNorm on training might be somewhat <strong>serendipitous</strong> <em>[adj. 偶然的]</em>. </p>
+</blockquote>
+<p>即表达了BatchNorm是有用，但更多是因为偶然的发现。</p>
+<p><strong>ref:</strong>  <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1805.11604">How Does Batch Normalization Help Optimization?</a></p>
+
 
 <!-- Tags -->
 
