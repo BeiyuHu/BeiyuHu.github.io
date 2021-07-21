@@ -306,8 +306,36 @@
 <hr>
 <h1 id="P7-Learning-Rate"><a href="#P7-Learning-Rate" class="headerlink" title="P7 Learning Rate"></a>P7 Learning Rate</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=7">Hung-yi Lee - Machine Learning 2021 - P7 自动调整learning rate</a></p>
 <hr>
-<p><a href="">Task03 - P5+6+7+8</a></p>
+<h2 id="Adagrad"><a href="#Adagrad" class="headerlink" title="Adagrad"></a>Adagrad</h2><p>参考 <a href="https://beyuhu.com/TASK03%20-%20P5+6+7+8">Task03 - P5+6+7+8</a></p>
+<h2 id="RMSProp"><a href="#RMSProp" class="headerlink" title="RMSProp"></a>RMSProp</h2><p>(没有论文)  和 Adagrad 中 Root Mean Square 唯一的不同是 RMSProp 没有取 MEAN值，而是考虑不同的权重调整式子中 α 值。</p>
+<p align="center"><img src="RMSProp.png" width="80%"></p>
 
+<p>Optimization strategy a.k.a OPTIMIZER: <em><strong>Adam</strong></em> = RMSProp + Momemtum 是较为常用的 optimizer</p>
+<p align="center"><img src="Adam.png" width="100%"></p> 预设参数不要随便调，default已经够好。
+
+<hr>
+<h2 id="Learning-Rate-Scheduling"><a href="#Learning-Rate-Scheduling" class="headerlink" title="Learning Rate Scheduling"></a>Learning Rate Scheduling</h2><h3 id="Learning-Rate-Decay"><a href="#Learning-Rate-Decay" class="headerlink" title="Learning Rate Decay"></a>Learning Rate Decay</h3><p align="center"><img src="LRD.png" width="80%"></p> 
+
+<h3 id="Warm-Up"><a href="#Warm-Up" class="headerlink" title="Warm Up"></a>Warm Up</h3><p align="center"><img src="warmUp.png" width="80%"></p> 
+
+
+<p>有很多高级算法都“偷偷”加上了warm up却未告知它的作用、它的来由。<br>A possible explaination: 统计学上讲，需要多笔数据后才能得到更精准的数据；warm up的作用便是使得数据先被“预读”过、探索过一些error surface的情报。<br><em><strong>ref:</strong></em> <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.03265">RAdam</a></p>
+<hr>
+<h2 id="Summary-of-optimization"><a href="#Summary-of-optimization" class="headerlink" title="Summary of optimization"></a>Summary of optimization</h2><ul>
+<li><p>(Vanilla) Gradient Descent: θ<sup>t+1</sup> ← θ<sup>t</sup> - η <em><strong>g</strong></em><sup>t</sup></p>
+</li>
+<li><p>Various Improvement: θ<sup>t+1</sup> ← θ<sup>t</sup> - η<sup>t</sup>/<strong>σ</strong><sup>t</sup> <em><strong>m</strong></em><sup>t</sup></p>
+<ul>
+<li>（考虑方向）<em><strong>m</strong></em><sup>t</sup> = momentum: weighted sum of the previous gradients </li>
+<li>（考虑大小）<strong>σ</strong><sup>t</sup> = root mean square of the gradients </li>
+<li>（考虑schedule）η<sup>t</sup></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="P8-Learning-Rate"><a href="#P8-Learning-Rate" class="headerlink" title="P8 Learning Rate"></a>P8 Learning Rate</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=8">Hung-yi Lee - Machine Learning 2021 - P8 损失函数也可能有影响</a></p>
+<hr>
+<h2 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h2>
 
 <!-- Tags -->
 
