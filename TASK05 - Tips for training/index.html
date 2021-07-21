@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon/favicon.ico">
+    <!--Description-->
+    
+        <meta name="description" content="BEIYUHU&#39;S STUDY ROOM">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="BEIYU HU">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="TASK05 - Tips"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content=""/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>TASK05 - Tips - </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/BEYUHU.png" alt="" /></span><span class="title"></span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">M E N U</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>M E N U</h2>
+    <ul>
+        
+            <li>
+                <a href="/">H O M E</a>
+            </li>
+        
+            <li>
+                <a href="/archives">A R C H I V E S</a>
+            </li>
+        
+            <li>
+                <a href="/CV.pdf">C V</a>
+            </li>
+        
+            <li>
+                <a target="_blank" rel="noopener" href="https://linkedin.com/in/beiyuhu">L i n k e d I n</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>TASK05 - Tips</h1>
+
+
+    <span class="image main"><img src="HUNGYILEE_05.png" alt="" /></span>
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<h1 id="P5-Local-minima-vs-Saddle-point"><a href="#P5-Local-minima-vs-Saddle-point" class="headerlink" title="P5 Local minima vs Saddle point"></a>P5 Local minima vs Saddle point</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=5">Hung-yi Lee - Machine Learning 2021 - P5 局部最小与鞍点</a></p>
+<hr>
+<h2 id="1-Terminology-of-local-minima-amp-saddle-point"><a href="#1-Terminology-of-local-minima-amp-saddle-point" class="headerlink" title="1. Terminology of local minima &amp; saddle point"></a>1. Terminology of <u>local minima</u> &amp; <u>saddle point</u></h2><h3 id="Optimization-fails-↓"><a href="#Optimization-fails-↓" class="headerlink" title="Optimization fails ↓"></a>Optimization fails ↓</h3><P align="center"><img src="LossGraph.png" width="80%"></p>
+
+<p><strong>Scenarios</strong><br>    1. <code>Blue</code>：当到达某个时刻，参数update对loss没有变化，但loss并不小；<br>    2. <code>Orange</code>：从刚一开始，gradient就没有变化，gradient为0</p>
+<p>即 <em>对Loss的微分为0，gradient descent无法update参数。</em> <strong>可能的原因</strong>：<br>    1. <code>local minima</code><br>    2. <code>saddle point</code>（鞍点）→ 既不是local minima, 又不是local maxima</p>
+<p align="center"><img src="localMinima+saddlePoint.png" width="80%"></p>
+
+<ul>
+<li>gradient = 0的点 统称为 <code>critical point</code></li>
+</ul>
+<hr>
+<h2 id="2-如何判断local-minima还是saddle-point？"><a href="#2-如何判断local-minima还是saddle-point？" class="headerlink" title="2. 如何判断local minima还是saddle point？"></a>2. 如何判断local minima还是saddle point？</h2><ul>
+<li>Task03中的泰勒展开式，增加二次微分项<ol>
+<li><em>θ = θ’</em> 附近的 L(θ) 可展开为：<p align="center"> <em>L(θ) ≈ L(θ’) + ( θ - θ’ )<sup>T</sup> <strong>g</strong> + 1/2 ( θ - θ’ )<sup>T</sup> <strong>H</strong> ( θ - θ’ )</em> </p><ol>
+<li>一次微分 Gradient <em><strong>g</strong></em> is a vector：<em><strong>g</strong><sub>i</sub> = 𝜕 L(θ’)/ 𝜕 θ<sub>i</sub></em></li>
+<li>二次微分 Hessian <strong>H</strong> is a matrix：<em><strong>H</strong><sub>ij</sub> = 𝜕 <sup>2</sup>L(θ’)/ 𝜕 θ<sub>i</sub>𝜕 θ<sub>j</sub></em></li>
+</ol>
+</li>
+<li>和<code>critical point</code>有什么关系？<ol>
+<li>一次微分在<code>critical point</code>时为<strong>零</strong></li>
+<li>二次微分则可用于判别<code>critical point</code>的特性（他的地貌长什么样子）</li>
+</ol>
+</li>
+<li>Hessian <strong>H</strong>：simplified 1/2 ( θ - θ’ )<sup>T</sup> <strong>H</strong> ( θ - θ’ )* → v<sup>T</sup> <strong>H</strong> v<ol>
+<li>For all <code>v</code>:  v<sup>T</sup> <strong>H</strong> v &gt;0 → θ’ 附近 L(θ) &gt; L(θ’) → <u><strong>Local minima</strong></u></li>
+<li>For all <code>v</code>:  v<sup>T</sup> <strong>H</strong> v &lt;0 → θ’ 附近 L(θ) &lt; L(θ’) → <u><strong>Local maxima</strong></u></li>
+<li>Sometimes v<sup>T</sup> <strong>H</strong> v &gt;0, sometimes v<sup>T</sup> <strong>H</strong> v &lt;0 →  <u><strong>Saddle point</strong></u></li>
+</ol>
+<ul>
+<li>v<sup>T</sup> <strong>H</strong> v &gt;0 相当于 <code>H</code> is positive definite = All eigen values are <strong>positive</strong>，即直接看H的eigenvalue为正就可以判断local minima；同理eigenvalue全负时，为local maxima；有正有负时，为saddle point。</li>
+</ul>
+</li>
+<li><code>Saddle point</code>时怎么继续做gradient descent：<ul>
+<li>以下方法不常在实际中运行：<ol>
+<li>求<code>H</code>的特征向量<strong>u</strong>及特征值λ → v<sup>T</sup> <strong>H</strong>v 中<strong>v</strong>用<strong>u</strong>代替 → u<sup>T</sup> <strong>H</strong> u = u<sup>T</sup> λ u = λ ||<strong>u</strong>||<sup>2</sup></li>
+<li>若 λ &lt; 0 时，λ ||u||<sup>2</sup> &lt; 0 → L(θ) &lt; L(θ‘) 即 local maxima的情况</li>
+<li>换句话说 只要沿着eigenvector <strong>u</strong> 的方向去更新参数，L 就会减小</li>
+<li>但由于计算量过大，这种方法不实用。但是是一种可能性，实在碰到saddle point最差的情况下也能用这种方式。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h1 id="P6-Batch-vs-Momentum"><a href="#P6-Batch-vs-Momentum" class="headerlink" title="P6 Batch vs Momentum"></a>P6 Batch vs Momentum</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=6">Hung-yi Lee - Machine Learning 2021 - P6 批次与动量</a></p>
+<hr>
+<h2 id="1-BATCH"><a href="#1-BATCH" class="headerlink" title="1. BATCH"></a>1. BATCH</h2><ol>
+<li><p>Terminology</p>
+<ul>
+<li>batch<ul>
+<li>Batch也有人称之为mini batch</li>
+<li>实际上算微分的时候，把所有data分成一个个的batch</li>
+<li>每一笔batch资料里算gradient，再update参数</li>
+<li>意思是不会把所有的data同时算loss，而是按batch来</li>
+</ul>
+</li>
+<li>epoch<ul>
+<li>把所有的batch看过一遍，称之为一个epoch</li>
+<li>每一个epoch的batch都不一样</li>
+</ul>
+</li>
+<li>shuffle：每次更新epoch时batch都不一样，叫做shuffle</li>
+</ul>
+</li>
+<li><p>Batch size: Small Batch v.s. Large Batch</p>
+</li>
+</ol>
+<ul>
+<li><code>example 1:</code> 无平行运算，batch size的不同结果</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Batch size</th>
+<th align="center">= N (full batch)</th>
+<th align="center">= 1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gradient<br>Descent</td>
+<td align="center">upddate after <strong>seeing all</strong> the examples<br>在一个epoch里只update一次<br><img src="fullBatch.png" width="80%"></td>
+<td align="center">update for <strong>each</strong> example<br>在一个epoch 里面会update 20次<br><img src="miniBatch.png" width="80%"></td>
+</tr>
+<tr>
+<td>Pros</td>
+<td align="center">时间长</td>
+<td align="center">时间短</td>
+</tr>
+<tr>
+<td>Cons</td>
+<td align="center">稳当 powerful</td>
+<td align="center">较noisy</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Q1: 但如果加入平行运算呢？(by GPU)</p>
+</blockquote>
+<ul>
+<li><code>example 2:</code> 平行计算，larger batch size会更好<ol>
+<li>Larger batch size 并<strong>不一定</strong>会需要更长的时间算gradient；但有<strong>上限</strong>。<br> 从batch size 1到1000时，平行运算导致时间差不多；<br> 但10000甚至60000时，运行时间就开始指数型增长。<p align="center"><img src="parallelBatchSize.png" width="80%" ></p></li>
+<li>Smaller batch size 对于一个 epoch 要求更多时间更新<br>左边为 一次update，右边为 一个epoch 所用时间。<p align="center"><img src="smallBatch.png" width="80%" ></p></li>
+<li>也就是考虑batch size时，考虑单次update时间 及 单次epoch的update时间</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>Q2: 但是不是larger size的batch就是好的呢？</p>
+</blockquote>
+<p>并不是！<br>在实际training中，同样的model、同样的network，照理说表示的accuracy结果应是一摸一样， 但：</p>
+<ul>
+<li><code>example 3</code>：平行计算，small size的准确度会更高<br>随着size增大，准确度下降（此例 与overfitting无关）<p align="center"><img src="batchSizeAccuracy.png" width="80%" ></p></li>
+</ul>
+<blockquote>
+<p>Q3: 为什么batch size会和准确度相关呢？</p>
+</blockquote>
+<p>对比不同size时，gradient在larger size可能会被卡住；而在smaller size上会同时进行不同loss的计算，这种noisy update是有助于找到更低的loss</p>
+<p align="center"><img src="batchSizeAccuracy_reason.png" width="80%" ></p>
+
+<h4 id="Summarizing-batch-size："><a href="#Summarizing-batch-size：" class="headerlink" title="Summarizing batch size："></a>Summarizing batch size：</h4><table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Large</th>
+<th align="center">Small</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Speed for 1 <strong>update</strong><br>(<strong>no</strong> parallel)</td>
+<td align="center">Slower</td>
+<td align="center">Faster</td>
+</tr>
+<tr>
+<td>Speed for 1 <strong>update</strong><br>(<strong>with</strong> parallel)</td>
+<td align="center">Same<br>(with limitation)</td>
+<td align="center">Same</td>
+</tr>
+<tr>
+<td>Speed for 1 <strong>epoch</strong></td>
+<td align="center">Faster ★</td>
+<td align="center">Slower</td>
+</tr>
+<tr>
+<td>Gradient</td>
+<td align="center">Stable</td>
+<td align="center">Noisy</td>
+</tr>
+<tr>
+<td>Optimization</td>
+<td align="center">Worse</td>
+<td align="center">Better ★</td>
+</tr>
+<tr>
+<td>Generalization</td>
+<td align="center">Worse</td>
+<td align="center">Better ★</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="2-MOMENTUM"><a href="#2-MOMENTUM" class="headerlink" title="2. MOMENTUM"></a>2. MOMENTUM</h2><p>物理世界里面有惯性，使得球体在动量惯性继续向前动。那在gradient descent中，即是 前一步的weighted gradient减去现在的gradient。</p>
+<blockquote>
+<p><em><strong>m<sup>i</sup></strong></em> = weighted sum of all the previous gradient <em><strong>g</strong></em><sup><strong>0</strong></sup>, <em><strong>g</strong></em><sup><strong>1</strong></sup>, <em><strong>g</strong></em><sup><strong>2</strong></sup>, …</p>
+</blockquote>
+<p>所以：</p>
+<blockquote>
+<p><em><strong>m</strong></em><sup><strong>0</strong></sup> = 0<br><em><strong>m</strong></em><sup><strong>1</strong></sup> = λ<em><strong>m</strong></em><sup><strong>0</strong></sup> - η <em><strong>g</strong></em><sup><strong>0</strong></sup> =  -  η <em><strong>g</strong></em><sup><strong>0</strong></sup><br><em><strong>m</strong></em><sup><strong>2</strong></sup> = λ<em><strong>m</strong></em><sup><strong>1</strong></sup>  -  η <em><strong>g</strong></em><sup><strong>1</strong></sup> = -λ η <em><strong>g</strong></em><sup><strong>0</strong></sup> -  η <em><strong>g</strong></em><sup><strong>1</strong></sup><br>…</p>
+</blockquote>
+<p align="center"><img src="momentum.png" width="80%"><br>这样就有可能在local minima的时候，再尝试往前走并突破。</p>
+
+<hr>
+<h1 id="P7-Learning-Rate"><a href="#P7-Learning-Rate" class="headerlink" title="P7 Learning Rate"></a>P7 Learning Rate</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=7">Hung-yi Lee - Machine Learning 2021 - P7 自动调整learning rate</a></p>
+<hr>
+<p><a href="">Task03 - P5+6+7+8</a></p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/MachineLearning/" class="button small">MachineLearning</a> <a href="/tags/Hung-yi-Lee/" class="button small">Hung-yi_Lee</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <div>
+                A little blog for note sharing, check the  <b><a href="/about" target="_self"> info</a></b> about everything! :)
+            </div>
+        </section>
+        <section>
+            
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; BH. All rights reserved</li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'GUESTS';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>
