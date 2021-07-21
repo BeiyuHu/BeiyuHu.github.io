@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="TASK05 - Tips"/>
+        <meta property="og:title" content="TASK05 - Traning Tips"/>
     
 
     <!--Open Graph Site Name-->
@@ -33,7 +33,7 @@
 
     <!-- Title -->
     
-    <title>TASK05 - Tips - </title>
+    <title>TASK05 - Traning Tips - </title>
 
     <!-- Custom CSS -->
     
@@ -122,7 +122,7 @@
                 <!-- Main Content -->
                 
 
-    <h1>TASK05 - Tips</h1>
+    <h1>TASK05 - Traning Tips</h1>
 
 
     <span class="image main"><img src="HUNGYILEE_05.png" alt="" /></span>
@@ -333,9 +333,38 @@
 </li>
 </ul>
 <hr>
-<h1 id="P8-Learning-Rate"><a href="#P8-Learning-Rate" class="headerlink" title="P8 Learning Rate"></a>P8 Learning Rate</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=8">Hung-yi Lee - Machine Learning 2021 - P8 损失函数也可能有影响</a></p>
+<h1 id="P8-Optimization-by-loss-function"><a href="#P8-Optimization-by-loss-function" class="headerlink" title="P8 Optimization by loss function"></a>P8 Optimization by loss function</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=8">Hung-yi Lee - Machine Learning 2021 - P8 损失函数也可能有影响</a></p>
 <hr>
-<h2 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h2>
+<p>下方以Classification为例：</p>
+<h2 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h2><p>假如分三类：Class 1, Class 2, Class 3 </p>
+<h3 id="Class-as-one-hot-vector"><a href="#Class-as-one-hot-vector" class="headerlink" title="Class as one-hot vector"></a>Class as one-hot vector</h3><p align="center"><img src="onehotVector.png" width="50%"></p>
+
+<h3 id="Classification-operation"><a href="#Classification-operation" class="headerlink" title="Classification operation"></a>Classification operation</h3><p>input x → W’ * σ ( b + W · <code>x</code>) + b’ = output <code>y</code> → <code>y&#39;</code> → <code>y^</code><br>其中 <code>y</code> 可为任何值；<code>y&#39;</code>为 <code>y</code> 通过<strong>softmax</strong> function转换成的值，为0到1之间；<code>y^</code>为 <code>y&#39;</code> 目标label，通过MSE或<strong>Cross-entropy</strong>判断</p>
+<h4 id="1-softmax（当-binary的时候用sigmoid）"><a href="#1-softmax（当-binary的时候用sigmoid）" class="headerlink" title="1. softmax（当 binary的时候用sigmoid）"></a>1. softmax（当 binary的时候用sigmoid）</h4><blockquote>
+<p><strong>y<sub>i</sub>‘ = exp(y<sub>i</sub>) / Σ<sub>j</sub>exp(y<sub>i</sub>)</strong></p>
+<ul>
+<li>1 &gt; y’ &gt; 0</li>
+<li>Σy’ = 1</li>
+</ul>
+</blockquote>
+<pre><code>其过程为 1. 求指数 → 变正数 2.求总和的分数 → 算比例 
+</code></pre>
+<p align="center"><img src="softmax.png" width="90%"></p>
+
+<h4 id="2-Cross-entropy"><a href="#2-Cross-entropy" class="headerlink" title="2. Cross-entropy"></a>2. Cross-entropy</h4><blockquote>
+<p><strong>e = - Σ y<sub>i</sub>^ ln y’<sub>i</sub></strong></p>
+</blockquote>
+<p><em>Minimizing cross-entropy = Maximizing likelihood</em>。Cross-entropy 比 MSE 更常用，在PyTorch里面甚至把softmax和Cross-entropy放一起了。</p>
+<blockquote>
+<p>Q：那为什么Cross-entropy就好了呢？</p>
+</blockquote>
+<img src="MSECROSSENTROPY.png" width="90%">
+
+<p>MSE容易将loss卡在large loss的部分，而Cross-entropy则不会。这也<strong>说明了loss function可以改变optimization。</strong></p>
+<hr>
+<h1 id="P9-Batch-Normalization"><a href="#P9-Batch-Normalization" class="headerlink" title="P9 Batch Normalization"></a>P9 Batch Normalization</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=9">Hung-yi Lee - Machine Learning 2021 - P9 批次标准化</a></p>
+<hr>
+<h2 id="Feature-Normalization"><a href="#Feature-Normalization" class="headerlink" title="Feature Normalization"></a>Feature Normalization</h2>
 
 <!-- Tags -->
 
