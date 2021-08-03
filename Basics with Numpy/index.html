@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon/favicon.ico">
+    <!--Description-->
+    
+        <meta name="description" content="BEIYUHU&#39;S STUDY ROOM">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="BEIYU HU">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="TASK06 - CNN"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content=""/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>TASK06 - CNN - </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/BEYUHU.png" alt="" /></span><span class="title"></span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">M E N U</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>M E N U</h2>
+    <ul>
+        
+            <li>
+                <a href="/">H O M E</a>
+            </li>
+        
+            <li>
+                <a href="/archives">A R C H I V E S</a>
+            </li>
+        
+            <li>
+                <a href="/CV.pdf">C V</a>
+            </li>
+        
+            <li>
+                <a target="_blank" rel="noopener" href="https://linkedin.com/in/beiyuhu">L i n k e d I n</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>TASK06 - CNN</h1>
+
+
+    <span class="image main"><img src="HUNGYILEE_06.png" alt="" /></span>
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<h1 id="P10-Convolutional-Neural-Network-CNN"><a href="#P10-Convolutional-Neural-Network-CNN" class="headerlink" title="P10 Convolutional Neural Network (CNN)"></a>P10 Convolutional Neural Network (CNN)</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=10">Hung-yi Lee - Machine Learning 2021 - P10 CNN</a></p>
+<hr>
+<h2 id="Image-Classification"><a href="#Image-Classification" class="headerlink" title="Image Classification"></a>Image Classification</h2><p>Process：<code>Pictrue</code>  → <code>Model</code> → <code>y&#39;</code> ←(Cross-entropy)→ <code>y^</code></p>
+<h3 id="1-Pictrue"><a href="#1-Pictrue" class="headerlink" title="1. Pictrue"></a>1. <code>Pictrue</code></h3><ul>
+<li>= 3D tensor (&gt;2 dim的matrix) = 1D * width + 1D * length + 1D * RGB channels，则可以展开为 <strong>3张 * 解析度100x100</strong> 的 单色图 排成一排 成为network的输入；其中的每一个pixel可以视作<strong>某个位置某个颜色的强度</strong></li>
+<li>假设 固定图片大小，若不一，需要rescale。（假如100x100）</li>
+</ul>
+<h3 id="2-Model"><a href="#2-Model" class="headerlink" title="2. Model"></a>2. <code>Model</code></h3><p>之前只讲过 Fully Connected Network，但由于影响太大会导致计算量过大，怎么办呢？</p>
+<h4 id="Observation-1："><a href="#Observation-1：" class="headerlink" title="Observation 1："></a><U><strong>Observation 1</strong></U>：</h4><p>neuron不需要把整张图片都看完，而是需要看出图片中的pattern</p>
+<p><U>Simplification 1</U></p>
+<ul>
+<li>每张图片分成不同的<code>Receptive field</code> ，每个神经元只关注自己的<code>Receptive field</code> </li>
+<li>怎么决定出来呢：看需求 ↓<ol>
+<li>可以有overlap；</li>
+<li>可以不同的neuron，关注同一个<code>Receptive field</code> ；</li>
+<li>可以有大有小；</li>
+<li>可以cover部分channel（不常见但有）；</li>
+<li>可以不是正方形；…<img src="receptiveField.png" width="80%"></li>
+</ol>
+</li>
+<li><strong>一般设定：</strong><ol>
+<li>会看所有的channel，即RBG三色，所以一般只讲RF的高跟宽，不讲其深度</li>
+<li><code>kernel size</code> = RF的高跟宽，一般为 3x3</li>
+<li>每个RF会有一组neurons去“守备”它</li>
+<li>各个RF之间是什么关系呢？<ol>
+<li>以 3x3 为 kernel size的话，以<code>stride</code> = 1或2 移动 1或2格 RF，使之有overlap；</li>
+<li>那超出图片范围的，就用<code>padding</code>来补值，一般都为0<img src="receptiveField2.png" width="80%"></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="Observation-2："><a href="#Observation-2：" class="headerlink" title="Observation 2："></a><U><strong>Observation 2</strong></U>：</h4><p>同样的pattern可能出现在图片的不同区域</p>
+<p><U>Simplification 2</U></p>
+<ul>
+<li>Parameter sharing 共享参数<ul>
+<li>shared weight <code>w1</code>, <code>w2</code>, <code>w3</code>…</li>
+<li>但不能在同一个RF中</li>
+<li><strong>一般设定：</strong><ul>
+<li>每个RF中都有一组神经元</li>
+<li>每个RF中都有同样的参数，即都只有一组参数，称每组参数为<code>filter</code><img src="filter.png" width="80%"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>那至此：到底卷积层Convolutional Layer有什么用处呢？</p>
+<ul>
+<li>范围缩小；</li>
+<li>bias 大：不一定是坏事；<br>  bias 小时容易overfitting；<code>convolutional layer</code>特别为影像设计的，对于影像外的需要特别注意适用性</li>
+</ul>
+<img src="benefit.png" width="80%">
+
+<hr>
+<h4 id="从filter的角度重新看以上的讲解："><a href="#从filter的角度重新看以上的讲解：" class="headerlink" title="从filter的角度重新看以上的讲解："></a>从<code>filter</code>的角度重新看以上的讲解：</h4><p>即 利用不同的<code>filter</code>，以<code>stride</code>为1的步长，移动<code>kernel size</code>，并计算提取其特征，得出<code>feature map</code>，再继续做第二次convolution</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="filter1.png" width="80%"></th>
+<th align="center"><img src="filter2.png" width="80%"></th>
+<th align="center"><img src="filter3.png" width="80%"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">STEP1: 6X6.jpg with <strong>64</strong> filters</td>
+<td align="center">STEP2: calculate each filter(<strong>3X3</strong>)</td>
+<td align="center">STEP3: 2nd convolutional layer → <strong>tensor 3X3X64</strong></td>
+</tr>
+</tbody></table>
+<p>推荐可看李永乐老师的讲解：<br>ref: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AFlIM0jSI9I&list=PLOrDt87s8A3pUSBVvY0g1vhuMk9RM0Ptv&index=2"># 人脸识别啥原理？人工智能（二）卷积神经网络</a></p>
+<hr>
+<h4 id="Observation-3：pooling-池化"><a href="#Observation-3：pooling-池化" class="headerlink" title="Observation 3：pooling 池化"></a><U><strong>Observation 3</strong></U>：pooling 池化</h4><p>subsampling:<br>    把偶数的column、奇数的row都拿掉；图片变为原图1/4；且图片没有什么过分差异 → 以减少运算量</p>
+<p><U>Pooling 之 Max pooling</U><br>（…延续）<code>Convolution</code> → <code>Pooling</code> → (repeat)… → <code>Flatten</code> → <code>softmax</code> → output</p>
+<ul>
+<li>把feature map拿出来，并选择代表：最大值(此处为max pooling)</li>
+<li><strong>但</strong> 近年来pooling越来越少，因为subsample的时候会把图片压缩；且运算能力越来越强，可直接convolution</li>
+</ul>
+<hr>
+<p>cons: CNN 无法处理scaling和rotation的问题。<br>所以需要做data augmentation，让CNN看过放大缩小及旋转的图片。<br>另外一个算法 <em>Spatial Transformer Layer</em> 则可以。</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/MachineLearning/" class="button small">MachineLearning</a> <a href="/tags/Hung-yi-Lee/" class="button small">Hung-yi_Lee</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <div>
+                A little blog for note sharing, check the  <b><a href="/about" target="_self"> info</a></b> about everything! :)
+            </div>
+        </section>
+        <section>
+            
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; BH. All rights reserved</li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'GUESTS';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>
