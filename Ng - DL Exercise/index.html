@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Basics with Numpy"/>
+        <meta property="og:title" content="Ng - DL Exercise"/>
     
 
     <!--Open Graph Site Name-->
@@ -33,7 +33,7 @@
 
     <!-- Title -->
     
-    <title>Basics with Numpy - </title>
+    <title>Ng - DL Exercise - </title>
 
     <!-- Custom CSS -->
     
@@ -122,7 +122,7 @@
                 <!-- Main Content -->
                 
 
-    <h1>Basics with Numpy</h1>
+    <h1>Ng - DL Exercise</h1>
 
 
     <span class="image main"><img src="NUMPY.png" alt="" /></span>
@@ -132,20 +132,49 @@
 
 
 <!-- Content -->
-<p>The following notes are taken following the course <em><a target="_blank" rel="noopener" href="https://www.coursera.org/learn/neural-networks-deep-learning">Neural Networks and Deep Learning</a></em> by <a target="_blank" rel="noopener" href="https://www.andrewng.org/">Andrew Ng</a>, please refer to coursera.com for further study.</p>
-<hr>
+<p><em>The following notes are taken following the course <em><a target="_blank" rel="noopener" href="https://www.coursera.org/learn/neural-networks-deep-learning">Neural Networks and Deep Learning</a></em> by <a target="_blank" rel="noopener" href="https://www.andrewng.org/">Andrew Ng</a>, please refer to coursera.com for further study.</em></p>
+<p id="index"></p>
+
+<table>
+<thead>
+<tr>
+<th align="left">INDEX</th>
+<th>CONTENT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="#01">Basic functions with numpy</a></td>
+<td>1.0 what is numpy?<br>1.1 - sigmoid function, <code>np.exp()</code><br>1.2 - Sigmoid Gradient<br>1.3 - Reshaping arrays<br>1.4 - Normalizing rows</td>
+</tr>
+<tr>
+<td align="left"><a href="#02">Vectorization</a></td>
+<td>Implement the L1 and L2 loss functions</td>
+</tr>
+</tbody></table>
+<p id="01"></p>
+<p align="center"> - - - - - - - - - - - - - - - 0 1 - - - - - - - - - - - - - - -
+<br><a href="#index">[ B A C K ]</a></p>
+
+<p align="center"> </p>
+
+
 <h2 id="1-Basic-functions-with-numpy"><a href="#1-Basic-functions-with-numpy" class="headerlink" title="1 Basic functions with numpy"></a>1 Basic functions with numpy</h2><h3 id="1-0-what-is-numpy"><a href="#1-0-what-is-numpy" class="headerlink" title="1.0 what is numpy?"></a>1.0 what is numpy?</h3><blockquote>
 <p>Numpy is the main package for scientific computing in Python. It is maintained by a large community (<a target="_blank" rel="noopener" href="http://www.numpy.org/">www.numpy.org</a>). In this exercise you will learn several key numpy functions such as <code>np.exp</code>, <code>np.log</code>, and <code>np.reshape</code>. You will need to know how to use these functions for future assignments.</p>
 </blockquote>
-<p>The following steps start with <code>math.exp()</code> , then compare with <code>np.exp()</code> applying in sigmoid function for better indicating why <code>np.exp()</code> is preferable to <code>math.exp()</code>.</p>
-<h3 id="1-1-sigmoid-function-np-exp"><a href="#1-1-sigmoid-function-np-exp" class="headerlink" title="1.1 - sigmoid function, np.exp()"></a>1.1 - sigmoid function, np.exp()</h3>
+<h3 id="1-1-sigmoid-function-np-exp"><a href="#1-1-sigmoid-function-np-exp" class="headerlink" title="1.1 - sigmoid function, np.exp()"></a>1.1 - sigmoid function, np.exp()</h3><p>The following steps start with <code>math.exp()</code> , then compare with <code>np.exp()</code> applying in sigmoid function for better indicating why <code>np.exp()</code> is preferable to <code>math.exp()</code>.</p>
+<h4 id="Sigmoid-function-in-python"><a href="#Sigmoid-function-in-python" class="headerlink" title="Sigmoid function in python:"></a>Sigmoid function in python:</h4><p align="center"><img src="Sigmoid.png" width="80%"></p>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># call a function formatting in package_name.function()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for example</span></span><br><span class="line">math.exp()</span><br><span class="line">np.exp()</span><br><span class="line"></span><br><span class="line"><span class="comment"># sigmoid</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid</span>(<span class="params">x</span>):</span></span><br><span class="line">	s = <span class="number">1</span>/(<span class="number">1</span>+math.exp(-x)) <span class="comment"># or s = 1/(1+np.exp(-x))</span></span><br><span class="line"><span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
+
+<p>The difference between <code>np.exp(x)</code> and <code>math.exp(x)</code> when</p>
+
 
 <!-- Tags -->
 
 
 
 <div class="tags">
-    <a href="/tags/DeepLearning/" class="button small">DeepLearning</a> <a href="/tags/AndrewNg/" class="button small">AndrewNg</a>
+    <a href="/tags/DeepLearning/" class="button small">DeepLearning</a> <a href="/tags/Andrew-Ng/" class="button small">Andrew_Ng</a>
 </div>
 
 
