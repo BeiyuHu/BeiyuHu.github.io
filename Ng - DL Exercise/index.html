@@ -230,7 +230,23 @@
 <p align="center"><img src="ANDREWNG_VECTORIZATION.png" width="100%"></p>
 <p align="center"> </p>
 
-<h3 id="2-Vectorization"><a href="#2-Vectorization" class="headerlink" title="2 - Vectorization"></a>2 - Vectorization</h3>
+<h3 id="2-Vectorization"><a href="#2-Vectorization" class="headerlink" title="2 - Vectorization"></a>2 - Vectorization</h3><blockquote>
+<p>As you may have noticed, the <strong>vectorized implementation</strong> is much <strong>cleaner</strong> and more <strong>efficient</strong>. For bigger vectors/matrices, the differences in running time become even bigger.<br><strong>Note</strong> that <code>np.dot()</code> performs a matrix-matrix or matrix-vector multiplication. This is different from <code>np.multiply()</code> and the <code>*</code> operator (which is equivalent to <code>.*</code> in Matlab/Octave), which performs an element-wise multiplication.</p>
+</blockquote>
+<h4 id="Implement-the-L1-and-L2-loss-function"><a href="#Implement-the-L1-and-L2-loss-function" class="headerlink" title="Implement the L1 and L2 loss function"></a>Implement the L1 and L2 loss function</h4><table>
+<thead>
+<tr>
+<th align="center"><img src="L1.png" width="80%"></th>
+<th align="center"><img src="L2.png" width="80%"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">by <code>abs()</code></td>
+<td align="center">by <code>np.dot()</code></td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Loss function 1</span></span><br><span class="line"><span class="built_in">input</span>:</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">L1</span>(<span class="params">yhat, y</span>):</span></span><br><span class="line">    </span><br><span class="line">    loss=<span class="built_in">sum</span>(<span class="built_in">abs</span>(yhat-y))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line">yhat = np.array([<span class="number">.9</span>, <span class="number">0.2</span>, <span class="number">0.1</span>, <span class="number">.4</span>, <span class="number">.9</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;L1 = &quot;</span> + <span class="built_in">str</span>(L1(yhat, y)))</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">L1 = <span class="number">1.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Loss function 2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">L2</span>(<span class="params">yhat, y</span>):</span></span><br><span class="line"></span><br><span class="line">    loss=np.dot(yhat-y,yhat-y)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> loss</span><br><span class="line">yhat = np.array([<span class="number">.9</span>, <span class="number">0.2</span>, <span class="number">0.1</span>, <span class="number">.4</span>, <span class="number">.9</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;L2 = &quot;</span> + <span class="built_in">str</span>(L2(yhat, y)))</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">L2 = <span class="number">0.43</span></span><br></pre></td></tr></table></figure>
+
 
 <!-- Tags -->
 
