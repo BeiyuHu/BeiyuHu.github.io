@@ -125,8 +125,6 @@
     <h1>Ng - DL Exercise</h1>
 
 
-    <span class="image main"><img src="NUMPY.png" alt="" /></span>
-
 
 <!-- Gallery -->
 
@@ -144,7 +142,7 @@
 </thead>
 <tbody><tr>
 <td align="left"><a href="#01">Basic functions with numpy</a></td>
-<td>1.0 what is numpy?<br>1.1 - sigmoid function, <code>np.exp()</code><br>1.2 - Sigmoid Gradient<br>1.3 - Reshaping arrays<br>1.4 - Normalizing rows</td>
+<td><a href="#01.0">1.0 - What is numpy?</a><br><a href="#01.1">1.1 - Sigmoid function by <code>np.exp()</code></a><br><a href="#01.2">1.2 - Sigmoid Gradient by <code>ds=s*(1-s)</code></a><br><a href="#01.3">1.3 - Reshaping arrays by <code>X.reshape()</code></a><br><a href="#01.4">1.4 - Normalizing rows by <code>np.linalg.norm()</code></a></td>
 </tr>
 <tr>
 <td align="left"><a href="#02">Vectorization</a></td>
@@ -154,20 +152,85 @@
 <p id="01"></p>
 <p align="center"> - - - - - - - - - - - - - - - 0 1 - - - - - - - - - - - - - - -
 <br><a href="#index">[ B A C K ]</a></p>
-
+<p align="center"><img src="ANDREWNG_BASICNUMPY.png" width="100%"></p>
 <p align="center"> </p>
 
 
-<h2 id="1-Basic-functions-with-numpy"><a href="#1-Basic-functions-with-numpy" class="headerlink" title="1 Basic functions with numpy"></a>1 Basic functions with numpy</h2><h3 id="1-0-what-is-numpy"><a href="#1-0-what-is-numpy" class="headerlink" title="1.0 what is numpy?"></a>1.0 what is numpy?</h3><blockquote>
-<p>Numpy is the main package for scientific computing in Python. It is maintained by a large community (<a target="_blank" rel="noopener" href="http://www.numpy.org/">www.numpy.org</a>). In this exercise you will learn several key numpy functions such as <code>np.exp</code>, <code>np.log</code>, and <code>np.reshape</code>. You will need to know how to use these functions for future assignments.</p>
+
+<h2 id="1-Basic-functions-with-numpy"><a href="#1-Basic-functions-with-numpy" class="headerlink" title="1 Basic functions with numpy"></a>1 Basic functions with numpy</h2><p id="01.0" align="right"></p>
+
+<h3 id="1-0-what-is-numpy"><a href="#1-0-what-is-numpy" class="headerlink" title="1.0 - what is numpy?"></a>1.0 - what is numpy?</h3><blockquote>
+<p>Numpy is the main package for scientific computing in Python. It is maintained by a large community (<a target="_blank" rel="noopener" href="http://www.numpy.org/">www.numpy.org</a>). In this exercise you will learn several key numpy functions such as <code>np.exp</code>, <code>np.log</code>, and <code>np.reshape</code>. </p>
 </blockquote>
-<h3 id="1-1-sigmoid-function-np-exp"><a href="#1-1-sigmoid-function-np-exp" class="headerlink" title="1.1 - sigmoid function, np.exp()"></a>1.1 - sigmoid function, np.exp()</h3><p>The following steps start with <code>math.exp()</code> , then compare with <code>np.exp()</code> applying in sigmoid function for better indicating why <code>np.exp()</code> is preferable to <code>math.exp()</code>.</p>
+<p id="01.1" align="right"><a href="#index">[ B A C K ]</a></p>
+
+<h3 id="1-1-Sigmoid-function-by-np-exp"><a href="#1-1-Sigmoid-function-by-np-exp" class="headerlink" title="1.1 - Sigmoid function by np.exp()"></a>1.1 - Sigmoid function by np.exp()</h3><p>The following steps start with <code>math.exp()</code> , then compare with <code>np.exp()</code> applying in sigmoid function for better indicating why <code>np.exp()</code> is preferable to <code>math.exp()</code>.</p>
 <h4 id="Sigmoid-function-in-python"><a href="#Sigmoid-function-in-python" class="headerlink" title="Sigmoid function in python:"></a>Sigmoid function in python:</h4><p align="center"><img src="Sigmoid.png" width="80%"></p>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># call a function formatting in package_name.function()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for example</span></span><br><span class="line">math.exp()</span><br><span class="line">np.exp()</span><br><span class="line"></span><br><span class="line"><span class="comment"># sigmoid</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid</span>(<span class="params">x</span>):</span></span><br><span class="line">	s = <span class="number">1</span>/(<span class="number">1</span>+math.exp(-x)) <span class="comment"># or s = 1/(1+np.exp(-x))</span></span><br><span class="line"><span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
 
-<p>The difference between <code>np.exp(x)</code> and <code>math.exp(x)</code> when</p>
+<h4 id="However-there-are-some-differences"><a href="#However-there-are-some-differences" class="headerlink" title="However, there are some differences:"></a>However, there are some differences:</h4><p>The difference between <code>np.function(x)</code> and <code>math.function(x)</code> is: </p>
+<ul>
+<li>when variable <code>x</code> is not only a real number but a vector or a matrix, <code>np.function()</code> could <strong>compute for every element</strong> <code>x</code> while <code>math.function(x)</code> could <strong>only compute a single real number.</strong></li>
+<li>But in Deep Learning, we mostly use matrices and vectors, <em>therefore numpy is more useful.</em></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">input</span>:</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># example of np.exp</span></span><br><span class="line">t_x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) </span><br><span class="line"><span class="comment"># The data structures we use in numpy to represent </span></span><br><span class="line"><span class="comment"># these shapes (vectors, matrices...) are called numpy arrays.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(np.exp(t_x)) <span class="comment"># result is (exp(1), exp(2), exp(3))</span></span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">[<span class="number">2.71828183</span>  <span class="number">7.3890561</span>  <span class="number">20.08553692</span>]</span><br></pre></td></tr></table></figure>
 
+<p id="01.2" align="right"><a href="#index">[ B A C K ]</a></p>
+
+<h3 id="1-2-Sigmoid-Gradient"><a href="#1-2-Sigmoid-Gradient" class="headerlink" title="1.2 - Sigmoid Gradient"></a>1.2 - Sigmoid Gradient</h3><p>Sigmoid function’s derivative shows as below:</p>
+<p align="center"><img src="Sigmoid_derivative.png" width="40%"></p>
+
+<p>Therefore, it could be divided into two steps:</p>
+<ol>
+<li> Set s to be the sigmoid of <code>x</code>. You might find your sigmoid(x) function useful.</li>
+<li> Compute <code>𝜎′(𝑥)=𝑠(1−𝑠)</code></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">input</span>:</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid_derivative</span>(<span class="params">x</span>):</span></span><br><span class="line">	</span><br><span class="line">    s=<span class="number">1</span>/(<span class="number">1</span>+np.exp(-x))</span><br><span class="line">    ds=s*(<span class="number">1</span>-s)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">return</span> ds</span><br><span class="line"></span><br><span class="line">t_x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;sigmoid_derivative(t_x) = &quot;</span> + <span class="built_in">str</span>(sigmoid_derivative(t_x)))</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">sigmoid_derivative(t_x) = [<span class="number">0.19661193</span> <span class="number">0.10499359</span> <span class="number">0.04517666</span>]</span><br></pre></td></tr></table></figure>
+
+<p id="01.3" align="right"><a href="#index">[ B A C K ]</a></p>
+
+<h3 id="1-3-Reshaping-arrays"><a href="#1-3-Reshaping-arrays" class="headerlink" title="1.3 - Reshaping arrays"></a>1.3 - Reshaping arrays</h3><blockquote>
+<p>when you read an image as the input of an algorithm you convert it to a vector of shape (L∗H∗D,1). In other words, you “unroll”, or reshape, <strong>the 3D array into a 1D vector.</strong></p>
+<ul>
+<li>  <code>X.shape[]</code> is used to get the shape (dimension) of a matrix/vector X.</li>
+<li>  <code>X.reshape(...)</code> is used to reshape X into some other dimension.</li>
+</ul>
+</blockquote>
+<p>Implementing it by coupling both: <code>x.reshape</code>(<code>x.shape[0]</code> * <code>x.shape[1]</code> * <code>x.shape[2]</code>,1)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">input</span>:</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">image2vector</span>(<span class="params">image</span>):</span></span><br><span class="line">   v=image.reshape(image.shape[<span class="number">0</span>]*image.shape[<span class="number">1</span>]*image.shape[<span class="number">2</span>],<span class="number">1</span>)</span><br><span class="line">   <span class="comment"># or v=image.reshape(-1,1)</span></span><br><span class="line">   <span class="comment"># get the X.reshape or X.shape with X=image here, not np.reshape or np.shape</span></span><br><span class="line"><span class="keyword">return</span> v</span><br><span class="line">t_image = np.array([[[ <span class="number">0.67826139</span>,  <span class="number">0.29380381</span>],</span><br><span class="line">                     [ <span class="number">0.90714982</span>,  <span class="number">0.52835647</span>],</span><br><span class="line">                     [ <span class="number">0.4215251</span> ,  <span class="number">0.45017551</span>]],</span><br><span class="line">                   [[ <span class="number">0.92814219</span>,  <span class="number">0.96677647</span>],</span><br><span class="line">                    [ <span class="number">0.85304703</span>,  <span class="number">0.52351845</span>],</span><br><span class="line">                    [ <span class="number">0.19981397</span>,  <span class="number">0.27417313</span>]],</span><br><span class="line">                   [[ <span class="number">0.60659855</span>,  <span class="number">0.00533165</span>],</span><br><span class="line">                    [ <span class="number">0.10820313</span>,  <span class="number">0.49978937</span>],</span><br><span class="line">                    [ <span class="number">0.34144279</span>,  <span class="number">0.94630077</span>]]])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;image2vector(image) = &quot;</span> + <span class="built_in">str</span>(image2vector(t_image)))</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">image2vector(image) = [[<span class="number">0.67826139</span>]</span><br><span class="line"> [<span class="number">0.29380381</span>]</span><br><span class="line"> [<span class="number">0.90714982</span>]</span><br><span class="line"> [<span class="number">0.52835647</span>]</span><br><span class="line"> [<span class="number">0.4215251</span> ]</span><br><span class="line"> [<span class="number">0.45017551</span>]</span><br><span class="line"> [<span class="number">0.92814219</span>]</span><br><span class="line"> [<span class="number">0.96677647</span>]</span><br><span class="line"> [<span class="number">0.85304703</span>]</span><br><span class="line"> [<span class="number">0.52351845</span>]</span><br><span class="line"> [<span class="number">0.19981397</span>]</span><br><span class="line"> [<span class="number">0.27417313</span>]</span><br><span class="line"> [<span class="number">0.60659855</span>]</span><br><span class="line"> [<span class="number">0.00533165</span>]</span><br><span class="line"> [<span class="number">0.10820313</span>]</span><br><span class="line"> [<span class="number">0.49978937</span>]</span><br><span class="line"> [<span class="number">0.34144279</span>]</span><br><span class="line"> [<span class="number">0.94630077</span>]]</span><br></pre></td></tr></table></figure>
+
+
+
+<p id="01.4" align="right"><a href="#index">[ B A C K ]</a></p>
+
+<h3 id="1-4-Normalizing-rows"><a href="#1-4-Normalizing-rows" class="headerlink" title="1.4 - Normalizing rows"></a>1.4 - Normalizing rows</h3><p>Why and How?</p>
+<blockquote>
+<p>It often leads to a better performance because gradient descent converges faster after normalization.</p>
+<p>Here, by normalization we mean changing x to 𝑥/‖𝑥‖ (dividing each row vector of x by its norm).</p>
+</blockquote>
+<h4 id="Step-1-find-norm"><a href="#Step-1-find-norm" class="headerlink" title="Step 1: find norm"></a>Step 1: find norm</h4><p>by <code>np.linalg.norm(X,ord=Y,axis=Z,keepdims=True/False)</code></p>
+<ul>
+<li><code>X</code> = input</li>
+<li><code>Y</code> = type of normalization, in the exercise is 2,  refer to <a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html">numpy.linalg.norm</a> </li>
+<li><code>Z</code> = 1 if it’s row, 0 if it’s column</li>
+<li><code>keepdims</code> = True to broadcast correctly against the original X</li>
+</ul>
+<h4 id="Step-2-X-X-norm"><a href="#Step-2-X-X-norm" class="headerlink" title="Step 2: X/X_norm"></a>Step 2: X/X_norm</h4><blockquote>
+<p>broadcasting by <code>keepdims=True</code>, but don’t use x/=x_norm</p>
+</blockquote>
+<h4 id="Exercise-with-Softmax-function"><a href="#Exercise-with-Softmax-function" class="headerlink" title="Exercise with Softmax function"></a>Exercise with Softmax function</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">input</span>:</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">softmax</span>(<span class="params">x</span>):</span></span><br><span class="line">   </span><br><span class="line">    <span class="comment"># step1: compute exp</span></span><br><span class="line">    x_exp=np.exp(x) </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># step2: compute sum of exp</span></span><br><span class="line">    x_sum=np.<span class="built_in">sum</span>(x_exp,axis=<span class="number">1</span>,keepdims=<span class="literal">True</span>) </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># step3: normalization</span></span><br><span class="line">    s=x_exp/x_sum </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line">t_x = np.array([[<span class="number">9</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">                [<span class="number">7</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span> ,<span class="number">0</span>]])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;softmax(x) = &quot;</span> + <span class="built_in">str</span>(softmax(t_x)))</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">softmax(x) = [[<span class="number">9.80897665e-01</span> <span class="number">8.94462891e-04</span> <span class="number">1.79657674e-02</span> <span class="number">1.21052389e-04</span></span><br><span class="line">  <span class="number">1.21052389e-04</span>]</span><br><span class="line"> [<span class="number">8.78679856e-01</span> <span class="number">1.18916387e-01</span> <span class="number">8.01252314e-04</span> <span class="number">8.01252314e-04</span></span><br><span class="line">  <span class="number">8.01252314e-04</span>]]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p id="02"></p>
+<p align="center"> - - - - - - - - - - - - - - - 0 2 - - - - - - - - - - - - - - -
+<br><a href="#index">[ B A C K ]</a></p>
+<p align="center"><img src="ANDREWNG_VECTORIZATION.png" width="100%"></p>
+<p align="center"> </p>
+
+<h3 id="2-Vectorization"><a href="#2-Vectorization" class="headerlink" title="2 - Vectorization"></a>2 - Vectorization</h3>
 
 <!-- Tags -->
 
