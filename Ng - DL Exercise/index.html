@@ -146,7 +146,11 @@
 </tr>
 <tr>
 <td align="left"><a href="#02">Vectorization</a></td>
-<td>Implement the L1 and L2 loss functions</td>
+<td>2.1 - Implement the L1 and L2 loss functions</td>
+</tr>
+<tr>
+<td align="left"><a href="#03">Logistic Regression with a Neural Network mindset</a></td>
+<td><a href="#03.1">3.1 - Packages</a><br><a href="#03.2">3.2 - Overview of the Problem set</a><br><a href="#03.3">3.3 - General Architecture of the learning algorithm</a><br><a href="#03.4">3.4 - Building the parts of our algorithm</a><br><a href="#03.5">3.5 - Merge all functions into a model</a><br><a href="#03.6">3.6 - Further analysis</a><br><a href="#03.7">3.7 - Test with your own image</a><br></td>
 </tr>
 </tbody></table>
 <p id="01"></p>
@@ -247,6 +251,29 @@
 </tbody></table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Loss function 1</span></span><br><span class="line"><span class="built_in">input</span>:</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">L1</span>(<span class="params">yhat, y</span>):</span></span><br><span class="line">    </span><br><span class="line">    loss=<span class="built_in">sum</span>(<span class="built_in">abs</span>(yhat-y))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line">yhat = np.array([<span class="number">.9</span>, <span class="number">0.2</span>, <span class="number">0.1</span>, <span class="number">.4</span>, <span class="number">.9</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;L1 = &quot;</span> + <span class="built_in">str</span>(L1(yhat, y)))</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">L1 = <span class="number">1.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Loss function 2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">L2</span>(<span class="params">yhat, y</span>):</span></span><br><span class="line"></span><br><span class="line">    loss=np.dot(yhat-y,yhat-y)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> loss</span><br><span class="line">yhat = np.array([<span class="number">.9</span>, <span class="number">0.2</span>, <span class="number">0.1</span>, <span class="number">.4</span>, <span class="number">.9</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;L2 = &quot;</span> + <span class="built_in">str</span>(L2(yhat, y)))</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">L2 = <span class="number">0.43</span></span><br></pre></td></tr></table></figure>
 
+<p id="03"></p>
+<p align="center"> - - - - - - - - - - - - - - - 0 3 - - - - - - - - - - - - - - -
+<br><a href="#index">[ B A C K ]</a></p>
+<p align="center"><img src="ANDREWNG_LOGISTICREGRESSION.png" width="100%"></p>
+<p align="center"> </p>
+
+
+
+<h2 id="3-LOGISTIC-REGRESSION-WITH-A-NEURAL-NETWORK-MINDSET"><a href="#3-LOGISTIC-REGRESSION-WITH-A-NEURAL-NETWORK-MINDSET" class="headerlink" title="3 LOGISTIC REGRESSION WITH A NEURAL NETWORK MINDSET"></a>3 LOGISTIC REGRESSION WITH A NEURAL NETWORK MINDSET</h2><p id="03.1" align="right"><a href="#index">[ B A C K ]</a></p>
+
+<h3 id="3-1-Packages"><a href="#3-1-Packages" class="headerlink" title="3.1 - Packages"></a>3.1 - Packages</h3><p id="03.2" align="right"><a href="#index">[ B A C K ]</a></p>
+
+<h3 id="3-2-Overview-of-the-Problem-set"><a href="#3-2-Overview-of-the-Problem-set" class="headerlink" title="3.2 - Overview of the Problem set"></a>3.2 - Overview of the Problem set</h3><p id="03.3" align="right"><a href="#index">[ B A C K ]</a></p>
+
+<h3 id="3-3-General-Architecture-of-the-learning-algorithm"><a href="#3-3-General-Architecture-of-the-learning-algorithm" class="headerlink" title="3.3 - General Architecture of the learning algorithm"></a>3.3 - General Architecture of the learning algorithm</h3><p id="03.4" align="right"><a href="#index">[ B A C K ]</a></p>
+
+<h3 id="3-4-Building-the-parts-of-our-algorithm"><a href="#3-4-Building-the-parts-of-our-algorithm" class="headerlink" title="3.4 - Building the parts of our algorithm"></a>3.4 - Building the parts of our algorithm</h3><p id="03.5" align="right"><a href="#index">[ B A C K ]</a></p>
+
+<h3 id="3-5-Mergeall-functions-into-a-model"><a href="#3-5-Mergeall-functions-into-a-model" class="headerlink" title="3.5 - Mergeall functions into a model"></a>3.5 - Mergeall functions into a model</h3><p id="03.6" align="right"><a href="#index">[ B A C K ]</a></p>
+
+<h3 id="3-6-Further-analysis"><a href="#3-6-Further-analysis" class="headerlink" title="3.6 Further analysis"></a>3.6 Further analysis</h3><p id="03.7" align="right"><a href="#index">[ B A C K ]</a></p>
+
+<h3 id="3-7-Test-with-your-own-image"><a href="#3-7-Test-with-your-own-image" class="headerlink" title="3.7 Test with your own image"></a>3.7 Test with your own image</h3>
 
 <!-- Tags -->
 
