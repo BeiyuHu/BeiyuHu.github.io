@@ -150,10 +150,185 @@
 <br><a href="#index">[ B A C K ]</a></p>
 <p align="center"><a target="_blank" rel="noopener" href="https://www.mdpi.com/2079-7737/9/12/441"><img src="SynSigGAN.png" width="100%"></a></p>
 
+<p id="01.1" align="right"></p>
 
-<h2 id="1st-reading-What-is-it-about"><a href="#1st-reading-What-is-it-about" class="headerlink" title="1st reading: What is it about?"></a>1st reading: What is it about?</h2><p id="01.1" align="right"></p>
+<h2 id="1st-reading-What-is-it-about"><a href="#1st-reading-What-is-it-about" class="headerlink" title="1st reading: What is it about?"></a>1st reading: What is it about?</h2><h4 id="Simple-summary"><a href="#Simple-summary" class="headerlink" title="Simple summary:"></a>Simple summary:</h4><ul>
+<li>TARGET: generate <code>synthetic biomedical signals</code></li>
+<li>REASON: eliminates <code>confidentiality concerns</code> and <code>accessibility problem</code> of <em>medical data</em></li>
+<li>RESULT: <code>Significantly better</code> with <code>high correlation coefficient</code></li>
+</ul>
+<h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract:"></a>Abstract:</h4><ul>
+<li><p>CURRENT STATE:</p>
+<blockquote>
+<ol>
+<li>Rules for generating synthetic data are <strong>predefined</strong>;</li>
+<li>They require <strong>expert intervention</strong>, which limits the types and amount of synthetic data</li>
+</ol>
+</blockquote>
+</li>
+<li><p>THE PURPOSE OF THIS PAPER:<br>propose a novel GAN model named <strong>SynSigGAN</strong> for automating the generation of <strong>any kind</strong> of synthetic biomedical signals by:<br>  a. Generator: <strong>bidirectional grid LSTM</strong><br>  b. Discriminator: <strong>CNN</strong></p>
+</li>
+</ul>
+<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h4><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Artificial Intelligence<br>in general</td>
+<td>AI market is exploding;<br>AI in reality is helping in medical industry</td>
+</tr>
+<tr>
+<td>Difficulties</td>
+<td>Difficulties in data set size due to privacy;<br>Difficulties in biomedical signals (experts needed)</td>
+</tr>
+<tr>
+<td>Contribution</td>
+<td>PREPROCESSING: (a combination of)<br>1. discrete wavelet transform (DWT)<br>2. thresholding<br>3. Inverse discrete wavelet transform (IDWT)<br><br>PROPOSAL:<br> SynSigGAN for any kind of biomedical signals<br><br>EVALUATION:<br>Pearson Correlation Coefficient (PCC)<br>Root Mean Square Error (RMSE)<br>Percent Root Mean Square Difference (PRD)<br>Mean Absolute Error (MAE)<br>Frechet Distance (FD)</td>
+</tr>
+</tbody></table>
+<h4 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions:"></a>Conclusions:</h4><blockquote>
+<p>The synthetic signals geneartaed by our proposed approach are <strong>highly correlated</strong> to the original signals and of remarkable quality<br>generated signals of various lengths and characteristics<br>evaluated the model based on <strong>MAE, RMSE, PRD</strong> and <strong>FD score</strong>.</p>
+</blockquote>
+<p id="01.2" align="right"></p>
 
-  
+<h2 id="2nd-reading-How-was-the-result"><a href="#2nd-reading-How-was-the-result" class="headerlink" title="2nd reading: How was the result?"></a>2nd reading: How was the result?</h2><h4 id="DEEPER-INTRODUCTION"><a href="#DEEPER-INTRODUCTION" class="headerlink" title="DEEPER INTRODUCTION"></a>DEEPER INTRODUCTION</h4><ol>
+<li><p>AI MARKET: </p>
+<blockquote>
+<p>It was predicted by the Internatonal Data Corporation (IDC) in the year 2019 that the worldwide market for artificial intelligence (AI), deep learning, and maching learning would <strong>reach 97.9 bilion US dollor by 2023</strong> with a compound <strong>annual growth rate of 28.4%.</strong></p>
+</blockquote>
+</li>
+<li><p>AI IN REALITY IN HEALTHCARE INDUSTRY: <em>(better indicated in the paper)</em></p>
+</li>
+<li><p>DIFFICULTIES in data set size:</p>
+<blockquote>
+<ol>
+<li>… one of the risks involved is the vulnerability of private data that are stored in electronic health records. <strong>Patient’s privacy</strong> being a major concern of the hospitals.</li>
+<li>Even if the data are accessible to the researcher, the <strong>legal requirements</strong> to acquire data by <strong>ensuring proper and protected usage</strong> of the data takes a considerable amount of time.</li>
+<li>many owners anonymize data by detaching recognizable features, adding noise and grouping individuals or variables into broader categories. However, the <strong>re-identification of those anonymized data</strong> in the large dataset becomes <strong>extremely difficult, time consuming</strong></li>
+</ol>
+<p><strong>SOLUTION:</strong><br><strong>Generating synthetic medical data</strong> is a solution to this problem and it is considered to be valuable when there is insufficient original data or original data are expensive.</p>
+</blockquote>
+</li>
+<li><p>DIFFICULTIES in understanding physiological signals:</p>
+<blockquote>
+<ol>
+<li>Each biomedical signal has its own morphological characteristics, depending on the source of organ, independent traits, noise, electrode placement, and pathological events. </li>
+<li>External devices also corrupt the quality of biomedical signals, with excessive noise making them unreadable.</li>
+</ol>
+<p><strong>SOLUTION:</strong><br>ONE model to generate ANY KIND OF signals</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="DEEPER-RESULT-CONCLUSION"><a href="#DEEPER-RESULT-CONCLUSION" class="headerlink" title="DEEPER RESULT+CONCLUSION"></a>DEEPER RESULT+CONCLUSION</h4><p><em>NOTHING SPECIAL, ONLY SHOWING THE RESULTS</em></p>
+<ul>
+<li>RESUTLS of ECG, PPG, EEG (biomedical terminologies)</li>
+<li>COMPARISION in MAE, RMSE, PRD, and FD to prof the SynSigGAN working better than the others</li>
+</ul>
+<p id="01.3" align="right"></p>
+
+<h2 id="3rd-reading-What-and-how-was-it-accomplished"><a href="#3rd-reading-What-and-how-was-it-accomplished" class="headerlink" title="3rd reading: What and how was it accomplished?"></a>3rd reading: What and how was it accomplished?</h2><h4 id="OVERVIEW"><a href="#OVERVIEW" class="headerlink" title="OVERVIEW"></a>OVERVIEW</h4><p align="center"><img src="Overview.jpg" width="100%"></p>
+
+<h4 id="PREPROCESSING"><a href="#PREPROCESSING" class="headerlink" title="PREPROCESSING:"></a>PREPROCESSING:</h4><p><code>Elimiating noise</code> and <code>Refining the signals</code> while using:</p>
+<ol>
+<li><p><code>DISCRETE WAVELET TRANSFORM (DWT)</code></p>
+<p align="center"><img src="DWT.jpg" width="100%"></p></li>
+<li><p><code>THRESHOLDING * 3</code></p>
+<table>
+<thead>
+<tr>
+<th align="left"><img src="thresholding1.png" width="100%"></th>
+<th align="left"><img src="thresholding2.png" width="100%"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Adaptive Thresholding Process to <strong>perserve sharp features</strong> of the signal (General equation)</td>
+<td align="left">1. 32 is an observed choice<br>2. threshold value rises by a factor of 2</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>INVERSE DISCRETE WAVELET TRANSFORM (IDWT)</code></p>
+<p align="center"><img src="IDWT.jpg" width="100%"></p>
+
+<p> 3.1 The difference between DWT and IDWT:</p>
+<blockquote>
+<p>the IDWT generates the denoised signals by determining the inverse DWT of the wavelet coefficients that <strong>has been thresholded.</strong></p>
+</blockquote>
+<p> 3.2 BUT why wavelet transform method?</p>
+<p align="center"><img src="DWTcomparison.png" width="70%"></p></li>
+</ol>
+<h4 id="SEGMENTATION"><a href="#SEGMENTATION" class="headerlink" title="SEGMENTATION"></a>SEGMENTATION</h4><p>Clustering the signal according the annotations, using the Z-score to <code>solve amplitude scaling problem</code> and <code>elimiate offset</code></p>
+<h4 id="SynSigGAN"><a href="#SynSigGAN" class="headerlink" title="SynSigGAN"></a>SynSigGAN</h4><p>Generator: Bidirectional Grid LSTM</p>
+<ol>
+<li><p>Grid LSTM<br>LSTM along 2 dimension: <code>TIME</code> and <code>DEPTH</code> blocks</p>
+<p align="center"><img src="GridLSTM.jpg" width="70%"></p>
+
+<blockquote>
+<p>Along every dimension, the GridLSTM is <strong>linearly related</strong> to the gates among all the adjacent cells, <strong>eliminating the vanishing gradient problem</strong> along each dimension.</p>
+</blockquote>
+</li>
+<li><p>Bidirectional Grid LSTM<br>GridLSTM with a bidirectional architecture: a combination of a <strong>double</strong> GridLSTM in opposite directions</p>
+<p align="center"><img src="BiGridLSTM.jpg" width="70%"></p>
+
+<blockquote>
+<ol>
+<li>The BiGridLSTM has the advantage of <strong>diminishing the gradient phenomenon</strong> from two dimensions and <strong>obtaining the context information</strong> at the same time frame. </li>
+<li>It has also proved to produce excellent outcomes <strong>in time sequence problems</strong>.</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<p>Discriminator: CNN</p>
+<p align="center"><img src="CNN.jpg" width="70%"></p>
+
+<h4 id="EVALUATION"><a href="#EVALUATION" class="headerlink" title="EVALUATION:"></a>EVALUATION:</h4><table>
+<thead>
+<tr>
+<th>Evaluation</th>
+<th align="center">Equation</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ROOT MEAN SQUARE ERROR (RMSE)</td>
+<td align="center"><img src="RMSE.png" width="70%"></td>
+<td>measure the satbility</td>
+</tr>
+<tr>
+<td>PERCENT ROOT MEAN SQUARE DIFFERENCE (PRD)</td>
+<td align="center"><img src="PRD.png" width="70%"></td>
+<td>calculate the distortion</td>
+</tr>
+<tr>
+<td>MEAN ABSOLUTE ERROR (MAE)</td>
+<td align="center"><img src="MAE.png" width="70%"></td>
+<td>average of the absolute differecens</td>
+</tr>
+<tr>
+<td>FRECHET DISTANCE (FD)</td>
+<td align="center"><img src="FD1.png" width="50%"><br><img src="FD2.png" width="50%"></td>
+<td>find the similarity of two curve</td>
+</tr>
+<tr>
+<td>PEARSON’S CORRELATION COEFFICIENT (PCC)</td>
+<td align="center"><img src="PCC.png" width="70%"></td>
+<td>how much is the correlation level</td>
+</tr>
+</tbody></table>
+<p>Performance and Comparison:</p>
+<p align="center"><img src="EvaluationResult.png" width="80%"></p>
+
+<p>Question:<br>    <code>Why and how the Mean Correlation Coefficient is calculated?</code><br>    <code>Why the FD is almost the same?</code></p>
+<hr>
+<h3 id="PERSONAL-COMMENTS"><a href="#PERSONAL-COMMENTS" class="headerlink" title="PERSONAL COMMENTS"></a>PERSONAL COMMENTS</h3><ol>
+<li><p>WHY IS BETTER?<br> It <strong>DID</strong> solve the problem by the approaches that the author tried to propose.<br> But it did <strong>NOT</strong> explain the reason why it could perform better than the other algorithms.</p>
+<p> Is it because of the PREPROCESSING by DWT?<br> Or the BiGridLSTM as the generator?<br> Or CNN as the discriminator?<br> Or all of them? Or some combination among them?</p>
+</li>
+<li><p>COULD IT BE USED IN OTHER INDUSTRIES?<br> The reason I read this article is because while me and a PhD candidate tried to work in chiller or heat pump prediction, we found the data is not enough for different reasons.<br> Although this article was proposing the SynSigGAN for medical area, the possiblity for data augmentation to apply it on BEM or BS aspect could not be negligible. So could the method be implemented in other area?</p>
+</li>
+</ol>
 
 
 <!-- Tags -->
