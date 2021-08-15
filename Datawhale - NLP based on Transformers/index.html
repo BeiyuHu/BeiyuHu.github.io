@@ -193,6 +193,7 @@
 <td>Machine Translation</td>
 </tr>
 </tbody></table>
+<hr>
 <p id="task01"></p>
 <p align="center"> - - - - - - - - - - - - - - - T A S K 0 1 - - - - - - - - - - - - - - -
 <br><a href="#index">[ B A C K ]</a></p>
@@ -206,7 +207,7 @@
 <h3 id="STEP-1-CUDA-installation"><a href="#STEP-1-CUDA-installation" class="headerlink" title="STEP 1: CUDA installation"></a>STEP 1: CUDA installation</h3><p>在 <code>NVIDIA控制面板</code>左下角<code>系统信息</code>（或<code>帮助</code> - <code>系统信息</code>）中， 在tab<code>组件</code>下可查询<code>NVCUDA64.DLL</code>的产品名称： </p>
 <p align="center"><img src="CUDA_version.png" width="80%"></p>
 
-<p>此处显示11.4.xxx driver，会随着硬件更新而更新，看CUDA版本号因为这和之后pytorch安装有关。</p>
+<p>此处显示11.4.xxx driver，会随着硬件更新而更新，看CUDA版本号因为这和之后pytorch安装有关。<a href="#task01ref"><sup>[1]</sup></a></p>
 <p>然后就在<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads">NVIDIA CUDA Toolkit 官网</a>下载CUDA即可，傻瓜式安装。(NOTE: 期间我试过莫名出现安装失败（最后一步），尝试关闭刚刚打开的NVIDIA控制面板后成功。关闭并重启后安装pytorch。)</p>
 <p align="center"><img src="CUDA_installation.png" width="80%"></p>
 
@@ -228,13 +229,34 @@
 <p><em>NOTE：至于为什么不用conda的方式，尝试了几次后，conda安装pytorch是成功的，但是CUDA显示不可用。换成pip的方式就可以。而且耗时也不同，因为文件大概3G，下了大概半小时。</em></p>
 <p>验证pytorch是否安装成功，检查其版本号：我的是1.9.0</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在同一个prompt内，先输入python，打开python</span></span><br><span class="line">(pytorch) C:\Users\user_name&gt;python</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.__version__</span><br><span class="line">‘<span class="number">1.9</span><span class="number">.0</span>+cu111<span class="string">&#x27;</span></span><br><span class="line"><span class="string"># 其实这里也显示了CUDA的版本11.1</span></span><br></pre></td></tr></table></figure>
-<p>单独验证CUDA是否可用：</p>
+<p>单独验证CUDA是否可用<a href="#task01ref"><sup>[2]</sup></a>：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.cuda.is_available()</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="optional-STEP-3-unique-ipykernel"><a href="#optional-STEP-3-unique-ipykernel" class="headerlink" title="(optional) STEP 3: unique ipykernel"></a>(optional) STEP 3: unique ipykernel</h3><p>接下来的学习在Jupyper Notebook上用，按习惯在建好一个单独的环境的时候会在jupyter lab给它做一个单独的kernel<a href="#task01ref"><sup>[3]</sup></a>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>python -m ipykernel install --name pytorch</span><br><span class="line"><span class="comment"># 此处pytorch为kernel名称，按需更换</span></span><br></pre></td></tr></table></figure>
+
+<p>打开Jupyter Lab，更换如下：</p>
+<p align="center"><img src="kernelSettings.png" width="50%"></p>
 
 
+<h2 id="1-3-Transformers-and-requirements-installation"><a href="#1-3-Transformers-and-requirements-installation" class="headerlink" title="1.3 Transformers and requirements installation"></a>1.3 Transformers and requirements installation</h2><p>Transformers用pip安装<a href="#task01ref"><sup>[4]</sup></a>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(pytorch) C:\Users\user_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pip install transformers</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-3-Transformers-and-requirements-installation"><a href="#1-3-Transformers-and-requirements-installation" class="headerlink" title="1.3 Transformers and requirements installation"></a>1.3 Transformers and requirements installation</h2><p id="task02"></p>
+<p>最后用<a target="_blank" rel="noopener" href="https://github.com/datawhalechina/learn-nlp-with-transformers/blob/main/requirements.txt">requirement.txt</a>文件查看是否未安装完全：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pip install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载后如果路径不对，请用cd跳转至该下载目录并加载。</span></span><br></pre></td></tr></table></figure>
+
+<p id="task01ref"><h4>Reference:</h4></p>
+
+
+<blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/94220564">win10安装CUDA和cuDNN的正确姿势</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_45172994/article/details/114438139">AMD显卡如何用Anaconda安装pytorch</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/357118340">Jupyter Lab 桌面快捷/一键脚本 &amp; 多环境多Kernel 最优配置</a></li>
+<li><a target="_blank" rel="noopener" href="https://datawhalechina.github.io/learn-nlp-with-transformers/#/./%E7%AF%87%E7%AB%A01-%E5%89%8D%E8%A8%80/1.0-%E6%9C%AC%E5%9C%B0%E9%98%85%E8%AF%BB%E5%92%8C%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE?id=%e6%9c%ac%e5%9c%b0%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae%ef%bc%88%e4%bb%a5mac%e4%b8%ba%e4%be%8b%ef%bc%89" title="本地环境配置（以Mac为例）">本地环境配置（以Mac为例）</a></li>
+</ol>
+</blockquote>
+<p id="task02"></p>
 <p align="center"> - - - - - - - - - - - - - - - T A S K 0 2 - - - - - - - - - - - - - - -
 <br><a href="#index">[ B A C K ]</a></p>
 
