@@ -133,18 +133,22 @@
 <p><em>The following notes are taken from different papers, please refer to the title picture with hyperlink embeded for further study.</em></p>
 <p id="index"></p>
 
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">INDEX</th>
+<th style="text-align:left">INDEX</th>
 <th>CONTENT</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><a href="#01">SynSigGAN</a></td>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#01">SynSigGAN</a></td>
 <td><a href="#01.1">1st: What is it about?</a><br><a href="#01.2">2nd: How was the result?</a><br><a href="#01.3">3rd: What and how was it accomplished?</a></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p id="01"></p>
 <p align="center"> - - - - - - - - - - - - - - - 0 1 - - - - - - - - - - - - - - -
 <br><a href="#index">[ B A C K ]</a></p>
@@ -169,14 +173,16 @@
 <li><p>THE PURPOSE OF THIS PAPER:<br>propose a novel GAN model named <strong>SynSigGAN</strong> for automating the generation of <strong>any kind</strong> of synthetic biomedical signals by:<br>  a. Generator: <strong>bidirectional grid LSTM</strong><br>  b. Discriminator: <strong>CNN</strong></p>
 </li>
 </ul>
-<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h4><table>
+<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th></th>
 <th></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Artificial Intelligence<br>in general</td>
 <td>AI market is exploding;<br>AI in reality is helping in medical industry</td>
 </tr>
@@ -188,7 +194,9 @@
 <td>Contribution</td>
 <td>PREPROCESSING: (a combination of)<br>1. discrete wavelet transform (DWT)<br>2. thresholding<br>3. Inverse discrete wavelet transform (IDWT)<br><br>PROPOSAL:<br> SynSigGAN for any kind of biomedical signals<br><br>EVALUATION:<br>Pearson Correlation Coefficient (PCC)<br>Root Mean Square Error (RMSE)<br>Percent Root Mean Square Difference (PRD)<br>Mean Absolute Error (MAE)<br>Frechet Distance (FD)</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h4 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions:"></a>Conclusions:</h4><blockquote>
 <p>The synthetic signals geneartaed by our proposed approach are <strong>highly correlated</strong> to the original signals and of remarkable quality<br>generated signals of various lengths and characteristics<br>evaluated the model based on <strong>MAE, RMSE, PRD</strong> and <strong>FD score</strong>.</p>
 </blockquote>
@@ -207,18 +215,16 @@
 <ol>
 <li>… one of the risks involved is the vulnerability of private data that are stored in electronic health records. <strong>Patient’s privacy</strong> being a major concern of the hospitals.</li>
 <li>Even if the data are accessible to the researcher, the <strong>legal requirements</strong> to acquire data by <strong>ensuring proper and protected usage</strong> of the data takes a considerable amount of time.</li>
-<li>many owners anonymize data by detaching recognizable features, adding noise and grouping individuals or variables into broader categories. However, the <strong>re-identification of those anonymized data</strong> in the large dataset becomes <strong>extremely difficult, time consuming</strong></li>
+<li>many owners anonymize data by detaching recognizable features, adding noise and grouping individuals or variables into broader categories. However, the <strong>re-identification of those anonymized data</strong> in the large dataset becomes <strong>extremely difficult, time consuming</strong><br><strong>SOLUTION:</strong><br><strong>Generating synthetic medical data</strong> is a solution to this problem and it is considered to be valuable when there is insufficient original data or original data are expensive.</li>
 </ol>
-<p><strong>SOLUTION:</strong><br><strong>Generating synthetic medical data</strong> is a solution to this problem and it is considered to be valuable when there is insufficient original data or original data are expensive.</p>
 </blockquote>
 </li>
 <li><p>DIFFICULTIES in understanding physiological signals:</p>
 <blockquote>
 <ol>
 <li>Each biomedical signal has its own morphological characteristics, depending on the source of organ, independent traits, noise, electrode placement, and pathological events. </li>
-<li>External devices also corrupt the quality of biomedical signals, with excessive noise making them unreadable.</li>
+<li>External devices also corrupt the quality of biomedical signals, with excessive noise making them unreadable.<br><strong>SOLUTION:</strong><br>ONE model to generate ANY KIND OF signals</li>
 </ol>
-<p><strong>SOLUTION:</strong><br>ONE model to generate ANY KIND OF signals</p>
 </blockquote>
 </li>
 </ol>
@@ -233,21 +239,8 @@
 
 <h4 id="PREPROCESSING"><a href="#PREPROCESSING" class="headerlink" title="PREPROCESSING:"></a>PREPROCESSING:</h4><p><code>Elimiating noise</code> and <code>Refining the signals</code> while using:</p>
 <ol>
-<li><p><code>DISCRETE WAVELET TRANSFORM (DWT)</code></p>
-<p align="center"><img src="DWT.jpg" width="100%"></p></li>
-<li><p><code>THRESHOLDING * 3</code></p>
-<table>
-<thead>
-<tr>
-<th align="left"><img src="thresholding1.png" width="100%"></th>
-<th align="left"><img src="thresholding2.png" width="100%"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Adaptive Thresholding Process to <strong>perserve sharp features</strong> of the signal (General equation)</td>
-<td align="left">1. 32 is an observed choice<br>2. threshold value rises by a factor of 2</td>
-</tr>
-</tbody></table>
+<li><code>DISCRETE WAVELET TRANSFORM (DWT)</code><p align="center"><img src="DWT.jpg" width="100%"></p></li>
+<li><p><code>THRESHOLDING * 3</code><br>|<img src="thresholding1.png" width="100%">|<img src="thresholding2.png" width="100%">|<br>|:-|:-|<br>|Adaptive Thresholding Process to <strong>perserve sharp features</strong> of the signal (General equation)|1. 32 is an observed choice<br>2. threshold value rises by a factor of 2|</p>
 </li>
 <li><p><code>INVERSE DISCRETE WAVELET TRANSFORM (IDWT)</code></p>
 <p align="center"><img src="IDWT.jpg" width="100%"></p>
@@ -257,7 +250,9 @@
 <p>the IDWT generates the denoised signals by determining the inverse DWT of the wavelet coefficients that <strong>has been thresholded.</strong></p>
 </blockquote>
 <p> 3.2 BUT why wavelet transform method?</p>
-<p align="center"><img src="DWTcomparison.png" width="70%"></p></li>
+<p align="center"><img src="DWTcomparison.png" width="70%"></p>
+
+</li>
 </ol>
 <h4 id="SEGMENTATION"><a href="#SEGMENTATION" class="headerlink" title="SEGMENTATION"></a>SEGMENTATION</h4><p>Clustering the signal according the annotations, using the Z-score to <code>solve amplitude scaling problem</code> and <code>elimiate offset</code></p>
 <h4 id="SynSigGAN"><a href="#SynSigGAN" class="headerlink" title="SynSigGAN"></a>SynSigGAN</h4><p>Generator: Bidirectional Grid LSTM</p>
@@ -274,8 +269,10 @@
 
 <blockquote>
 <ol>
-<li>The BiGridLSTM has the advantage of <strong>diminishing the gradient phenomenon</strong> from two dimensions and <strong>obtaining the context information</strong> at the same time frame. </li>
+<li>The BiGridLSTM has the advantage of <strong>diminishing the gradient phenomenon</strong> from two dimensions and <strong>obtaining the context information</strong> at the same time frame. <ol>
 <li>It has also proved to produce excellent outcomes <strong>in time sequence problems</strong>.</li>
+</ol>
+</li>
 </ol>
 </blockquote>
 </li>
@@ -283,40 +280,25 @@
 <p>Discriminator: CNN</p>
 <p align="center"><img src="CNN.jpg" width="70%"></p>
 
-<h4 id="EVALUATION"><a href="#EVALUATION" class="headerlink" title="EVALUATION:"></a>EVALUATION:</h4><table>
+<h4 id="EVALUATION"><a href="#EVALUATION" class="headerlink" title="EVALUATION:"></a>EVALUATION:</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>Evaluation</th>
-<th align="center">Equation</th>
+<th style="text-align:center">Equation</th>
 <th>Why</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>ROOT MEAN SQUARE ERROR (RMSE)</td>
-<td align="center"><img src="RMSE.png" width="70%"></td>
+<td style="text-align:center"><img src="RMSE.png" width="70%"></td>
 <td>measure the satbility</td>
 </tr>
-<tr>
-<td>PERCENT ROOT MEAN SQUARE DIFFERENCE (PRD)</td>
-<td align="center"><img src="PRD.png" width="70%"></td>
-<td>calculate the distortion</td>
-</tr>
-<tr>
-<td>MEAN ABSOLUTE ERROR (MAE)</td>
-<td align="center"><img src="MAE.png" width="70%"></td>
-<td>average of the absolute differecens</td>
-</tr>
-<tr>
-<td>FRECHET DISTANCE (FD)</td>
-<td align="center"><img src="FD1.png" width="50%"><br><img src="FD2.png" width="50%"></td>
-<td>find the similarity of two curve</td>
-</tr>
-<tr>
-<td>PEARSON’S CORRELATION COEFFICIENT (PCC)</td>
-<td align="center"><img src="PCC.png" width="70%"></td>
-<td>how much is the correlation level</td>
-</tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
+<p>PERCENT ROOT MEAN SQUARE DIFFERENCE (PRD)|<img src="PRD.png" width="70%">|calculate the distortion|<br>MEAN ABSOLUTE ERROR (MAE)|<img src="MAE.png" width="70%">|average of the absolute differecens|<br>FRECHET DISTANCE (FD)|<img src="FD1.png" width="50%"><br><img src="FD2.png" width="50%">|find the similarity of two curve|<br>PEARSON’S CORRELATION COEFFICIENT (PCC)|<img src="PCC.png" width="70%">|how much is the correlation level|</p>
 <p>Performance and Comparison:</p>
 <p align="center"><img src="EvaluationResult.png" width="80%"></p>
 
