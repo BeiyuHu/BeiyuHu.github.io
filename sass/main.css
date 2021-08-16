@@ -1023,7 +1023,7 @@ body {
 /* Type */
 body, input, select, textarea {
   color: #585858;
-  font-family: Calibri, "Source Sans Pro", "Microsoft YaHei";
+  font-family: "Source Sans Pro", "Microsoft YaHei";
   font-size: 13pt;
   font-weight: 300;
   line-height: 1.75; }
