@@ -133,52 +133,55 @@
 <p><em>The notes are taken following <a target="_blank" rel="noopener" href="https://speech.ee.ntu.edu.tw/~tlkagk/">Hung-yi Lee</a>‘s machine learning theoretical course with the main contents in Chinese. The lectures are underlined as “The Best Machine Learning Material In Chinese Language”. The table below shows the contents I followed and the tasks could be directly jumped into by clicking the hyperlink.</em></p>
 <p id="index"></p>
 
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="right">INDEX</th>
+<th style="text-align:right">INDEX</th>
 <th>CONTENT</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="right"></td>
+<tbody>
+<tr>
+<td style="text-align:right"></td>
 <td><em>Hung-yi Lee’s 2017 Lecture</em></td>
 </tr>
 <tr>
-<td align="right"><a href="#task01">TASK01</a></td>
+<td style="text-align:right"><a href="#task01">TASK01</a></td>
 <td>P1 Intro to Machine Learning<br>P2 Why should we learn ML?</td>
 </tr>
 <tr>
-<td align="right"><a href="#task02">TASK02</a></td>
+<td style="text-align:right"><a href="#task02">TASK02</a></td>
 <td>P3 Regression<br>P4 Regression (demo)</td>
 </tr>
 <tr>
-<td align="right"><a href="#task03">TASK03</a></td>
+<td style="text-align:right"><a href="#task03">TASK03</a></td>
 <td>P5 Where are the errors from?<br>P6 Gradient Descent<br>P7 Gradient Descent - AOE<br>P8 Gradient Descent - Minecraft</td>
 </tr>
 <tr>
-<td align="right"><a href="#task04">TASK04</a></td>
+<td style="text-align:right"><a href="#task04">TASK04</a></td>
 <td>P13 Deep Learning<br>P14 Backpropagation</td>
 </tr>
 <tr>
-<td align="right"></td>
+<td style="text-align:right"></td>
 <td><em>Hung-yi Lee’s 2021 Lecture</em></td>
 </tr>
 <tr>
-<td align="right"><a href="#task05">TASK05</a></td>
+<td style="text-align:right"><a href="#task05">TASK05</a></td>
 <td>P5 Local minima vs Saddle point<br>P6 Batch vs Momentum<br>P7 Learning Rate<br>P8 Optimization by loss function<br>P9 Batch Normalization</td>
 </tr>
 <tr>
-<td align="right"><a href="#task06">TASK06</a></td>
+<td style="text-align:right"><a href="#task06">TASK06</a></td>
 <td>P10 Convolutional Neural Network (CNN)</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p id="task01"></p>
 <p align="center"> - - - - - - - - - - - - - - - T A S K 0 1 - - - - - - - - - - - - - - -
 <br><a href="#index">[ B A C K ]</a></p>
 
-<img src="HUNGYILEE_01.png" width="100%">
-
+<p><img src="HUNGYILEE_01.png" width="100%"></p>
 <p align="center"> </p>
 
 <h1 id="P1-机器学习介绍"><a href="#P1-机器学习介绍" class="headerlink" title="P1 机器学习介绍"></a>P1 机器学习介绍</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=1">Hung-yi Lee - Machine Learning 2017 - P1 机器学习介绍</a></p>
@@ -187,32 +190,19 @@
 <h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h2><h4 id="1-Regression-（回归）"><a href="#1-Regression-（回归）" class="headerlink" title="1. Regression （回归）"></a>1. Regression （回归）</h4><ul>
 <li>The output of the target function f is ‘scalar’.</li>
 <li>讨论自变量x和因变量y的线性关系，构建方程，推论和预测y</li>
-<li><em>example:</em><table>
-<thead>
-<tr>
-<th align="center">Input</th>
-<th align="center">Output</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Historical PM2.5 →</td>
-<td align="center">Predicted PM2.5</td>
-</tr>
-</tbody></table>
-</li>
+<li><em>example:</em><br>|Input|Output|<br>|:—:|:—:|<br>|Historical PM2.5 →|Predicted PM2.5|</li>
 </ul>
 <h4 id="2-Classification"><a href="#2-Classification" class="headerlink" title="2. Classification"></a>2. Classification</h4><ul>
-<li><p>Binary Classification 二元分法: YES/NO</p>
-</li>
+<li>Binary Classification 二元分法: YES/NO</li>
 <li><p>Multi-class Classification 多元分法: ex: 新闻分类</p>
 <ol>
 <li><p>Model (Function)</p>
 <ul>
 <li>Linear model</li>
 <li>Non-linear model<ul>
-<li>Deep learning</li>
+<li>Deep learning<br><em>example:</em></li>
 </ul>
-  <em>example:</em><ol>
+<ol>
 <li>IMAGE RECOGNITION (Hierarchy structure)    </li>
 <li>Playing GO: n*n 的选择题</li>
 </ol>
@@ -242,6 +232,7 @@
 </li>
 </ul>
 <h2 id="Additional-scenario"><a href="#Additional-scenario" class="headerlink" title="Additional scenario"></a>Additional scenario</h2><p><strong>是否有其他无需大量labeled data的学习？YES：↓</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -250,7 +241,8 @@
 <th>特点</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>a.</td>
 <td>Semi-supervised Learning：</td>
 <td>可以利用学习中有些未被label的dataset</td>
@@ -270,8 +262,11 @@
 <td>Reinforcement Learning：</td>
 <td>因为没有办法data做supervised learning，如果能做supervised learning就不会做reinforcement learning</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>区别：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -280,12 +275,15 @@
 <th>Reinforcement</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Learn from <strong>teacher</strong></td>
 <td>←→</td>
 <td>Learn from <strong>critics</strong></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>Alpha GO is supervised + reinforcement learning (机器跟机器下棋，自己跟自己下棋)</p>
 <hr>
 <h1 id="P2-为什么要学习机器学习"><a href="#P2-为什么要学习机器学习" class="headerlink" title="P2 为什么要学习机器学习"></a>P2 为什么要学习机器学习</h1><p>by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=2">Hung-yi Lee - Machine Learning 2017 - P2 为什么要学习机器学习</a></p>
@@ -293,8 +291,7 @@
 <p id="task02"></p>
 <p align="center">- - - - - - - - - - - - - - - T A S K 0 2 - - - - - - - - - - - - - - -<br><a href="#index">[ B A C K ]</a></p>
 
-<img src="HUNGYILEE_02.png" width="100%">
-
+<p><img src="HUNGYILEE_02.png" width="100%"></p>
 <p align="center"> </p>
 
 
@@ -307,33 +304,13 @@
 
 <p>其中 x = or( x_cp, x_s, x_hp, x_w, x_h ) 而预测 y_cp（下文仅设参 x<sub>cp</sub>）</p>
 <ul>
-<li>Recap 做ML的三个步骤：<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Step 1.</td>
-<td>找一个model</td>
-</tr>
-<tr>
-<td>Step 2.</td>
-<td>定义function set 里 evaluate它的好坏</td>
-</tr>
-<tr>
-<td>Step 3.</td>
-<td>找出最好的function</td>
-</tr>
-</tbody></table>
-</li>
+<li>Recap 做ML的三个步骤：<br>|||<br>|—|—|<br>|Step 1. | 找一个model|<br>|Step 2. | 定义function set 里 evaluate它的好坏|<br>|Step 3. |找出最好的function|</li>
 </ul>
 <hr>
 <h5 id="Step-1-Model"><a href="#Step-1-Model" class="headerlink" title="Step 1: Model"></a><strong>Step 1</strong>: Model</h5><p>找function set 就是所谓的model <em>#存疑</em></p>
 <p><code>Model</code> → <code>a set of function: f1, f2, ...</code></p>
 <ul>
-<li>这其中： f(x) = y = b + w * x<sub>cp</sub> (w 和 b 可为<strong>任意值</strong>)<br>就可以代入不同w及b，有无限组f(x)。但同时有些显然不合理的function，将会被之后的训练集中筛除。</li>
+<li>这其中： f(x) = y = b + w <em> x<sub>cp</sub> (w 和 b 可为<em>*任意值</em></em>)<br>就可以代入不同w及b，有无限组f(x)。但同时有些显然不合理的function，将会被之后的训练集中筛除。</li>
 </ul>
 <p>由于其线性关系，也称为：</p>
 <p><code>Linear model</code> → <code>y = b + Σw_i*x_i</code></p>
@@ -344,59 +321,39 @@
 </ul>
 <h5 id="Step-2-Goodness-of-Function"><a href="#Step-2-Goodness-of-Function" class="headerlink" title="Step 2: Goodness of Function"></a><strong>Step 2</strong>: Goodness of Function</h5><p><code>evaluate function的好坏</code> ： <code>1. 收集training data</code>→<code>2. 找出function</code></p>
 <ol>
-<li>Training data: 10 pokemons (<a target="_blank" rel="noopener" href="https://www.openintro.org/stat/data/?data=pokemon">source</a>) <img src="trainingData.png" width="80%"></li>
+<li>Training data: 10 pokemons (<a target="_blank" rel="noopener" href="https://www.openintro.org/stat/data/?data=pokemon">source</a>)<br><img src="trainingData.png" width="80%"></li>
 </ol>
 <center>
-    
-<table>
-<thead>
-<tr>
-<th align="center">input x<sub>cp</sub></th>
-<th align="center">output y<sub>cp</sub></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">x<sup>1</sup></td>
-<td align="center">y<sup>^1</sup></td>
-</tr>
-<tr>
-<td align="center">x<sup>2</sup></td>
-<td align="center">y<sup>^2</sup></td>
-</tr>
-<tr>
-<td align="center">x<sup>3</sup></td>
-<td align="center">y<sup>^3</sup></td>
-</tr>
-<tr>
-<td align="center">…</td>
-<td align="center">…</td>
-</tr>
-<tr>
-<td align="center">x<sup>10</sup></td>
-<td align="center">y<sup>^10</sup></td>
-</tr>
-</tbody></table>
+
+| input x<sub>cp</sub> | output y<sub>cp</sub> |
+| :--------------------: | :---------------------: |
+| x<sup>1</sup>        | y<sup>^1</sup>        |
+| x<sup>2</sup>        | y<sup>^2</sup>        |
+| x<sup>3</sup>        | y<sup>^3</sup>        |
+| ...                  | ...                   |
+| x<sup>10</sup>       | y<sup>^10</sup>       |
+
 </center>
 
 
 
-<ol start="2">
-<li>Loss function <em><strong>L</strong></em>:</li>
+<ol>
+<li>Loss function <strong><em>L</em></strong>:</li>
 </ol>
 <ul>
 <li>这里input是一个function，output是其<strong>估测误差</strong><br>L(f) <code>input为函数</code><br>= L (w, b) <code>即input为w和b</code><br>= Σ<sup>10</sup><sub>n=1</sub> (y<sup>^n</sup> -  f(x<sup>n</sup><sub>cp</sub>) )<sup>2</sup>   <code>转化为y^真实值与线性关系预测值偏差的平方，平方为消除符号影响</code><br>= Σ<sup>10</sup><sub>n=1</sub> (y<sup>^n</sup> - ( b+w*x<sup>n</sup><sub>cp</sub> ))<sup>2</sup> <code>展开</code></li>
 </ul>
-<img src="lossFunction.png" width="80%">
-
+<p><img src="lossFunction.png" width="80%"></p>
 <ul>
 <li>图中每个点代表了一组(b,w) 即为一个function</li>
 <li>颜色越红代表L数值越大，即误差越大，表现越差</li>
 </ul>
 <h5 id="Step-3-Best-function-→-Gradient-Descent"><a href="#Step-3-Best-function-→-Gradient-Descent" class="headerlink" title="Step 3: Best function → Gradient Descent"></a><strong>Step 3</strong>: Best function → Gradient Descent</h5><p><code>A set of function</code> →<code>Goodness of function f</code>←<code>GRADIENT DESCENT 梯度递减</code></p>
 <ul>
-<li>如何找一个好的function f → 评估以下的 f＊<br>  <em>f</em>＊= <em>arg</em> <em>min<sub>f</sub></em> L(f)<br>  <em>w</em>＊, <em>b</em>＊= <em>arg</em> <em>min<sub>f</sub></em> L(w, b)<br>  即：取 L(f) 最小时的 f 值 （* arg: argument）</li>
+<li>如何找一个好的function f → 评估以下的 f＊<br>  <em>f</em>＊= <em>arg</em> <em>min<sub>f</sub></em> L(f)<br>  <em>w</em>＊, <em>b</em>＊= <em>arg</em> <em>min<sub>f</sub></em> L(w, b)<br>  即：取 L(f) 最小时的 f 值 （<em> arg: argument）
+</em>这里可用线代直接解，但是复杂函数需要微分解，并求出微分最小（即微分接近0）*</li>
 </ul>
-<p> <em>这里可用线代直接解，但是复杂函数需要微分解，并求出微分最小（即微分接近0）</em></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -404,7 +361,8 @@
 <th>Gradient Descent</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>01</td>
 <td>随机选择初始w0, b0</td>
 </tr>
@@ -424,7 +382,9 @@
 <td>04</td>
 <td>多次迭代后：找出local optimal <strong>NOT</strong> global optimal (但在linear regression不是问题，下方解释)</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>pros：无需穷举所有w对Loss function L(w)做微分</p>
 <hr>
 <p><em>插播解释 local optimal 和 global optimal：</em></p>
@@ -433,84 +393,81 @@
 <li>把偏微分排成一个向量（在本例中是向量）</li>
 <li>偏微分的梯度下降 即为 等高线的法线方向 → 所以它会逐渐往紫色方向走</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">Linear</th>
-<th align="center">Non-linear</th>
+<th style="text-align:center">Linear</th>
+<th style="text-align:center">Non-linear</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><img src="gradientDescent.png" width="80%"></td>
-<td align="center"><img src="gradientDescent3D.png" width="80%"></td>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="gradientDescent.png" width="80%"></td>
+<td style="text-align:center"><img src="gradientDescent3D.png" width="80%"></td>
 </tr>
 <tr>
-<td align="center">线性回归的损失函数为convex，即 <strong>无</strong> local optimal</td>
-<td align="center"><strong>但</strong> 若非线性回归：即有 local optimal，又有 global optimal 的位置</td>
+<td style="text-align:center">线性回归的损失函数为convex，即 <strong>无</strong> local optimal</td>
+<td style="text-align:center"><strong>但</strong> 若非线性回归：即有 local optimal，又有 global optimal 的位置</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <hr>
 <p><strong>回到Pokemon CP预测：</strong></p>
 <p>此时要用新的testing data测试其error → 泛化（generalization）</p>
 <center>
-    
-<p>线性结果 y = (-188.4) + 2.7 * x<sub>cp</sub></p>
-<table>
-<thead>
-<tr>
-<th align="right"></th>
-<th align="center">Training</th>
-<th align="center">Testing</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="right">Error <em><strong>L(f)</strong></em></td>
-<td align="center">31.9</td>
-<td align="center">35</td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
+
+线性结果 y = (-188.4) + 2.7 * x<sub>cp</sub>
+
+
+
+||Training |Testing |
+| ---: | :---: | :---: |
+|Error ***L(f)*** |31.9|35     |
+
 </center>
 
 
 <p>最终的线性关系式为 ，其误差为31.9；<strong>但</strong> 输入另外一组10个Pokemon数值作为testing data，误差为 35。即 预测不准确。</p>
 <hr>
 <h4 id="复杂模型（提升准确性）："><a href="#复杂模型（提升准确性）：" class="headerlink" title="复杂模型（提升准确性）："></a>复杂模型（提升准确性）：</h4><p><strong>OPTION 1: 选择其他model：</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>Model</th>
-<th align="center">Training data</th>
-<th align="center">Testing data</th>
+<th style="text-align:center">Training data</th>
+<th style="text-align:center">Testing data</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>y = b + w<sub>1</sub>· x<sub>cp</sub>+w<sub>2</sub>·(x<sub>cp</sub>)<sup>2</sup></td>
-<td align="center">15.4</td>
-<td align="center">18.4</td>
+<td style="text-align:center">15.4</td>
+<td style="text-align:center">18.4</td>
 </tr>
 <tr>
 <td>y = b + w<sub>1</sub>· x<sub>cp</sub>+w<sub>2</sub>·(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>·(x<sub>cp</sub>)<sup>3</sup></td>
-<td align="center">15.3</td>
-<td align="center">18.1</td>
+<td style="text-align:center">15.3</td>
+<td style="text-align:center">18.1</td>
 </tr>
 <tr>
 <td>y = b + w<sub>1</sub>· x<sub>cp</sub>+w<sub>2</sub>·(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>·(x<sub>cp</sub>)<sup>3</sup>+w<sub>4</sub>·(x<sub>cp</sub>)<sup>4</sup></td>
-<td align="center">14.9</td>
-<td align="center">28.8</td>
+<td style="text-align:center">14.9</td>
+<td style="text-align:center">28.8</td>
 </tr>
 <tr>
 <td>y = b + w<sub>1</sub>· x<sub>cp</sub>+w<sub>2</sub>·(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>·(x<sub>cp</sub>)<sup>3</sup>+w<sub>4</sub>·(x<sub>cp</sub>)<sup>4</sup>+w<sub>5</sub>·(x<sub>cp</sub>)<sup>5</sup></td>
-<td align="center">12.8</td>
-<td align="center">232.1</td>
+<td style="text-align:center">12.8</td>
+<td style="text-align:center">232.1</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>Model维度的提升会增加 training data的准确度，<strong>但！</strong> 复杂model导致了testing data很糟糕。<br>即：<strong>OVERFITTING 过拟合</strong> → 选择最合适的model，此例为<strong>维度3</strong>的。</p>
 <p><strong>OPTION 2: 种类划分做不同的regression方程</strong><br>(前提数据集够多)</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -520,25 +477,22 @@
 <th>species 3 and more</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>y =</td>
 <td>b<sub>1</sub> + w<sub>1</sub> · δ(x<sub>s</sub> = s<sub>1</sub>) · x<sub>cp</sub></td>
 <td>+b<sub>2</sub> + w<sub>2</sub> · δ(x<sub>s</sub> = s<sub>2</sub>) · x<sub>cp</sub></td>
 <td>+b<sub>3</sub> + w<sub>3</sub> · δ(x<sub>s</sub> = s<sub>3</sub>) · x<sub>cp</sub>     +…</td>
 </tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>其中的 δ() 为Boolean(true = 1, false = 0)的filter，所以实际上整个公式为linear model。</p>
 <center>
 <img src="speciesClassification.png" width="60%">
 </center>
 
-    
+
 <ul>
 <li><strong>尽管训练集和测试集最后的结果差别有点大，但从测试集的error而言比之前的结果都要好。</strong></li>
 </ul>
@@ -546,22 +500,11 @@
 <ul>
 <li><p>Back to step <strong>1</strong>: 除了CP，还可考虑 hp、weight等参数。<br>结果是训练误差1.9而测试误差为102.3，即overfitting。</p>
 </li>
-<li><p>Back to step <strong>2</strong>: Regularization 正则化</p>
-<table>
-<thead>
-<tr>
-<th>原方程</th>
-<th>新增项</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>L= Σ<sub>n</sub> (y<sup>^n</sup> - ( b+Σw<sub>i</sub>x<sub>i</sub>))<sup>2</sup></td>
-<td>+λ·Σ(w<sub>i</sub>)<sup>2</sup></td>
-</tr>
-</tbody></table>
+<li><p>Back to step <strong>2</strong>: Regularization 正则化<br>| 原方程                                                                                  |新增项 |<br>| ————————————————————————————————————————- | —- |<br>| L= Σ<sub>n</sub> (y<sup>^n</sup> - ( b+Σw<sub>i</sub>x<sub>i</sub>))<sup>2</sup> |+λ·Σ(w<sub>i</sub>)<sup>2</sup>     |</p>
 </li>
-<li><p>其中<code>λ</code>是常数，需要<strong>手调</strong>；而 新增项 越小越好。<br>只有 <code>w</code> 而没有 <code>b</code>，因为 <code>w</code> 影响了平滑程度，而 <code>b</code> 和平滑程度无关。</p>
-</li>
+</ul>
+<ul>
+<li>其中<code>λ</code>是常数，需要<strong>手调</strong>；而 新增项 越小越好。<br>只有 <code>w</code> 而没有 <code>b</code>，因为 <code>w</code> 影响了平滑程度，而 <code>b</code> 和平滑程度无关。</li>
 </ul>
 <p><strong>但</strong> 为什么期待加上这个项越小越好呢？</p>
 <ul>
@@ -573,29 +516,28 @@
 <li>转折点使得testing data error最小</li>
 <li>P4的练习用了AdaGrad</li>
 </ul>
-<img src="regularization.png" width="80%">
-
-
+<p><img src="regularization.png" width="80%"></p>
 <hr>
 <h1 id="P4-Regression-回归"><a href="#P4-Regression-回归" class="headerlink" title="P4 Regression 回归"></a>P4 Regression 回归</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=4">Hung-yi Lee - Machine Learning 2017 - P4 Regression - Jupyter notebook</a></p>
 <p> η learning rate (lr) 的 update 接近最佳解</p>
 <ul>
 <li>提高10倍 → 相对接近，但有反复</li>
 <li>提高100倍 → 反复更多</li>
-<li>客制化lr → lr for b, lr  for w</li>
+<li><p>客制化lr → lr for b, lr  for w</p>
+<p>用的AdaGrad的方法：</p>
+<p><code>lr_b = lr_b + b_grad**2</code><br><code>lr_w = lr_w + w_grad**2</code><br><code># Update parameters</code><br><code>b = b - lr/np.squrt(lr_b) * b_grad</code><br><code>w = w - lr/np.squrt(lr_w) * w_grad</code></p>
+</li>
 </ul>
-<p> 用的AdaGrad的方法：</p>
-<p>  <code> lr_b = lr_b + b_grad**2</code><br> <code>lr_w = lr_w + w_grad**2</code><br> <code># Update parameters</code><br> <code>b = b - lr/np.squrt(lr_b) * b_grad</code><br><code> w = w - lr/np.squrt(lr_w) * w_grad</code></p>
 <p> 参考：</p>
 <ol>
-<li><a target="_blank" rel="noopener" href="https://databricks.com/glossary/adagrad#:~:text=Adaptive%20Gradient%20Algorithm%20(Adagrad)%20is,incorporating%20knowledge%20of%20past%20observations.">databricks _ AdaGrad</a></li>
-<li><a target="_blank" rel="noopener" href="https://jmlr.org/papers/volume12/duchi11a/duchi11a.pdf">Adaptive Subgradient Methods for Online Learning and Stochastic Optimization</a></li>
+<li><a target="_blank" rel="noopener" href="https://databricks.com/glossary/adagrad#:~:text=Adaptive%20Gradient%20Algorithm%20(Adagrad">databricks _ AdaGrad</a>%20is,incorporating%20knowledge%20of%20past%20observations.)</li>
+<li><p><a target="_blank" rel="noopener" href="https://jmlr.org/papers/volume12/duchi11a/duchi11a.pdf">Adaptive Subgradient Methods for Online Learning and Stochastic Optimization</a></p>
+<p id="task03"></p>
+<p align="center">- - - - - - - - - - - - - - - T A S K 0 3 - - - - - - - - - - - - - - -<br><a href="#index">[ B A C K ]</a></p>
+
+</li>
 </ol>
- <p id="task03"></p>
- <p align="center">- - - - - - - - - - - - - - - T A S K 0 3 - - - - - - - - - - - - - - -<br><a href="#index">[ B A C K ]</a></p>
-
-<img src="HUNGYILEE_03.png" width="100%">
-
+<p><img src="HUNGYILEE_03.png" width="100%"></p>
 <p align="center"> </p>
 
 <h1 id="P5-误差从哪里来"><a href="#P5-误差从哪里来" class="headerlink" title="P5 误差从哪里来"></a>P5 误差从哪里来</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=5">Hung-yi Lee - Machine Learning 2017 - P5 误差从哪里来</a></p>
@@ -605,24 +547,28 @@
 </blockquote>
 <hr>
 <h2 id="Estimator"><a href="#Estimator" class="headerlink" title="Estimator"></a>Estimator</h2><p>下文将会提及：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">真实函数</th>
-<th align="center">预估函数</th>
-<th align="center">平均函数</th>
+<th style="text-align:center">真实函数</th>
+<th style="text-align:center">预估函数</th>
+<th style="text-align:center">平均函数</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">f<sup>^</sup> (f head)</td>
-<td align="center">f* (f star*)</td>
-<td align="center">E[f*] =  f- (f bar)</td>
+<tbody>
+<tr>
+<td style="text-align:center">f<sup>^</sup> (f head)</td>
+<td style="text-align:center">f<em> (f star</em>)</td>
+<td style="text-align:center">E[f*] =  f- (f bar)</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>将以 <strong>打靶</strong> 为例子进行展开：</p>
 <ul>
 <li>真实函数 f^ 为 <strong>靶心</strong></li>
-<li>估测函数 f* 为 <strong>尝试打靶击中的位置</strong></li>
+<li>估测函数 f<em> 为 <em>*尝试打靶击中的位置</em></em></li>
 <li>其之间的差距 = Bias + Variance</li>
 </ul>
 <hr>
@@ -635,47 +581,37 @@
 </ul>
 </blockquote>
 <ol>
-<li><p>Estimator of 均值 μ ： unbiased estimator<br> m = 1/N * Σ x<sup>n</sup> <strong>≠ μ</strong><br> Var[m] = σ<sup>2</sup>/N，方差取决于sample数量N，N大时 m的方差小<br> 虽然 m ≠ μ，但 E[m] 会正好等于μ</p>
-<table>
-<thead>
-<tr>
-<th align="center">均值 m</th>
-<th align="center">N 数少</th>
-<th align="center">N 数大</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><img src="bias1.png" width="30%"></td>
-<td align="center"><img src="SmallerN.png" width="30%"></td>
-<td align="center"><img src="LargerN.png" width="30%"></td>
-</tr>
-</tbody></table>
+<li><p>Estimator of 均值 μ ： unbiased estimator<br> m = 1/N <em> Σ x<sup>n</sup> <em>*≠ μ</em></em><br> Var[m] = σ<sup>2</sup>/N，方差取决于sample数量N，N大时 m的方差小<br> 虽然 m ≠ μ，但 E[m] 会正好等于μ<br>|均值 m|N 数少|N 数大|<br>|:-:|:-:|:-:|<br>|<img src="bias1.png" width="30%">|<img src="SmallerN.png" width="30%">|<img src="LargerN.png" width="30%">|</p>
 </li>
-<li><p>Estimator of 方差  σ<sup>2</sup><br> m = 1/N * Σ x<sup>n</sup>，再计算 s<sup>2</sup>=1/N*Σ(x<sup>n</sup>-m)<sup>2</sup> <strong>≠ σ<sup>2</sup></strong></p>
+<li><p>Estimator of 方差  σ<sup>2</sup><br> m = 1/N <em> Σ x<sup>n</sup>，再计算 s<sup>2</sup>=1/N</em>Σ(x<sup>n</sup>-m)<sup>2</sup> <strong>≠ σ<sup>2</sup></strong></p>
 <p> <strong>Biased estimator:</strong><br> E[s<sup>2</sup>] = (N-1) / N * σ<sup>2</sup>，既考虑了m又考虑了σ</p>
 </li>
 </ol>
 <hr>
-<h2 id="2-到底-bias-和-variance-是什么？"><a href="#2-到底-bias-和-variance-是什么？" class="headerlink" title="2. 到底 bias 和 variance 是什么？"></a>2. 到底 bias 和 variance 是什么？</h2><table>
+<h2 id="2-到底-bias-和-variance-是什么？"><a href="#2-到底-bias-和-variance-是什么？" class="headerlink" title="2. 到底 bias 和 variance 是什么？"></a>2. 到底 bias 和 variance 是什么？</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th></th>
-<th align="center">以下表靶图逻辑</th>
+<th style="text-align:center">以下表靶图逻辑</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Bias</td>
-<td align="center"><strong>靶心(f^)</strong> 和 <strong>预估预测函数的平均函数(f_)</strong> 的距离</td>
+<td style="text-align:center"><strong>靶心(f^)</strong> 和 <strong>预估预测函数的平均函数(f_)</strong> 的距离</td>
 </tr>
 <tr>
 <td>Variance</td>
-<td align="center"><strong>预估预测函数(f＊)</strong> 和 <strong>平均函数(f_)</strong> 的离散程度</td>
+<td style="text-align:center"><strong>预估预测函数(f＊)</strong> 和 <strong>平均函数(f_)</strong> 的离散程度</td>
 </tr>
 <tr>
 <td>Diagram</td>
-<td align="center"><img src="bias+variance.png" width="80%"></td>
+<td style="text-align:center"><img src="bias+variance.png" width="80%"></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><code>example 1</code> <em>prerequisite</em> </p>
 <ul>
 <li>训练集设置：<ul>
@@ -690,6 +626,7 @@
 </ul>
 </li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -699,26 +636,27 @@
 <th></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>简单model：一次幂<br>y = b + wx<sub>cp</sub></td>
 <td><img src="linear.png" width="80%"></td>
 <td><img src="linear1.png" width="80%"></td>
-<td></td>
 </tr>
 <tr>
 <td>三次幂<br>y = b + w<sub>1</sub>x<sub>cp</sub>+w<sub>2</sub>(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>(x<sub>cp</sub>)<sup>3</sup></td>
 <td><img src="power3.png" width="80%"></td>
 <td><img src="power3_1.png" width="80%"></td>
-<td></td>
 </tr>
 <tr>
 <td>复杂model：五次幂<br>y = b + w<sub>1</sub>x<sub>cp</sub>+w<sub>2</sub>(x<sub>cp</sub>)<sup>2</sup>+w<sub>3</sub>(x<sub>cp</sub>)<sup>3</sup>+w<sub>3</sub>(x<sub>cp</sub>)<sup>4</sup>+w<sub>5</sub>(x<sub>cp</sub>)<sup>5</sup></td>
 <td><img src="power5.png" width="80%"></td>
 <td><img src="power5_1.png" width="80%"></td>
-<td></td>
 </tr>
-</tbody></table>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -726,7 +664,8 @@
 <th>复杂model</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><strong>Variance</strong></td>
 <td>Var较<strong>小</strong>，表现为收敛</td>
 <td>Var较<strong>大</strong>，表现为发散</td>
@@ -744,13 +683,14 @@
 <tr>
 <td>Solution</td>
 <td>Redesign the model:<br>1. 更多参数<br>2. 更多幂次</td>
-<td></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p> 那么，在回顾之前一课中error在第三次幂中会突然转变error，需要对error进行分类：</p>
 <ol>
 <li><strong>红</strong>线是bias变化，<strong>绿</strong>线是var变化</li>
-<li><strong>从左到右</strong>分别是 <code>Underfitting: 大bias+小vars</code> 到<code> Overfitting: 小bias+大vars</code><img src="errorClassification.png" width="80%"></li>
+<li><strong>从左到右</strong>分别是 <code>Underfitting: 大bias+小vars</code> 到<code>Overfitting: 小bias+大vars</code><br><img src="errorClassification.png" width="80%"></li>
 </ol>
 <p>所以在做完machine learning的时候，都要问自己：<strong>到底是bias大还是var大？</strong></p>
 <ul>
@@ -766,9 +706,8 @@
 <li>把training set分成两部分：<br><code>TRAINING SET</code> = <code>Training set A</code> + <code>Validation set B</code> </li>
 <li>在<code>Training set A</code>上train完之后用<code>Validation set B</code> 去选择model</li>
 <li>但原本的training data会因此减少，所以在步骤2中最终选择完了model后，再用全部的<code>TRAINING SET</code>在选择好的model基础上再train一次data</li>
-<li>此时的public testing set和private testing set的结果可以相近</li>
+<li>此时的public testing set和private testing set的结果可以相近<br><strong>不推荐！</strong> 把public testing set回头把training set的再校准一次，这样做会把testing set的bias又带到原来的model去。又会把public set校准表现得比private set好。</li>
 </ol>
-<p> <strong>不推荐！</strong> 把public testing set回头把training set的再校准一次，这样做会把testing set的bias又带到原来的model去。又会把public set校准表现得比private set好。</p>
 </li>
 <li><p>法2：N-fold Cross Validation N折交叉校准</p>
 </li>
@@ -777,33 +716,37 @@
 <p><code>TRAINING SET</code><br>1 <code>TR1</code> <code>TR2</code> <code>VAL</code> → model 1, 2, 3,… ↓<br>2 <code>TR1</code> <code>VAL</code> <code>TR2</code> → model 1, 2, 3,… ↓<br>3 <code>VAL</code> <code>TR1</code> <code>TR2</code> → model 1, 2, 3,… ↓</p>
 <p>→  相同model的avg error → minimum</p>
 <hr>
-<h1 id="P6-梯度下降-Gradient-Descent"><a href="#P6-梯度下降-Gradient-Descent" class="headerlink" title="P6 梯度下降 Gradient Descent"></a>P6 梯度下降 Gradient Descent</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=6&spm_id_from=pageDriver">Hung-yi Lee - Machine Learning 2017 - P6 梯度下降</a></p>
+<h1 id="P6-梯度下降-Gradient-Descent"><a href="#P6-梯度下降-Gradient-Descent" class="headerlink" title="P6 梯度下降 Gradient Descent"></a>P6 梯度下降 Gradient Descent</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=6&amp;spm_id_from=pageDriver">Hung-yi Lee - Machine Learning 2017 - P6 梯度下降</a></p>
 <blockquote>
 <p><strong>Recap from P3</strong><br>Gradient Descent: θ*  = arg min<sub>θ</sub> L(θ)<br>L for Loss function, θ for parameters (一组参数，n ≥1)</p>
 </blockquote>
 <p>假设：θ 有两个变量 {θ<sub>1</sub>, θ<sub>2</sub>}<br>且有：<br>a. Gradient function <em>∇ L(θ) =</em> [ 𝜕L(θ<sub>1</sub>)/𝜕θ<sub>1</sub>, 𝜕L(θ<sub>2</sub>)/𝜕θ<sub>2</sub> ]<sup>T</sup> ，其表达为一个vector<br>b. learning rate <em>η</em><br>则 Gradient Descent 可表达为：</p>
 <blockquote>
-<p>θ<sup>1</sup> = θ<sup>0</sup> - η * ∇ L(θ<sup>0</sup>)<br>θ<sup>2</sup> = θ<sup>1</sup> - η * ∇ L(θ<sup>1</sup>)<br>…until find the minimum</p>
+<p>θ<sup>1</sup> = θ<sup>0</sup> - η <em> ∇ L(θ<sup>0</sup>)<br>θ<sup>2</sup> = θ<sup>1</sup> - η </em> ∇ L(θ<sup>1</sup>)<br>…until find the minimum</p>
 </blockquote>
-<p><em>θ<sup>i</sup> = θ<sup>i-1</sup> - η * ∇ L(θ<sup>i-1</sup>)</em></p>
+<p><em>θ<sup>i</sup> = θ<sup>i-1</sup> - η </em> ∇ L(θ<sup>i-1</sup>)*</p>
 <hr>
 <p>Q: 如何提高training速度？</p>
 <h2 id="TIP-1-Learning-Rate"><a href="#TIP-1-Learning-Rate" class="headerlink" title="TIP 1:  Learning Rate:"></a>TIP 1:  Learning Rate:</h2><p>用 Update amount - Loss 制图，做LR的可视化，理解LR是怎么调参的。</p>
 <blockquote>
 <p>如果在做gradient descent的时候应该把这个图画出来，去理解前几次update的时候到底learning rate是怎么调出来；要确定它是<strong>稳定的下降</strong></p>
 </blockquote>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center"><img src="LR1.png" width="80%" align="center"></th>
-<th align="center"><img src="LR1-charts.png" width="80%"></th>
+<th style="text-align:center"><img src="LR1.png" width="80%" align="center"></th>
+<th style="text-align:center"><img src="LR1-charts.png" width="80%"></th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">实际曲线找梯度</td>
-<td align="center">visualization</td>
+<tbody>
+<tr>
+<td style="text-align:center">实际曲线找梯度</td>
+<td style="text-align:center">visualization</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="Adaptive-Learning-Rates"><a href="#Adaptive-Learning-Rates" class="headerlink" title="Adaptive Learning Rates"></a>Adaptive Learning Rates</h3><p>基本原则：learning rate随着参数的update，会越来越小</p>
 <ul>
 <li>在刚开始起始点的时候，离最低点是最远，所以一开始的步伐会很大</li>
@@ -812,25 +755,9 @@
 </ul>
 <h4 id="Adagrad是其中最basic的小技巧的adaptive-方式"><a href="#Adagrad是其中最basic的小技巧的adaptive-方式" class="headerlink" title="Adagrad是其中最basic的小技巧的adaptive 方式"></a>Adagrad是其中最basic的小技巧的adaptive 方式</h4><ul>
 <li>Concept：<em>每个参数的LR除以<strong>之前微分值的root mean square</strong></em></li>
-<li>具体做法：<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><em>prerequisite</em></td>
-<td>偏微分 g<sup>t</sup> =𝜕 L(θ<sup>t</sup>)/𝜕w<br>前所有偏微分参数的均方根 <strong>σ<sup>t</sup></strong>= [1/(t+1))Σ(g<sup>i</sup>)]<sup>2</sup>)<sup>1/2</sup><br>（对每个参数都是独立不一致的）</td>
-</tr>
-<tr>
-<td>Vanilla Gradient Descent<br><strong>Adagrad</strong></td>
-<td><em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup>g<sup>t</sup></em><br><em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup> <strong>/σ<sup>t</sup></strong> g<sup>t</sup></em></td>
-</tr>
-</tbody></table>
-</li>
+<li>具体做法：<br>|| |<br>|-|-|<br>|<em>prerequisite</em>|偏微分 g<sup>t</sup> =𝜕 L(θ<sup>t</sup>)/𝜕w<br>前所有偏微分参数的均方根 <strong>σ<sup>t</sup></strong>= [1/(t+1))Σ(g<sup>i</sup>)]<sup>2</sup>)<sup>1/2</sup><br>（对每个参数都是独立不一致的） |<br>|Vanilla Gradient Descent<br><strong>Adagrad</strong>| <em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup>g<sup>t</sup></em><br><em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup> <strong>/σ<sup>t</sup></strong> g<sup>t</sup></em>|</li>
 </ul>
-<p>而1/t decay: *η<sup>t</sup> = η/(t+1)<sup>1/2</sup>*， 所以式中 <em>1/(t+1)<sup>1/2</sup></em> 相消： 简化成 </p>
+<p>而1/t decay: <em>η<sup>t</sup> = η/(t+1)<sup>1/2</sup></em>， 所以式中 <em>1/(t+1)<sup>1/2</sup></em> 相消： 简化成 </p>
 <ul>
 <li><em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup> <strong>/σ<sup>t</sup></strong> g<sup>t</sup> <br> = w<sup>t</sup> -  η <strong>/(Σ(g<sup>i</sup>)<sup>2</sup>) <sup>1/2</sup></strong> g<sup>t</sup></em> </li>
 </ul>
@@ -840,33 +767,29 @@
 </blockquote>
 <ul>
 <li>解释a：反差</li>
-<li>解释b：找微分最小值 = 梯度下降的目的 = 微分高时，step长；微分低时，step短<br>以简单二元函数 y = ax<sup>2</sup> + bx + c为例：<br><img src="adagrad1.png" width="60%">
-<br>1. 梯度最低位置，一次微分为零，即：|𝜕 y/𝜕 x| = |2ax+b| = 0, x = -b/2a
-<br>2. 若从x<sub>0</sub>到梯度最低的就是距离就是：|x<sub>0</sub> - (-b/2a)| = |x<sub>0</sub> +b/2a| = |2ax<sub>0</sub>+b|/2a
-<br>3. 同时： |2ax<sub>0</sub>+b|/2a  = |𝜕 y/𝜕 x|<sub>x=x0</sub> / |𝜕'' y/𝜕'' x| = 一次微分在x<sub>0</sub>的解/二次微分（当只有一组函数时可只看一次微分部分）
-<br>4. 和 Adagrad 的关系：g<sup>t</sup>/(Σ(g<sup>i</sup>)<sup>2</sup>) <sup>1/2</sup> 相当于 一次微分/二次微分。<br> 4.1 root mean square的方法表达了该一次微分的开合程度，在这里可近似于二次微分的作用。<br>4.2 当训练集过大等原因，算一次微分可能就花费了一天，再二次微分会花费相对的时间，此时利用root mean square可直接计算一次微分结果并近似类比：|𝜕'' y/𝜕'' x|≈(Σ(g<sup>i</sup>)<sup>2</sup>) <sup>1/2</sup> 
-<img src="adagrad2.png" width="60%"></li>
+<li>解释b：找微分最小值 = 梯度下降的目的 = 微分高时，step长；微分低时，step短<br>以简单二元函数 y = ax<sup>2</sup> + bx + c为例：<br><br><img src="adagrad1.png" width="60%"><br><br>1. 梯度最低位置，一次微分为零，即：|𝜕 y/𝜕 x| = |2ax+b| = 0, x = -b/2a<br><br>2. 若从x<sub>0</sub>到梯度最低的就是距离就是：|x<sub>0</sub> - (-b/2a)| = |x<sub>0</sub> +b/2a| = |2ax<sub>0</sub>+b|/2a<br><br>3. 同时： |2ax<sub>0</sub>+b|/2a  = |𝜕 y/𝜕 x|<sub>x=x0</sub> / |𝜕’’ y/𝜕’’ x| = 一次微分在x<sub>0</sub>的解/二次微分（当只有一组函数时可只看一次微分部分）<br><br>4. 和 Adagrad 的关系：g<sup>t</sup>/(Σ(g<sup>i</sup>)<sup>2</sup>) <sup>1/2</sup> 相当于 一次微分/二次微分。<br> 4.1 root mean square的方法表达了该一次微分的开合程度，在这里可近似于二次微分的作用。<br>4.2 当训练集过大等原因，算一次微分可能就花费了一天，再二次微分会花费相对的时间，此时利用root mean square可直接计算一次微分结果并近似类比：|𝜕’’ y/𝜕’’ x|≈(Σ(g<sup>i</sup>)<sup>2</sup>) <sup>1/2</sup><br><img src="adagrad2.png" width="60%"></li>
 </ul>
 <hr>
-<h2 id="TIP-2-STOCHASTIC-GRADIENT-DESCENT-随机梯度下降"><a href="#TIP-2-STOCHASTIC-GRADIENT-DESCENT-随机梯度下降" class="headerlink" title="TIP 2:  STOCHASTIC GRADIENT DESCENT 随机梯度下降"></a>TIP 2:  STOCHASTIC GRADIENT DESCENT 随机梯度下降</h2><table>
+<h2 id="TIP-2-STOCHASTIC-GRADIENT-DESCENT-随机梯度下降"><a href="#TIP-2-STOCHASTIC-GRADIENT-DESCENT-随机梯度下降" class="headerlink" title="TIP 2:  STOCHASTIC GRADIENT DESCENT 随机梯度下降"></a>TIP 2:  STOCHASTIC GRADIENT DESCENT 随机梯度下降</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center"><img src="stochasticGD1.png" width="70%"></th>
-<th align="center"><img src="stochasticGD2.png" width="70%"></th>
+<th style="text-align:center"><img src="stochasticGD1.png" width="70%"></th>
+<th style="text-align:center"><img src="stochasticGD2.png" width="70%"></th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">看完所有参数后再开始计算</td>
-<td align="center">随机选择参数后，直接计算</td>
+<tbody>
+<tr>
+<td style="text-align:center">看完所有参数后再开始计算</td>
+<td style="text-align:center">随机选择参数后，直接计算</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <hr>
 <h2 id="TIP-3-FEATURE-SCALING-特征缩放"><a href="#TIP-3-FEATURE-SCALING-特征缩放" class="headerlink" title="TIP 3: FEATURE SCALING 特征缩放"></a>TIP 3: FEATURE SCALING 特征缩放</h2><p><code>example:</code> 把x<sub>1</sub>和x<sub>2</sub>放在相同scale上</p>
 <ul>
-<li><img src="featureScaling.png" width="80%">
-<br>使得此例中w<sub>1</sub>和w<sub>2</sub>更近似圆形，让求微分更快（直接向圆心走）
-<br><img src="featureScaling_LOSS.png" width="80%">
-<br>*实现Feature Scaling的方法有很多*</li>
+<li><img src="featureScaling.png" width="80%"><br><br>使得此例中w<sub>1</sub>和w<sub>2</sub>更近似圆形，让求微分更快（直接向圆心走）<br><br><img src="featureScaling_LOSS.png" width="80%"><br><br><em>实现Feature Scaling的方法有很多</em></li>
 </ul>
 <hr>
 <h2 id="Theory"><a href="#Theory" class="headerlink" title="Theory"></a>Theory</h2><p>泰勒展开式，只考虑原式+一次微分（approximation ）<br>h(x) = h(x<sub>0</sub>) +h’(x<sub>0</sub>)(x-x<sub>0</sub>)+<del>h’’(x<sub>0</sub>)/2!…</del><br>原因：<br>1. 这种大约接近已经够用<br>2. 二次微分在deep learning会增加时间，不划算<br><strong>一句话总结</strong>：通过各项偏导组成vector，并点乘求最小值即180°平行时；其中learning rate正比于选点圆型半径，并赋负号形成180°；且画圆时半径越小越精确。</p>
@@ -877,12 +800,13 @@
  <p id="task04"></p>
 <p align="center">- - - - - - - - - - - - - - - T A S K 0 4 - - - - - - - - - - - - - - -<br><a href="#index">[ B A C K ]</a></p>
 
-<img src="HUNGYILEE_04.png" width="100%">
+<p><img src="HUNGYILEE_04.png" width="100%"></p>
 <p align="center"> </p>
 
 <h1 id="P13-Deep-Learning"><a href="#P13-Deep-Learning" class="headerlink" title="P13 Deep Learning"></a>P13 Deep Learning</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=13">Hung-yi Lee - Machine Learning 2017 - P13 深度学习</a></p>
 <hr>
-<h2 id="THREE-STEPS-FOR-DEEP-LEARNING"><a href="#THREE-STEPS-FOR-DEEP-LEARNING" class="headerlink" title="THREE STEPS FOR DEEP LEARNING"></a>THREE STEPS FOR DEEP LEARNING</h2><table>
+<h2 id="THREE-STEPS-FOR-DEEP-LEARNING"><a href="#THREE-STEPS-FOR-DEEP-LEARNING" class="headerlink" title="THREE STEPS FOR DEEP LEARNING"></a>THREE STEPS FOR DEEP LEARNING</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>Step 1</th>
@@ -890,12 +814,15 @@
 <th>Step 3</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Define a function set</td>
 <td>Goodness of function</td>
 <td>Pick the best function</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="Step-1-Define-function"><a href="#Step-1-Define-function" class="headerlink" title="Step 1 : Define function"></a>Step 1 : Define function</h3><ul>
 <li>这个function也就是神经网络Neural Network。</li>
 </ul>
@@ -937,14 +864,18 @@
 <h3 id="Step-2-Goodness-of-function"><a href="#Step-2-Goodness-of-function" class="headerlink" title="Step 2 : Goodness of function"></a>Step 2 : Goodness of function</h3><p>output为y，target为y^，目标就是y,y^ 越小越好。</p>
 <p>Total Loss: L = Σ C<sup>n</sup>(θ) 即所有loss的总损失最少。<br>→ gradient descent → network parameter θ调整</p>
 <ul>
-<li>Backpropagation：反向传播有效计算w对L的微分<br>  有以下toolkit：<p align="center"><img src="bp.png" width="80%"></p></li>
+<li>Backpropagation：反向传播有效计算w对L的微分<br>  有以下toolkit：<p align="center"><img src="bp.png" width="80%"></p>
+
+</li>
 </ul>
 <h3 id="Step-3-Pick-the-best-function"><a href="#Step-3-Pick-the-best-function" class="headerlink" title="Step 3 : Pick the best function"></a>Step 3 : Pick the best function</h3><hr>
 <h1 id="P14-Backpropagation"><a href="#P14-Backpropagation" class="headerlink" title="P14 Backpropagation"></a>P14 Backpropagation</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ht411g7Ef?p=14">Hung-yi Lee - Machine Learning 2017 - P14 反向传播</a></p>
 <h3 id="Chain-Rule"><a href="#Chain-Rule" class="headerlink" title="Chain Rule"></a>Chain Rule</h3><p> 通过微分或偏微分的分裂，把初始函数和目标函数对应。</p>
 <ul>
-<li>Case 1. 串联： <em>y = g(x), z = h(y)</em><br> Δ<em>x</em> →  Δ<em>y</em> → Δ<em>z</em> </li>
-<li>Case 2. 串联： <em>x = g(s), y=h(s), z = k(x,y)</em><br>  Δ<em>s</em> →  Δ<em>x</em> → Δ<em>z</em><br>  Δ<em>s</em> → Δ<em>y</em> → Δ<em>z</em>  </li>
+<li>Case 1. 串联： <em>y = g(x), z = h(y)</em><br> Δ<em>x</em> →  Δ<em>y</em> → Δ<em>z</em> <ul>
+<li>Case 2. 串联： <em>x = g(s), y=h(s), z = k(x,y)</em><br>Δ<em>s</em> →  Δ<em>x</em> → Δ<em>z</em><br>Δ<em>s</em> → Δ<em>y</em> → Δ<em>z</em>  </li>
+</ul>
+</li>
 </ul>
 <h3 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a>Loss function</h3><ol>
 <li><p>求Loss function L(θ) = ΣC<sup>n</sup>(θ) 对w的偏导：<br>𝜕L(θ)/𝜕w = Σ 𝜕C<sup>n</sup>(θ)/𝜕w</p>
@@ -954,31 +885,35 @@
 <li><p>但是：展开式后项 <code>𝜕C/𝜕z</code> 很难算，所以用Backward path来算。其过程相当于电路中放大器的做法。</p>
 </li>
 <li><p>backward path的需要正向算完，得出output后，再反向算得偏导。</p>
-</li>
-</ol>
- <p id="task05"></p>
+<p id="task05"></p>
 <p align="center">- - - - - - - - - - - - - - - T A S K 0 5 - - - - - - - - - - - - - - -<br><a href="#index">[ B A C K ]</a></p>
 
-<img src="HUNGYILEE_05.png" width="100%">
+</li>
+</ol>
+<p><img src="HUNGYILEE_05.png" width="100%"></p>
 <p align="center"></p>
 
 <h1 id="P5-Local-minima-vs-Saddle-point"><a href="#P5-Local-minima-vs-Saddle-point" class="headerlink" title="P5 Local minima vs Saddle point"></a>P5 Local minima vs Saddle point</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=5">Hung-yi Lee - Machine Learning 2021 - P5 局部最小与鞍点</a></p>
 <hr>
-<h2 id="1-Terminology-of-local-minima-amp-saddle-point"><a href="#1-Terminology-of-local-minima-amp-saddle-point" class="headerlink" title="1. Terminology of local minima &amp; saddle point"></a>1. Terminology of <u>local minima</u> &amp; <u>saddle point</u></h2><h3 id="Optimization-fails-↓"><a href="#Optimization-fails-↓" class="headerlink" title="Optimization fails ↓"></a>Optimization fails ↓</h3><P align="center"><img src="LossGraph.png" width="80%"></p>
-
-<p><strong>Scenarios</strong><br>    1. <code>Blue</code>：当到达某个时刻，参数update对loss没有变化，但loss并不小；<br>    2. <code>Orange</code>：从刚一开始，gradient就没有变化，gradient为0</p>
-<p>即 <em>对Loss的微分为0，gradient descent无法update参数。</em> <strong>可能的原因</strong>：<br>    1. <code>local minima</code><br>    2. <code>saddle point</code>（鞍点）→ 既不是local minima, 又不是local maxima</p>
-<p align="center"><img src="localMinima+saddlePoint.png" width="80%"></p>
+<h2 id="1-Terminology-of-local-minima-amp-saddle-point"><a href="#1-Terminology-of-local-minima-amp-saddle-point" class="headerlink" title="1. Terminology of local minima &amp; saddle point"></a>1. Terminology of <u>local minima</u> &amp; <u>saddle point</u></h2><h3 id="Optimization-fails-↓"><a href="#Optimization-fails-↓" class="headerlink" title="Optimization fails ↓"></a>Optimization fails ↓</h3><p><P align="center"><img src="LossGraph.png" width="80%">&lt;/p&gt;</p>
+<p><strong>Scenarios</strong></p>
+<pre><code>1. `Blue`：当到达某个时刻，参数update对loss没有变化，但loss并不小；
+2. `Orange`：从刚一开始，gradient就没有变化，gradient为0
+</code></pre><p>即 <em>对Loss的微分为0，gradient descent无法update参数。</em> <strong>可能的原因</strong>：</p>
+<pre><code>1. `local minima` 
+2. `saddle point`（鞍点）→ 既不是local minima, 又不是local maxima
+</code></pre><p align="center"><img src="localMinima+saddlePoint.png" width="80%"></p>
 
 <ul>
 <li>gradient = 0的点 统称为 <code>critical point</code></li>
 </ul>
 <hr>
 <h2 id="2-如何判断local-minima还是saddle-point？"><a href="#2-如何判断local-minima还是saddle-point？" class="headerlink" title="2. 如何判断local minima还是saddle point？"></a>2. 如何判断local minima还是saddle point？</h2><ul>
-<li>Task03中的泰勒展开式，增加二次微分项<ol>
-<li><em>θ = θ’</em> 附近的 L(θ) 可展开为：<p align="center"> <em>L(θ) ≈ L(θ’) + ( θ - θ’ )<sup>T</sup> <strong>g</strong> + 1/2 ( θ - θ’ )<sup>T</sup> <strong>H</strong> ( θ - θ’ )</em> </p><ol>
-<li>一次微分 Gradient <em><strong>g</strong></em> is a vector：<em><strong>g</strong><sub>i</sub> = 𝜕 L(θ’)/ 𝜕 θ<sub>i</sub></em></li>
-<li>二次微分 Hessian <strong>H</strong> is a matrix：<em><strong>H</strong><sub>ij</sub> = 𝜕 <sup>2</sup>L(θ’)/ 𝜕 θ<sub>i</sub>𝜕 θ<sub>j</sub></em></li>
+<li><p>Task03中的泰勒展开式，增加二次微分项</p>
+<ol>
+<li><em>θ = θ’</em> 附近的 L(θ) 可展开为：<p align="center"> *L(θ) ≈ L(θ') + ( θ - θ' )<sup>T</sup> **g** + 1/2 ( θ - θ' )<sup>T</sup> **H** ( θ - θ' )* </p><ol>
+<li>一次微分 Gradient <strong><em>g</em></strong> is a vector：<strong>*g</strong><sub>i</sub> = 𝜕 L(θ’)/ 𝜕 θ<sub>i</sub>*</li>
+<li>二次微分 Hessian <strong>H</strong> is a matrix：<strong>*H</strong><sub>ij</sub> = 𝜕 <sup>2</sup>L(θ’)/ 𝜕 θ<sub>i</sub>𝜕 θ<sub>j</sub>*</li>
 </ol>
 </li>
 <li>和<code>critical point</code>有什么关系？<ol>
@@ -986,10 +921,11 @@
 <li>二次微分则可用于判别<code>critical point</code>的特性（他的地貌长什么样子）</li>
 </ol>
 </li>
-<li>Hessian <strong>H</strong>：simplified 1/2 ( θ - θ’ )<sup>T</sup> <strong>H</strong> ( θ - θ’ )* → v<sup>T</sup> <strong>H</strong> v<ol>
+<li><p>Hessian <strong>H</strong>：simplified 1/2 ( θ - θ’ )<sup>T</sup> <strong>H</strong> ( θ - θ’ )<em> → v<sup>T</sup> <em>*H</em></em> v</p>
+<ol>
 <li>For all <code>v</code>:  v<sup>T</sup> <strong>H</strong> v &gt;0 → θ’ 附近 L(θ) &gt; L(θ’) → <u><strong>Local minima</strong></u></li>
-<li>For all <code>v</code>:  v<sup>T</sup> <strong>H</strong> v &lt;0 → θ’ 附近 L(θ) &lt; L(θ’) → <u><strong>Local maxima</strong></u></li>
-<li>Sometimes v<sup>T</sup> <strong>H</strong> v &gt;0, sometimes v<sup>T</sup> <strong>H</strong> v &lt;0 →  <u><strong>Saddle point</strong></u></li>
+<li>For all <code>v</code>:  v<sup>T</sup> <strong>H</strong> v <0 → θ' 附近 L(θ) < L(θ') → <u><strong>Local maxima</strong>&lt;/u&gt;</li>
+<li>Sometimes v<sup>T</sup> <strong>H</strong> v &gt;0, sometimes v<sup>T</sup> <strong>H</strong> v <0 →  <u><strong>Saddle point</strong>&lt;/u&gt;</li>
 </ol>
 <ul>
 <li>v<sup>T</sup> <strong>H</strong> v &gt;0 相当于 <code>H</code> is positive definite = All eigen values are <strong>positive</strong>，即直接看H的eigenvalue为正就可以判断local minima；同理eigenvalue全负时，为local maxima；有正有负时，为saddle point。</li>
@@ -1035,30 +971,34 @@
 <ul>
 <li><code>example 1:</code> 无平行运算，batch size的不同结果</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>Batch size</th>
-<th align="center">= N (full batch)</th>
-<th align="center">= 1</th>
+<th style="text-align:center">= N (full batch)</th>
+<th style="text-align:center">= 1</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Gradient<br>Descent</td>
-<td align="center">upddate after <strong>seeing all</strong> the examples<br>在一个epoch里只update一次<br><img src="fullBatch.png" width="80%"></td>
-<td align="center">update for <strong>each</strong> example<br>在一个epoch 里面会update 20次<br><img src="miniBatch.png" width="80%"></td>
+<td style="text-align:center">upddate after <strong>seeing all</strong> the examples<br>在一个epoch里只update一次<br><img src="fullBatch.png" width="80%"></td>
+<td style="text-align:center">update for <strong>each</strong> example<br>在一个epoch 里面会update 20次<br><img src="miniBatch.png" width="80%"></td>
 </tr>
 <tr>
 <td>Pros</td>
-<td align="center">时间长</td>
-<td align="center">时间短</td>
+<td style="text-align:center">时间长</td>
+<td style="text-align:center">时间短</td>
 </tr>
 <tr>
 <td>Cons</td>
-<td align="center">稳当 powerful</td>
-<td align="center">较noisy</td>
+<td style="text-align:center">稳当 powerful</td>
+<td style="text-align:center">较noisy</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <blockquote>
 <p>Q1: 但如果加入平行运算呢？(by GPU)</p>
 </blockquote>
@@ -1075,7 +1015,9 @@
 </blockquote>
 <p>并不是！<br>在实际training中，同样的model、同样的network，照理说表示的accuracy结果应是一摸一样， 但：</p>
 <ul>
-<li><code>example 3</code>：平行计算，small size的准确度会更高<br>随着size增大，准确度下降（此例 与overfitting无关）<p align="center"><img src="batchSizeAccuracy.png" width="80%" ></p></li>
+<li><code>example 3</code>：平行计算，small size的准确度会更高<br>随着size增大，准确度下降（此例 与overfitting无关）<p align="center"><img src="batchSizeAccuracy.png" width="80%" ></p>
+
+</li>
 </ul>
 <blockquote>
 <p>Q3: 为什么batch size会和准确度相关呢？</p>
@@ -1083,53 +1025,57 @@
 <p>对比不同size时，gradient在larger size可能会被卡住；而在smaller size上会同时进行不同loss的计算，这种noisy update是有助于找到更低的loss</p>
 <p align="center"><img src="batchSizeAccuracy_reason.png" width="80%" ></p>
 
-<h4 id="Summarizing-batch-size："><a href="#Summarizing-batch-size：" class="headerlink" title="Summarizing batch size："></a>Summarizing batch size：</h4><table>
+<h4 id="Summarizing-batch-size："><a href="#Summarizing-batch-size：" class="headerlink" title="Summarizing batch size："></a>Summarizing batch size：</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th></th>
-<th align="center">Large</th>
-<th align="center">Small</th>
+<th style="text-align:center">Large</th>
+<th style="text-align:center">Small</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Speed for 1 <strong>update</strong><br>(<strong>no</strong> parallel)</td>
-<td align="center">Slower</td>
-<td align="center">Faster</td>
+<td style="text-align:center">Slower</td>
+<td style="text-align:center">Faster</td>
 </tr>
 <tr>
 <td>Speed for 1 <strong>update</strong><br>(<strong>with</strong> parallel)</td>
-<td align="center">Same<br>(with limitation)</td>
-<td align="center">Same</td>
+<td style="text-align:center">Same<br>(with limitation)</td>
+<td style="text-align:center">Same</td>
 </tr>
 <tr>
 <td>Speed for 1 <strong>epoch</strong></td>
-<td align="center">Faster ★</td>
-<td align="center">Slower</td>
+<td style="text-align:center">Faster ★</td>
+<td style="text-align:center">Slower</td>
 </tr>
 <tr>
 <td>Gradient</td>
-<td align="center">Stable</td>
-<td align="center">Noisy</td>
+<td style="text-align:center">Stable</td>
+<td style="text-align:center">Noisy</td>
 </tr>
 <tr>
 <td>Optimization</td>
-<td align="center">Worse</td>
-<td align="center">Better ★</td>
+<td style="text-align:center">Worse</td>
+<td style="text-align:center">Better ★</td>
 </tr>
 <tr>
 <td>Generalization</td>
-<td align="center">Worse</td>
-<td align="center">Better ★</td>
+<td style="text-align:center">Worse</td>
+<td style="text-align:center">Better ★</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <hr>
 <h2 id="2-MOMENTUM"><a href="#2-MOMENTUM" class="headerlink" title="2. MOMENTUM"></a>2. MOMENTUM</h2><p>物理世界里面有惯性，使得球体在动量惯性继续向前动。那在gradient descent中，即是 前一步的weighted gradient减去现在的gradient。</p>
 <blockquote>
-<p><em><strong>m<sup>i</sup></strong></em> = weighted sum of all the previous gradient <em><strong>g</strong></em><sup><strong>0</strong></sup>, <em><strong>g</strong></em><sup><strong>1</strong></sup>, <em><strong>g</strong></em><sup><strong>2</strong></sup>, …</p>
+<p><strong><em>m<sup>i</sup></em></strong> = weighted sum of all the previous gradient <strong><em>g</em></strong><sup><strong>0</strong></sup>, <strong><em>g</em></strong><sup><strong>1</strong></sup>, <strong><em>g</em></strong><sup><strong>2</strong></sup>, …</p>
 </blockquote>
 <p>所以：</p>
 <blockquote>
-<p><em><strong>m</strong></em><sup><strong>0</strong></sup> = 0<br><em><strong>m</strong></em><sup><strong>1</strong></sup> = λ<em><strong>m</strong></em><sup><strong>0</strong></sup> - η <em><strong>g</strong></em><sup><strong>0</strong></sup> =  -  η <em><strong>g</strong></em><sup><strong>0</strong></sup><br><em><strong>m</strong></em><sup><strong>2</strong></sup> = λ<em><strong>m</strong></em><sup><strong>1</strong></sup>  -  η <em><strong>g</strong></em><sup><strong>1</strong></sup> = -λ η <em><strong>g</strong></em><sup><strong>0</strong></sup> -  η <em><strong>g</strong></em><sup><strong>1</strong></sup><br>…</p>
+<p><strong><em>m</em></strong><sup><strong>0</strong></sup> = 0<br><strong><em>m</em></strong><sup><strong>1</strong></sup> = λ<strong><em>m</em></strong><sup><strong>0</strong></sup> - η <strong><em>g</em></strong><sup><strong>0</strong></sup> =  -  η <strong><em>g</em></strong><sup><strong>0</strong></sup><br><strong><em>m</em></strong><sup><strong>2</strong></sup> = λ<strong><em>m</em></strong><sup><strong>1</strong></sup>  -  η <strong><em>g</em></strong><sup><strong>1</strong></sup> = -λ η <strong><em>g</em></strong><sup><strong>0</strong></sup> -  η <strong><em>g</em></strong><sup><strong>1</strong></sup><br>…</p>
 </blockquote>
 <p align="center"><img src="momentum.png" width="80%"><br>这样就有可能在local minima的时候，再尝试往前走并突破。</p>
 
@@ -1140,23 +1086,26 @@
 <h2 id="RMSProp"><a href="#RMSProp" class="headerlink" title="RMSProp"></a>RMSProp</h2><p>(没有论文)  和 Adagrad 中 Root Mean Square 唯一的不同是 RMSProp 没有取 MEAN值，而是考虑不同的权重调整式子中 α 值。</p>
 <p align="center"><img src="RMSProp.png" width="80%"></p>
 
-<p>Optimization strategy a.k.a OPTIMIZER: <em><strong>Adam</strong></em> = RMSProp + Momemtum 是较为常用的 optimizer</p>
+<p>Optimization strategy a.k.a OPTIMIZER: <strong><em>Adam</em></strong> = RMSProp + Momemtum 是较为常用的 optimizer</p>
 <p align="center"><img src="Adam.png" width="100%"></p> 预设参数不要随便调，default已经够好。
 
-<hr>
-<h2 id="Learning-Rate-Scheduling"><a href="#Learning-Rate-Scheduling" class="headerlink" title="Learning Rate Scheduling"></a>Learning Rate Scheduling</h2><h3 id="Learning-Rate-Decay"><a href="#Learning-Rate-Decay" class="headerlink" title="Learning Rate Decay"></a>Learning Rate Decay</h3><p align="center"><img src="LRD.png" width="80%"></p> 
+---
+## Learning Rate Scheduling
+### Learning Rate Decay
+
+<p align="center"><img src="LRD.png" width="80%"></p> 
 
 <h3 id="Warm-Up"><a href="#Warm-Up" class="headerlink" title="Warm Up"></a>Warm Up</h3><p align="center"><img src="warmUp.png" width="80%"></p> 
 
 
-<p>有很多高级算法都“偷偷”加上了warm up却未告知它的作用、它的来由。<br>A possible explaination: 统计学上讲，需要多笔数据后才能得到更精准的数据；warm up的作用便是使得数据先被“预读”过、探索过一些error surface的情报。<br><em><strong>ref:</strong></em> <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.03265">RAdam</a></p>
+<p>有很多高级算法都“偷偷”加上了warm up却未告知它的作用、它的来由。<br>A possible explaination: 统计学上讲，需要多笔数据后才能得到更精准的数据；warm up的作用便是使得数据先被“预读”过、探索过一些error surface的情报。<br><strong><em>ref:</em></strong> <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.03265">RAdam</a></p>
 <hr>
 <h2 id="Summary-of-optimization"><a href="#Summary-of-optimization" class="headerlink" title="Summary of optimization"></a>Summary of optimization</h2><ul>
-<li><p>(Vanilla) Gradient Descent: θ<sup>t+1</sup> ← θ<sup>t</sup> - η <em><strong>g</strong></em><sup>t</sup></p>
+<li><p>(Vanilla) Gradient Descent: θ<sup>t+1</sup> ← θ<sup>t</sup> - η <strong><em>g</em></strong><sup>t</sup></p>
 </li>
-<li><p>Various Improvement: θ<sup>t+1</sup> ← θ<sup>t</sup> - η<sup>t</sup>/<strong>σ</strong><sup>t</sup> <em><strong>m</strong></em><sup>t</sup></p>
+<li><p>Various Improvement: θ<sup>t+1</sup> ← θ<sup>t</sup> - η<sup>t</sup>/<strong>σ</strong><sup>t</sup> <strong><em>m</em></strong><sup>t</sup></p>
 <ul>
-<li>（考虑方向）<em><strong>m</strong></em><sup>t</sup> = momentum: weighted sum of the previous gradients </li>
+<li>（考虑方向）<strong><em>m</em></strong><sup>t</sup> = momentum: weighted sum of the previous gradients </li>
 <li>（考虑大小）<strong>σ</strong><sup>t</sup> = root mean square of the gradients </li>
 <li>（考虑schedule）η<sup>t</sup></li>
 </ul>
@@ -1169,7 +1118,7 @@
 <h2 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h2><p>假如分三类：Class 1, Class 2, Class 3 </p>
 <h3 id="Class-as-one-hot-vector"><a href="#Class-as-one-hot-vector" class="headerlink" title="Class as one-hot vector"></a>Class as one-hot vector</h3><p align="center"><img src="onehotVector.png" width="50%"></p>
 
-<h3 id="Classification-operation"><a href="#Classification-operation" class="headerlink" title="Classification operation"></a>Classification operation</h3><p>input x → W’ * σ ( b + W · <code>x</code>) + b’ = output <code>y</code> → <code>y&#39;</code> → <code>y^</code><br>其中 <code>y</code> 可为任何值；<code>y&#39;</code>为 <code>y</code> 通过<strong>softmax</strong> function转换成的值，为0到1之间；<code>y^</code>为 <code>y&#39;</code> 目标label，通过MSE或<strong>Cross-entropy</strong>判断</p>
+<h3 id="Classification-operation"><a href="#Classification-operation" class="headerlink" title="Classification operation"></a>Classification operation</h3><p>input x → W’ <em> σ ( b + W · <code>x</code>) + b’ = output <code>y</code> → <code>y&#39;</code> → <code>y^</code><br>其中 <code>y</code> 可为任何值；<code>y&#39;</code>为 <code>y</code> 通过<strong>softmax</strong> function转换成的值，为0到1之间；<code>y^</code>为 <code>y&#39;</code> 目标label，通过MSE或<em>*Cross-entropy</em></em>判断</p>
 <h4 id="1-softmax（当-binary的时候用sigmoid）"><a href="#1-softmax（当-binary的时候用sigmoid）" class="headerlink" title="1. softmax（当 binary的时候用sigmoid）"></a>1. softmax（当 binary的时候用sigmoid）</h4><blockquote>
 <p><strong>y<sub>i</sub>‘ = exp(y<sub>i</sub>) / Σ<sub>j</sub>exp(y<sub>i</sub>)</strong></p>
 <ul>
@@ -1178,8 +1127,7 @@
 </ul>
 </blockquote>
 <pre><code>其过程为 1. 求指数 → 变正数 2.求总和的分数 → 算比例 
-</code></pre>
-<p align="center"><img src="softmax.png" width="90%"></p>
+</code></pre><p align="center"><img src="softmax.png" width="90%"></p>
 
 <h4 id="2-Cross-entropy"><a href="#2-Cross-entropy" class="headerlink" title="2. Cross-entropy"></a>2. Cross-entropy</h4><blockquote>
 <p><strong>e = - Σ y<sub>i</sub>^ ln y’<sub>i</sub></strong></p>
@@ -1188,18 +1136,15 @@
 <blockquote>
 <p>Q：那为什么Cross-entropy就好了呢？</p>
 </blockquote>
-<img src="MSECROSSENTROPY.png" width="90%">
-
+<p><img src="MSECROSSENTROPY.png" width="90%"></p>
 <p>MSE容易将loss卡在large loss的部分，而Cross-entropy则不会。这也<strong>说明了loss function可以改变optimization。</strong></p>
 <hr>
 <h1 id="P9-Batch-Normalization"><a href="#P9-Batch-Normalization" class="headerlink" title="P9 Batch Normalization"></a>P9 Batch Normalization</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=9">Hung-yi Lee - Machine Learning 2021 - P9 批次标准化</a></p>
 <hr>
-<h2 id="Feature-Normalization"><a href="#Feature-Normalization" class="headerlink" title="Feature Normalization"></a>Feature Normalization</h2><img src="featureNormalization.png" width="80%">
-
+<h2 id="Feature-Normalization"><a href="#Feature-Normalization" class="headerlink" title="Feature Normalization"></a>Feature Normalization</h2><p><img src="featureNormalization.png" width="80%"></p>
 <p>即 <strong>与均值m的差值 / 标准差σ</strong>（方差开根），注意是向量之间的话，除号表达的是element之间的运算。</p>
 <p>做完第一个W之后得到的Z或是Z sigmoid之后的a都还需要feature normalization。但此时单独的z算出z<sup><strong>~</strong></sup>会导致所有z<sup><strong>~</strong></sup>和a都改变，如图中<code>Δ</code>所示：</p>
-<img src="featureNormalization2.png" width="80%">
-
+<p><img src="featureNormalization2.png" width="80%"></p>
 <p>但由于数目过大，因此只针对一个batch里面做normalization，称之为：<u><strong>Batch Normalization</strong></u></p>
 <p>但也有人说：</p>
 <blockquote>
@@ -1210,14 +1155,14 @@
 <p id="task06"></p>
 <p align="center">- - - - - - - - - - - - - - - T A S K 0 6 - - - - - - - - - - - - - - -<br><a href="#index">[ B A C K ]</a></p>
 
-<img src="HUNGYILEE_06.png" width="100%">
+<p><img src="HUNGYILEE_06.png" width="100%"></p>
 <p align="center"> </p>
 
 <h1 id="P10-Convolutional-Neural-Network-CNN"><a href="#P10-Convolutional-Neural-Network-CNN" class="headerlink" title="P10 Convolutional Neural Network (CNN)"></a>P10 Convolutional Neural Network (CNN)</h1><p> by  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11K4y1S7AD?p=10">Hung-yi Lee - Machine Learning 2021 - P10 CNN</a></p>
 <hr>
 <h2 id="Image-Classification"><a href="#Image-Classification" class="headerlink" title="Image Classification"></a>Image Classification</h2><p>Process：<code>Pictrue</code>  → <code>Model</code> → <code>y&#39;</code> ←(Cross-entropy)→ <code>y^</code></p>
 <h3 id="1-Pictrue"><a href="#1-Pictrue" class="headerlink" title="1. Pictrue"></a>1. <code>Pictrue</code></h3><ul>
-<li>= 3D tensor (&gt;2 dim的matrix) = 1D * width + 1D * length + 1D * RGB channels，则可以展开为 <strong>3张 * 解析度100x100</strong> 的 单色图 排成一排 成为network的输入；其中的每一个pixel可以视作<strong>某个位置某个颜色的强度</strong></li>
+<li>= 3D tensor (&gt;2 dim的matrix) = 1D <em> width + 1D </em> length + 1D <em> RGB channels，则可以展开为 **3张 </em> 解析度100x100<strong> 的 单色图 排成一排 成为network的输入；其中的每一个pixel可以视作</strong>某个位置某个颜色的强度**</li>
 <li>假设 固定图片大小，若不一，需要rescale。（假如100x100）</li>
 </ul>
 <h3 id="2-Model"><a href="#2-Model" class="headerlink" title="2. Model"></a>2. <code>Model</code></h3><p>之前只讲过 Fully Connected Network，但由于影响太大会导致计算量过大，怎么办呢？</p>
@@ -1230,7 +1175,7 @@
 <li>可以不同的neuron，关注同一个<code>Receptive field</code> ；</li>
 <li>可以有大有小；</li>
 <li>可以cover部分channel（不常见但有）；</li>
-<li>可以不是正方形；…<img src="receptiveField.png" width="80%"></li>
+<li>可以不是正方形；…<br><img src="receptiveField.png" width="80%"></li>
 </ol>
 </li>
 <li><strong>一般设定：</strong><ol>
@@ -1239,7 +1184,7 @@
 <li>每个RF会有一组neurons去“守备”它</li>
 <li>各个RF之间是什么关系呢？<ol>
 <li>以 3x3 为 kernel size的话，以<code>stride</code> = 1或2 移动 1或2格 RF，使之有overlap；</li>
-<li>那超出图片范围的，就用<code>padding</code>来补值，一般都为0<img src="receptiveField2.png" width="80%"></li>
+<li>那超出图片范围的，就用<code>padding</code>来补值，一般都为0<br><img src="receptiveField2.png" width="80%"></li>
 </ol>
 </li>
 </ol>
@@ -1253,7 +1198,7 @@
 <li>但不能在同一个RF中</li>
 <li><strong>一般设定：</strong><ul>
 <li>每个RF中都有一组神经元</li>
-<li>每个RF中都有同样的参数，即都只有一组参数，称每组参数为<code>filter</code><img src="filter.png" width="80%"></li>
+<li>每个RF中都有同样的参数，即都只有一组参数，称每组参数为<code>filter</code><br><img src="filter.png" width="80%"></li>
 </ul>
 </li>
 </ul>
@@ -1264,25 +1209,28 @@
 <li>范围缩小；</li>
 <li>bias 大：不一定是坏事；<br>  bias 小时容易overfitting；<code>convolutional layer</code>特别为影像设计的，对于影像外的需要特别注意适用性</li>
 </ul>
-<img src="benefit.png" width="80%">
-
+<p><img src="benefit.png" width="80%"></p>
 <hr>
 <h4 id="从filter的角度重新看以上的讲解："><a href="#从filter的角度重新看以上的讲解：" class="headerlink" title="从filter的角度重新看以上的讲解："></a>从<code>filter</code>的角度重新看以上的讲解：</h4><p>即 利用不同的<code>filter</code>，以<code>stride</code>为1的步长，移动<code>kernel size</code>，并计算提取其特征，得出<code>feature map</code>，再继续做第二次convolution</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center"><img src="filter1.png" width="80%"></th>
-<th align="center"><img src="filter2.png" width="80%"></th>
-<th align="center"><img src="filter3.png" width="80%"></th>
+<th style="text-align:center"><img src="filter1.png" width="80%"></th>
+<th style="text-align:center"><img src="filter2.png" width="80%"></th>
+<th style="text-align:center"><img src="filter3.png" width="80%"></th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">STEP1: 6X6.jpg with <strong>64</strong> filters</td>
-<td align="center">STEP2: calculate each filter(<strong>3X3</strong>)</td>
-<td align="center">STEP3: 2nd convolutional layer → <strong>tensor 3X3X64</strong></td>
+<tbody>
+<tr>
+<td style="text-align:center">STEP1: 6X6.jpg with <strong>64</strong> filters</td>
+<td style="text-align:center">STEP2: calculate each filter(<strong>3X3</strong>)</td>
+<td style="text-align:center">STEP3: 2nd convolutional layer → <strong>tensor 3X3X64</strong></td>
 </tr>
-</tbody></table>
-<p>推荐可看李永乐老师的讲解：<br>ref: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AFlIM0jSI9I&list=PLOrDt87s8A3pUSBVvY0g1vhuMk9RM0Ptv&index=2"># 人脸识别啥原理？人工智能（二）卷积神经网络</a></p>
+</tbody>
+</table>
+</div>
+<p>推荐可看李永乐老师的讲解：<br>ref: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AFlIM0jSI9I&amp;list=PLOrDt87s8A3pUSBVvY0g1vhuMk9RM0Ptv&amp;index=2"># 人脸识别啥原理？人工智能（二）卷积神经网络</a></p>
 <hr>
 <h4 id="Observation-3：pooling-池化"><a href="#Observation-3：pooling-池化" class="headerlink" title="Observation 3：pooling 池化"></a><U><strong>Observation 3</strong></U>：pooling 池化</h4><p>subsampling:<br>    把偶数的column、奇数的row都拿掉；图片变为原图1/4；且图片没有什么过分差异 → 以减少运算量</p>
 <p><U>Pooling 之 Max pooling</U><br>（…延续）<code>Convolution</code> → <code>Pooling</code> → (repeat)… → <code>Flatten</code> → <code>softmax</code> → output</p>
