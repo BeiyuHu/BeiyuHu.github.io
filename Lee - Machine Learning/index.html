@@ -1044,9 +1044,9 @@
 </li>
 <li><p>Hessian <strong>H</strong>：simplified 1/2 ( θ - θ’ )<sup>T</sup> <strong>H</strong> ( θ - θ’ )<em> → v<sup>T</sup> <em>*H</em></em> v</p>
 <ol>
-<li>For all <code>v</code>:  v<sup>T</sup> <strong>H</strong> v &gt;0 → θ’ 附近 L(θ) &gt; L(θ’) → <u><strong>Local minima</strong></u></li>
-<li>For all <code>v</code>:  v<sup>T</sup> <strong>H</strong> v <0 → θ' 附近 L(θ) < L(θ') → <u><strong>Local maxima</strong>&lt;/u&gt;</li>
-<li>Sometimes v<sup>T</sup> <strong>H</strong> v &gt;0, sometimes v<sup>T</sup> <strong>H</strong> v <0 →  <u> <strong>Saddle point</strong> &lt;/u&gt;</li>
+<li>For all <code>v</code>:  v<sup>T</sup> <strong>H</strong> v &gt;0 → θ’ 附近 L(θ) &gt; L(θ’) → <strong>Local minima</strong></li>
+<li>For all <code>v</code>:  v<sup>T</sup> <strong>H</strong> v &lt;0 → θ’ 附近 L(θ) &lt; L(θ’) → <strong>Local maxima</strong></li>
+<li>Sometimes v<sup>T</sup> <strong>H</strong> v &gt;0, sometimes v<sup>T</sup> <strong>H</strong> v &lt;0 →  <strong>Saddle point</strong> </li>
 </ol>
 <ul>
 <li>v<sup>T</sup> <strong>H</strong> v &gt;0 相当于 <code>H</code> is positive definite = All eigen values are <strong>positive</strong>，即直接看H的eigenvalue为正就可以判断local minima；同理eigenvalue全负时，为local maxima；有正有负时，为saddle point。</li>
