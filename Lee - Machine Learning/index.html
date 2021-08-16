@@ -367,26 +367,46 @@
 <ol>
 <li>Training data: 10 pokemons (<a target="_blank" rel="noopener" href="https://www.openintro.org/stat/data/?data=pokemon">source</a>)<br><img src="trainingData.png" width="80%"></li>
 </ol>
-<center>
-
-| input x<sub>cp</sub> | output y<sub>cp</sub> |
-| :--------------------: | :---------------------: |
-| x<sup>1</sup>        | y<sup>^1</sup>        |
-| x<sup>2</sup>        | y<sup>^2</sup>        |
-| x<sup>3</sup>        | y<sup>^3</sup>        |
-| ...                  | ...                   |
-| x<sup>10</sup>       | y<sup>^10</sup>       |
-
-</center>
-
-
-
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">input x<sub>cp</sub></th>
+<th style="text-align:center">output y<sub>cp</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">x<sup>1</sup></td>
+<td style="text-align:center">y<sup>^1</sup></td>
+</tr>
+<tr>
+<td style="text-align:center">x<sup>2</sup></td>
+<td style="text-align:center">y<sup>^2</sup></td>
+</tr>
+<tr>
+<td style="text-align:center">x<sup>3</sup></td>
+<td style="text-align:center">y<sup>^3</sup></td>
+</tr>
+<tr>
+<td style="text-align:center">…</td>
+<td style="text-align:center">…</td>
+</tr>
+<tr>
+<td style="text-align:center">x<sup>10</sup></td>
+<td style="text-align:center">y<sup>^10</sup></td>
+</tr>
+</tbody>
+</table>
+</div>
 <ol>
 <li>Loss function <strong><em>L</em></strong>:</li>
 </ol>
 <ul>
 <li>这里input是一个function，output是其<strong>估测误差</strong><br>L(f) <code>input为函数</code><br>= L (w, b) <code>即input为w和b</code><br>= Σ<sup>10</sup><sub>n=1</sub> (y<sup>^n</sup> -  f(x<sup>n</sup><sub>cp</sub>) )<sup>2</sup>   <code>转化为y^真实值与线性关系预测值偏差的平方，平方为消除符号影响</code><br>= Σ<sup>10</sup><sub>n=1</sub> (y<sup>^n</sup> - ( b+w*x<sup>n</sup><sub>cp</sub> ))<sup>2</sup> <code>展开</code></li>
 </ul>
+<p> </p>
+
 <p><img src="lossFunction.png" width="80%"></p>
 <ul>
 <li>图中每个点代表了一组(b,w) 即为一个function</li>
@@ -429,7 +449,7 @@
 </tbody>
 </table>
 </div>
-<p>pros：无需穷举所有w对Loss function L(w)做微分</p>
+<p>pros：<br>无需穷举所有w对Loss function L(w)做微分</p>
 <hr>
 <p><em>插播解释 local optimal 和 global optimal：</em></p>
 <p><strong>梯度下降（gradient descent）图形上的表达</strong> </p>
@@ -544,9 +564,25 @@
 <ul>
 <li><p>Back to step <strong>1</strong>: 除了CP，还可考虑 hp、weight等参数。<br>结果是训练误差1.9而测试误差为102.3，即overfitting。</p>
 </li>
-<li><p>Back to step <strong>2</strong>: Regularization 正则化<br>| 原方程                                                                                  |新增项 |<br>| ————————————————————————————————————————- | —- |<br>| L= Σ<sub>n</sub> (y<sup>^n</sup> - ( b+Σw<sub>i</sub>x<sub>i</sub>))<sup>2</sup> |+λ·Σ(w<sub>i</sub>)<sup>2</sup>     |</p>
+<li><p>Back to step <strong>2</strong>: Regularization 正则化</p>
 </li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>原方程</th>
+<th>新增项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L= Σ<sub>n</sub> (y<sup>^n</sup> - ( b+Σw<sub>i</sub>x<sub>i</sub>))<sup>2</sup></td>
+<td>+λ·Σ(w<sub>i</sub>)<sup>2</sup></td>
+</tr>
+</tbody>
+</table>
+</div>
 <ul>
 <li>其中<code>λ</code>是常数，需要<strong>手调</strong>；而 新增项 越小越好。<br>只有 <code>w</code> 而没有 <code>b</code>，因为 <code>w</code> 影响了平滑程度，而 <code>b</code> 和平滑程度无关。</li>
 </ul>
@@ -625,8 +661,27 @@
 </ul>
 </blockquote>
 <ol>
-<li><p>Estimator of 均值 μ ： unbiased estimator<br> m = 1/N <em> Σ x<sup>n</sup> <em>*≠ μ</em></em><br> Var[m] = σ<sup>2</sup>/N，方差取决于sample数量N，N大时 m的方差小<br> 虽然 m ≠ μ，但 E[m] 会正好等于μ<br>|均值 m|N 数少|N 数大|<br>|:-:|:-:|:-:|<br>|<img src="bias1.png" width="30%">|<img src="SmallerN.png" width="30%">|<img src="LargerN.png" width="30%">|</p>
-</li>
+<li>Estimator of 均值 μ ： unbiased estimator<br> m = 1/N <em> Σ x<sup>n</sup> <em>*≠ μ</em></em><br> Var[m] = σ<sup>2</sup>/N，方差取决于sample数量N，N大时 m的方差小<br> 虽然 m ≠ μ，但 E[m] 会正好等于μ</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">均值 m</th>
+<th style="text-align:center">N 数少</th>
+<th style="text-align:center">N 数大</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="bias1.png" width="30%"></td>
+<td style="text-align:center"><img src="SmallerN.png" width="30%"></td>
+<td style="text-align:center"><img src="LargerN.png" width="30%"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
 <li><p>Estimator of 方差  σ<sup>2</sup><br> m = 1/N <em> Σ x<sup>n</sup>，再计算 s<sup>2</sup>=1/N</em>Σ(x<sup>n</sup>-m)<sup>2</sup> <strong>≠ σ<sup>2</sup></strong></p>
 <p> <strong>Biased estimator:</strong><br> E[s<sup>2</sup>] = (N-1) / N * σ<sup>2</sup>，既考虑了m又考虑了σ</p>
 </li>
@@ -651,7 +706,7 @@
 </tr>
 <tr>
 <td>Diagram</td>
-<td style="text-align:center"><img src="bias+variance.png" width="80%"></td>
+<td style="text-align:center"><img src="bias+variance.png" width="50%"></td>
 </tr>
 </tbody>
 </table>
@@ -734,7 +789,9 @@
 <p> 那么，在回顾之前一课中error在第三次幂中会突然转变error，需要对error进行分类：</p>
 <ol>
 <li><strong>红</strong>线是bias变化，<strong>绿</strong>线是var变化</li>
-<li><strong>从左到右</strong>分别是 <code>Underfitting: 大bias+小vars</code> 到<code>Overfitting: 小bias+大vars</code><br><img src="errorClassification.png" width="80%"></li>
+<li><p><strong>从左到右</strong>分别是 <code>Underfitting: 大bias+小vars</code> 到<code>Overfitting: 小bias+大vars</code></p>
+<p><img src="errorClassification.png" width="80%"></p>
+</li>
 </ol>
 <p>所以在做完machine learning的时候，都要问自己：<strong>到底是bias大还是var大？</strong></p>
 <ul>
@@ -799,8 +856,28 @@
 </ul>
 <h4 id="Adagrad是其中最basic的小技巧的adaptive-方式"><a href="#Adagrad是其中最basic的小技巧的adaptive-方式" class="headerlink" title="Adagrad是其中最basic的小技巧的adaptive 方式"></a>Adagrad是其中最basic的小技巧的adaptive 方式</h4><ul>
 <li>Concept：<em>每个参数的LR除以<strong>之前微分值的root mean square</strong></em></li>
-<li>具体做法：<br>|| |<br>|-|-|<br>|<em>prerequisite</em>|偏微分 g<sup>t</sup> =𝜕 L(θ<sup>t</sup>)/𝜕w<br>前所有偏微分参数的均方根 <strong>σ<sup>t</sup></strong>= [1/(t+1))Σ(g<sup>i</sup>)]<sup>2</sup>)<sup>1/2</sup><br>（对每个参数都是独立不一致的） |<br>|Vanilla Gradient Descent<br><strong>Adagrad</strong>| <em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup>g<sup>t</sup></em><br><em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup> <strong>/σ<sup>t</sup></strong> g<sup>t</sup></em>|</li>
+<li>具体做法：</li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>prerequisite</em></td>
+<td>偏微分 g<sup>t</sup> =𝜕 L(θ<sup>t</sup>)/𝜕w<br>前所有偏微分参数的均方根 <strong>σ<sup>t</sup></strong>= [1/(t+1))Σ(g<sup>i</sup>)]<sup>2</sup>)<sup>1/2</sup><br>（对每个参数都是独立不一致的）</td>
+</tr>
+<tr>
+<td>Vanilla Gradient Descent<br><strong>Adagrad</strong></td>
+<td><em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup>g<sup>t</sup></em><br><em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup> <strong>/σ<sup>t</sup></strong> g<sup>t</sup></em></td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>而1/t decay: <em>η<sup>t</sup> = η/(t+1)<sup>1/2</sup></em>， 所以式中 <em>1/(t+1)<sup>1/2</sup></em> 相消： 简化成 </p>
 <ul>
 <li><em>w<sup>t+1</sup> = w<sup>t</sup> - η<sup>t</sup> <strong>/σ<sup>t</sup></strong> g<sup>t</sup> <br> = w<sup>t</sup> -  η <strong>/(Σ(g<sup>i</sup>)<sup>2</sup>) <sup>1/2</sup></strong> g<sup>t</sup></em> </li>
@@ -969,7 +1046,7 @@
 <ol>
 <li>For all <code>v</code>:  v<sup>T</sup> <strong>H</strong> v &gt;0 → θ’ 附近 L(θ) &gt; L(θ’) → <u><strong>Local minima</strong></u></li>
 <li>For all <code>v</code>:  v<sup>T</sup> <strong>H</strong> v <0 → θ' 附近 L(θ) < L(θ') → <u><strong>Local maxima</strong>&lt;/u&gt;</li>
-<li>Sometimes v<sup>T</sup> <strong>H</strong> v &gt;0, sometimes v<sup>T</sup> <strong>H</strong> v <0 →  <u><strong>Saddle point</strong>&lt;/u&gt;</li>
+<li>Sometimes v<sup>T</sup> <strong>H</strong> v &gt;0, sometimes v<sup>T</sup> <strong>H</strong> v <0 →  <u> <strong>Saddle point</strong> &lt;/u&gt;</li>
 </ol>
 <ul>
 <li>v<sup>T</sup> <strong>H</strong> v &gt;0 相当于 <code>H</code> is positive definite = All eigen values are <strong>positive</strong>，即直接看H的eigenvalue为正就可以判断local minima；同理eigenvalue全负时，为local maxima；有正有负时，为saddle point。</li>

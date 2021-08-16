@@ -2213,7 +2213,7 @@ input[type="radio"] + label:before {
   overflow-x: auto; }
 
 table {
-  margin: 0 auto;
+  margin: 1em auto;
   width: 90%; }
   table tbody tr {
     border: dotted 1px #c9c9c9;
