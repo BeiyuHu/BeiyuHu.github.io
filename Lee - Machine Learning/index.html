@@ -65,7 +65,11 @@
     
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
 
@@ -190,8 +194,24 @@
 <h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h2><h4 id="1-Regression-（回归）"><a href="#1-Regression-（回归）" class="headerlink" title="1. Regression （回归）"></a>1. Regression （回归）</h4><ul>
 <li>The output of the target function f is ‘scalar’.</li>
 <li>讨论自变量x和因变量y的线性关系，构建方程，推论和预测y</li>
-<li><em>example:</em><br>|Input|Output|<br>|:—:|:—:|<br>|Historical PM2.5 →|Predicted PM2.5|</li>
+<li><em>example:</em></li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Input</th>
+<th style="text-align:center">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Historical PM2.5 →</td>
+<td style="text-align:center">Predicted PM2.5</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h4 id="2-Classification"><a href="#2-Classification" class="headerlink" title="2. Classification"></a>2. Classification</h4><ul>
 <li>Binary Classification 二元分法: YES/NO</li>
 <li><p>Multi-class Classification 多元分法: ex: 新闻分类</p>
@@ -304,8 +324,32 @@
 
 <p>其中 x = or( x_cp, x_s, x_hp, x_w, x_h ) 而预测 y_cp（下文仅设参 x<sub>cp</sub>）</p>
 <ul>
-<li>Recap 做ML的三个步骤：<br>|||<br>|—|—|<br>|Step 1. | 找一个model|<br>|Step 2. | 定义function set 里 evaluate它的好坏|<br>|Step 3. |找出最好的function|</li>
+<li>Recap 做ML的三个步骤：</li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Step 1.</td>
+<td>找一个model</td>
+</tr>
+<tr>
+<td>Step 2.</td>
+<td>定义function set 里 evaluate它的好坏</td>
+</tr>
+<tr>
+<td>Step 3.</td>
+<td>找出最好的function</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 <h5 id="Step-1-Model"><a href="#Step-1-Model" class="headerlink" title="Step 1: Model"></a><strong>Step 1</strong>: Model</h5><p>找function set 就是所谓的model <em>#存疑</em></p>
 <p><code>Model</code> → <code>a set of function: f1, f2, ...</code></p>
@@ -314,7 +358,8 @@
 </ul>
 <p>由于其线性关系，也称为：</p>
 <p><code>Linear model</code> → <code>y = b + Σw_i*x_i</code></p>
-<script type="math/tex; mode=display">y = b + \sum w_i*x_i</script><ul>
+<p>$y = b + \sum w_i*x_i$</p>
+<ul>
 <li><code>b</code>: bias 偏差</li>
 <li><code>w_i</code>: weight 权重</li>
 <li><code>x_i</code>: input x</li>
